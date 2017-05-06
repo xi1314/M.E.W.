@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MEW' target in the 'MEW' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

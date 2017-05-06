@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F2FDBAA1EBD118300773FD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */; };
+		0FA9BD1C1EBE1A5D0087D7B3 /* MobileGestalt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FA9BD1B1EBE1A5D0087D7B3 /* MobileGestalt.h */; };
+		0FA9BD201EBE1AA60087D7B3 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */; };
+		0FFB56FB1EBC98E800A45144 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FA1EBC98E800A45144 /* Foundation.framework */; };
+		0FFB56FD1EBC98E800A45144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FC1EBC98E800A45144 /* UIKit.framework */; };
+		0FFB57151EBC993600A45144 /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FFB57141EBC993600A45144 /* substrate.h */; };
+		0FFB57171EBC99CF00A45144 /* MEWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB57161EBC99CF00A45144 /* MEWMain.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F2FDB9E1EBCD4D000773FD3 /* LSApplicationProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSApplicationProxy.h; sourceTree = "<group>"; };
+		0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0FA9BD1B1EBE1A5D0087D7B3 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstrate.dylib; sourceTree = "<group>"; };
+		0FE060461EBCB23A0045D076 /* MEWConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWConfiguration.plist; sourceTree = "<group>"; };
+		0FFB56F71EBC98E800A45144 /* MEW.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MEW.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FFB56FA1EBC98E800A45144 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0FFB56FC1EBC98E800A45144 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0FFB57051EBC98E800A45144 /* MEW-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MEW-Prefix.pch"; sourceTree = "<group>"; };
+		0FFB57141EBC993600A45144 /* substrate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		0FFB57161EBC99CF00A45144 /* MEWMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWMain.m; sourceTree = "<group>"; };
+		5251266A57D9FB5A983ED335 /* MEW.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = MEW.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0FFB56F31EBC98E800A45144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F2FDBAA1EBD118300773FD3 /* SystemConfiguration.framework in Frameworks */,
+				0FA9BD201EBE1AA60087D7B3 /* libsubstrate.dylib in Frameworks */,
+				0FFB56FB1EBC98E800A45144 /* Foundation.framework in Frameworks */,
+				0FFB56FD1EBC98E800A45144 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0FFB56ED1EBC98E800A45144 = {
+			isa = PBXGroup;
+			children = (
+				0FA9BD1B1EBE1A5D0087D7B3 /* MobileGestalt.h */,
+				0FFB57141EBC993600A45144 /* substrate.h */,
+				0FFB56FE1EBC98E800A45144 /* MEW */,
+				0FFB56F91EBC98E800A45144 /* Frameworks */,
+				0FFB56F81EBC98E800A45144 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0FFB56F81EBC98E800A45144 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0FFB56F71EBC98E800A45144 /* MEW.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0FFB56F91EBC98E800A45144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */,
+				0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */,
+				0FFB56FA1EBC98E800A45144 /* Foundation.framework */,
+				0FFB56FC1EBC98E800A45144 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0FFB56FE1EBC98E800A45144 /* MEW */ = {
+			isa = PBXGroup;
+			children = (
+				0F2FDB9E1EBCD4D000773FD3 /* LSApplicationProxy.h */,
+				0FFB57161EBC99CF00A45144 /* MEWMain.m */,
+				0FFB57031EBC98E800A45144 /* Supporting Files */,
+			);
+			path = MEW;
+			sourceTree = "<group>";
+		};
+		0FFB57031EBC98E800A45144 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0FFB57051EBC98E800A45144 /* MEW-Prefix.pch */,
+				5251266A57D9FB5A983ED335 /* MEW.plist */,
+				0FE060461EBCB23A0045D076 /* MEWConfiguration.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0FFB56F41EBC98E800A45144 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FFB57151EBC993600A45144 /* substrate.h in Headers */,
+				0FA9BD1C1EBE1A5D0087D7B3 /* MobileGestalt.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0FFB56F61EBC98E800A45144 /* MEW */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FFB570F1EBC98E800A45144 /* Build configuration list for PBXNativeTarget "MEW" */;
+			buildPhases = (
+				0FFB56F21EBC98E800A45144 /* Sources */,
+				0FFB56F31EBC98E800A45144 /* Frameworks */,
+				0FFB56F41EBC98E800A45144 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MEW;
+			productName = MEW;
+			productReference = 0FFB56F71EBC98E800A45144 /* MEW.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0FFB56EE1EBC98E800A45144 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				TargetAttributes = {
+					0FFB56F61EBC98E800A45144 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = GXZ23M5TP2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0FFB56F11EBC98E800A45144 /* Build configuration list for PBXProject "MEW" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0FFB56ED1EBC98E800A45144;
+			productRefGroup = 0FFB56F81EBC98E800A45144 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0FFB56F61EBC98E800A45144 /* MEW */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0FFB56F21EBC98E800A45144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FFB57171EBC99CF00A45144 /* MEWMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0FFB570D1EBC98E800A45144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		0FFB570E1EBC98E800A45144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		0FFB57101EBC98E800A45144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = GXZ23M5TP2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MEW/MEW-Prefix.pch";
+				INSTALL_PATH = /usr/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/theos/lib,
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = NO;
+			};
+			name = Debug;
+		};
+		0FFB57111EBC98E800A45144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEVELOPMENT_TEAM = GXZ23M5TP2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MEW/MEW-Prefix.pch";
+				INSTALL_PATH = /usr/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/theos/lib,
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FFB56F11EBC98E800A45144 /* Build configuration list for PBXProject "MEW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FFB570D1EBC98E800A45144 /* Debug */,
+				0FFB570E1EBC98E800A45144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FFB570F1EBC98E800A45144 /* Build configuration list for PBXNativeTarget "MEW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FFB57101EBC98E800A45144 /* Debug */,
+				0FFB57111EBC98E800A45144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0FFB56EE1EBC98E800A45144 /* Project object */;
+}
