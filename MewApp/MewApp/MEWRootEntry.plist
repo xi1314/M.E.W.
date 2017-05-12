@@ -180,7 +180,7 @@
 			<key>cell</key>
 			<string>XUISwitchCell</string>
 			<key>label</key>
-			<string>目标应用启动时自动清空</string>
+			<string>启动时自动清空</string>
 			<key>key</key>
 			<string>SwitchAutoCleanPasteboard</string>
 			<key>default</key>

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MEWTest.xcscheme</key>
+		<key>MEWDo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FE060231EBCB04F0045D076</key>
+		<key>0FB54EE81EC64E2500927DB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

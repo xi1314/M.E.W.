@@ -55,7 +55,6 @@
 	<key>ApplicationIdentifierWhiteList</key>
 	<array>
 		<string>com.darwindev.MEWTest</string>
-		<string>com.saurik.Cydia</string>
 		<string>com.apple.Preferences</string>
 	</array>
 	<key>ReplaceMGCopyAnswer</key>
@@ -206,37 +205,37 @@
 		<string>CydiaSubstrate</string>
 	</array>
 	<key>DeviceName</key>
-	<string>FAKEDEVICENAME</string>
+	<string></string>
 	<key>DeviceCategory</key>
-	<string>iPhone</string>
+	<string></string>
 	<key>ProductType</key>
-	<string>iPhone6,2</string>
+	<string></string>
 	<key>ProductHWModel</key>
-	<string>N90AP</string>
+	<string></string>
 	<key>SerialNumber</key>
-	<string>FFFFFFFFFFFF</string>
+	<string></string>
 	<key>MLBSerialNumber</key>
-	<string>C7H41510PKRFM7LBG</string>
+	<string></string>
 	<key>BluetoothAddress</key>
-	<string>FF:FF:FF:FF:FF:FF</string>
+	<string></string>
 	<key>SystemName</key>
-	<string>iPhone OS</string>
+	<string></string>
 	<key>SystemVersion</key>
-	<string>10.2</string>
+	<string></string>
 	<key>SystemBuildVersion</key>
-	<string>FFFFFF</string>
+	<string></string>
 	<key>UniqueIdentifier</key>
-	<string>B774693F-FAB3-5BB7-97F0-CDA2296D3028</string>
+	<string></string>
 	<key>UniqueDeviceID</key>
-	<string>ffffffffffffffffffffffffffffffffffffffff</string>
+	<string></string>
 	<key>UniqueChipID</key>
-	<string>E5365</string>
+	<string></string>
 	<key>IdentifierForVendor</key>
 	<string></string>
 	<key>AdvertisingIdentifier</key>
 	<string></string>
 	<key>InternationalMobileEquipmentIdentity</key>
-	<string>000000000000000</string>
+	<string></string>
 	<key>DeviceBatteryState</key>
 	<integer>0</integer>
 	<key>ScreenBrightness</key>
@@ -246,44 +245,39 @@
 	<key>CoordinateRegionLongitudeKey</key>
 	<real>116.46</real>
 	<key>EthernetMacAddress</key>
-	<string>FF:FF:FF:FF:FF:FF</string>
+	<string></string>
 	<key>EthernetIPv4Address</key>
-	<string>127.0.0.1</string>
+	<string></string>
 	<key>EthernetIPv6Address</key>
 	<string></string>
 	<key>EthernetBSSID</key>
-	<string>44:ad:d9:5f:3a:2f</string>
+	<string></string>
 	<key>EthernetSSID</key>
-	<string>WifiCity</string>
-	<key>EthernetSSIDDATA</key>
-	<string>V2lmaUNpdHk=</string>
+	<string></string>
+	<key>CurrentMobileId</key>
+	<string></string>
+	<key>CurrentSubscriberId</key>
+	<string></string>
+	<key>ICCID</key>
+	<string></string>
+	<key>MEID</key>
+	<string></string>
+	<key>IMSI</key>
+	<string></string>
+	<key>OpenUDID</key>
+	<string></string>
+	<key>TimezoneName</key>
+	<string>Asia/Shanghai</string>
+	<key>TimezoneData</key>
+	<data></data>
 	<key>NetworkInterfaces</key>
-	<dict>
-		<key>en0</key>
-		<dict>
-			<key>ipv4</key>
-			<string>127.0.0.1</string>
-			<key>ipv6</key>
-			<string></string>
-			<key>mac</key>
-			<data>////////</data>
-		</dict>
-	</dict>
-	<key>NetworkHotspot</key>
-	<dict>
-		<key>BSSID</key>
-		<string>44:ad:d9:5f:3a:2f</string>
-		<key>SSID</key>
-		<string>WifiCity</string>
-		<key>SSIDDATA</key>
-		<string>V2lmaUNpdHk=</string>
-	</dict>
+	<dict/>
 	<key>NetworkType</key>
 	<integer>3</integer>
 	<key>CarrierName</key>
-	<string>中国联通</string>
+	<string>Orange</string>
 	<key>ServiceString</key>
-	<string>中国联通</string>
+	<string>Orange France</string>
 	<key>CarrierVersionString</key>
 	<string>14.0</string>
 	<key>NetworkCode</key>

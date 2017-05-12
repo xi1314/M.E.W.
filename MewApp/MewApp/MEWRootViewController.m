@@ -26,7 +26,6 @@ static NSString * const kMewOriginalIOPlatformUUID = @"OriginalIOPlatformUUID";
 @end
 
 @implementation MEWRootViewController {
-    NSString *_kMewDeviceUUID;
     NSString *_kMewDeviceSerial;
     NSString *_kMewDeviceNodename;
     NSString *_kMewDeviceMachine;
@@ -35,8 +34,7 @@ static NSString * const kMewOriginalIOPlatformUUID = @"OriginalIOPlatformUUID";
 
 - (void)loadDeviceInfo {
     
-    _kMewDeviceUUID = MEWCopyAnswer(kMewUniqueIdentifier);
-    _kMewDeviceSerial = MEWCopyAnswerFromDictionary((__bridge NSString *)kMGSerialNumber, kMewReplaceMGCopyAnswer);
+    _kMewDeviceSerial = MEWCopyAnswer(kMewSerialNumber);
     _kMewDeviceNodename = MEWCopyAnswer(kMewDeviceName);
     _kMewDeviceMachine = [NSString stringWithFormat:@"%@ (%@)", MEWCopyAnswer(kMewSystemVersion), MEWCopyAnswer(kMewSystemBuildVersion)];
     _kMewDeviceSystem = [NSString stringWithFormat:@"%@ (%@)", MEWCopyAnswer(kMewProductType), MEWCopyAnswer(kMewProductHWModel)];
@@ -59,8 +57,6 @@ static NSString * const kMewOriginalIOPlatformUUID = @"OriginalIOPlatformUUID";
         return _kMewDeviceMachine;
     } else if ([[spec propertyForKey:PSKeyNameKey] isEqualToString:kMewOriginalIOPlatformSerialNumber]) {
         return _kMewDeviceSerial;
-    } else if ([[spec propertyForKey:PSKeyNameKey] isEqualToString:kMewOriginalIOPlatformUUID]) {
-        return _kMewDeviceUUID;
     }
     
     return @"";

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0FE060231EBCB04F0045D076"
-               BuildableName = "MEWTest.app"
-               BlueprintName = "MEWTest"
-               ReferencedContainer = "container:MEWTest.xcodeproj">
+               BlueprintIdentifier = "0FB54EE81EC64E2500927DB3"
+               BuildableName = "MEWDo"
+               BlueprintName = "MEWDo"
+               ReferencedContainer = "container:MEWDo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0FE060231EBCB04F0045D076"
-            BuildableName = "MEWTest.app"
-            BlueprintName = "MEWTest"
-            ReferencedContainer = "container:MEWTest.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0FE060231EBCB04F0045D076"
-            BuildableName = "MEWTest.app"
-            BlueprintName = "MEWTest"
-            ReferencedContainer = "container:MEWTest.xcodeproj">
+            BlueprintIdentifier = "0FB54EE81EC64E2500927DB3"
+            BuildableName = "MEWDo"
+            BlueprintName = "MEWDo"
+            ReferencedContainer = "container:MEWDo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0FE060231EBCB04F0045D076"
-            BuildableName = "MEWTest.app"
-            BlueprintName = "MEWTest"
-            ReferencedContainer = "container:MEWTest.xcodeproj">
+            BlueprintIdentifier = "0FB54EE81EC64E2500927DB3"
+            BuildableName = "MEWDo"
+            BlueprintName = "MEWDo"
+            ReferencedContainer = "container:MEWDo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

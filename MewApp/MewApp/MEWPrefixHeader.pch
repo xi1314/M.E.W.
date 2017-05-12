@@ -20,6 +20,5 @@
 
 #define MAIN_COLOR ([UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0])
 #define MEWCopyAnswer(skey) ([[MEWSharedUtility sharedInstance] MEWCopyAnswer:skey])
-#define MEWCopyAnswerFromDictionary(skey, dkey) ([[MEWSharedUtility sharedInstance] MEWCopyAnswer:skey fromDictionary:dkey])
 
 #endif /* MEWPrefixHeader_pch */

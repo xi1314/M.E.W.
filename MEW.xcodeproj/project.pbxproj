@@ -9,60 +9,77 @@
 /* Begin PBXBuildFile section */
 		0F2FDBAA1EBD118300773FD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */; };
 		0F3AE5461EC1AB930076C80B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3AE5451EC1AB930076C80B /* CoreTelephony.framework */; };
-		0F3E516A1EC44E3F003E7FEA /* MEWConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F3E51691EC44E3F003E7FEA /* MEWConfiguration.h */; };
-		0F4DD44E1EC344A000C22FE3 /* CPBitmapStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F4DD44C1EC344A000C22FE3 /* CPBitmapStore.h */; };
-		0F4DD44F1EC344A000C22FE3 /* CPDistributedMessagingCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F4DD44D1EC344A000C22FE3 /* CPDistributedMessagingCenter.h */; };
-		0F4DD4511EC3453E00C22FE3 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4DD4501EC3453E00C22FE3 /* AppSupport.framework */; };
-		0F90D7A01EC318D30027424D /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F90D79F1EC318D30027424D /* librocketbootstrap.dylib */; };
-		0F90D7A61EC3194B0027424D /* bootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A11EC3194B0027424D /* bootstrap.h */; };
-		0F90D7A71EC3194B0027424D /* rocketbootstrap_dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A21EC3194B0027424D /* rocketbootstrap_dynamic.h */; };
-		0F90D7A81EC3194B0027424D /* rocketbootstrap_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A31EC3194B0027424D /* rocketbootstrap_internal.h */; };
-		0F90D7A91EC3194B0027424D /* rocketbootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A41EC3194B0027424D /* rocketbootstrap.h */; };
-		0F90D7AA1EC3194B0027424D /* sandbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A51EC3194B0027424D /* sandbox.h */; };
+		0F44D81F1EC6545C006BFD43 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81A1EC6545C006BFD43 /* librocketbootstrap.dylib */; };
+		0F44D8201EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */; };
+		0F44D8211EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */; };
+		0F44D83E1EC65512006BFD43 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D8191EC6545C006BFD43 /* AppSupport.framework */; };
 		0F90D7B11EC319D40027424D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FA1EBC98E800A45144 /* Foundation.framework */; };
 		0F90D7B21EC319D40027424D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FC1EBC98E800A45144 /* UIKit.framework */; };
 		0F90D7BE1EC319D40027424D /* MEWPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F90D7BD1EC319D40027424D /* MEWPasteboard.m */; };
-		0F90D7C51EC31A1A0027424D /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */; };
-		0F90D7C61EC31A1E0027424D /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F90D79F1EC318D30027424D /* librocketbootstrap.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
-		0F90D7CE1EC31C1F0027424D /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FFB57141EBC993600A45144 /* substrate.h */; };
-		0F90D7CF1EC31C1F0027424D /* bootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A11EC3194B0027424D /* bootstrap.h */; };
-		0F90D7D01EC31C1F0027424D /* rocketbootstrap_dynamic.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A21EC3194B0027424D /* rocketbootstrap_dynamic.h */; };
-		0F90D7D11EC31C1F0027424D /* rocketbootstrap_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A31EC3194B0027424D /* rocketbootstrap_internal.h */; };
-		0F90D7D21EC31C1F0027424D /* rocketbootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A41EC3194B0027424D /* rocketbootstrap.h */; };
-		0F90D7D31EC31C1F0027424D /* sandbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F90D7A51EC3194B0027424D /* sandbox.h */; };
-		0FA9BD1C1EBE1A5D0087D7B3 /* MobileGestalt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FA9BD1B1EBE1A5D0087D7B3 /* MobileGestalt.h */; };
-		0FA9BD201EBE1AA60087D7B3 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */; };
 		0FFB56FB1EBC98E800A45144 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FA1EBC98E800A45144 /* Foundation.framework */; };
 		0FFB56FD1EBC98E800A45144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FC1EBC98E800A45144 /* UIKit.framework */; };
-		0FFB57151EBC993600A45144 /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FFB57141EBC993600A45144 /* substrate.h */; };
 		0FFB57171EBC99CF00A45144 /* MEWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB57161EBC99CF00A45144 /* MEWMain.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F44D8261EC6548B006BFD43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0F5EE75B1EBE753400FBA3B5;
+			remoteInfo = MewApp;
+		};
+		0F44D8281EC65496006BFD43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFB56EE1EBC98E800A45144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F90D7AF1EC319D40027424D;
+			remoteInfo = MEWPasteboard;
+		};
+		0F44D82A1EC6549A006BFD43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F5EE75A1EBE753400FBA3B5;
+			remoteInfo = MewApp;
+		};
+		0F44D8301EC654A8006BFD43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FB54EE81EC64E2500927DB3;
+			remoteInfo = MEWDo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0F2FDB9E1EBCD4D000773FD3 /* LSApplicationProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSApplicationProxy.h; sourceTree = "<group>"; };
 		0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0F3AE5451EC1AB930076C80B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		0F3E51691EC44E3F003E7FEA /* MEWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWConfiguration.h; sourceTree = "<group>"; };
-		0F4DD44C1EC344A000C22FE3 /* CPBitmapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPBitmapStore.h; sourceTree = "<group>"; };
-		0F4DD44D1EC344A000C22FE3 /* CPDistributedMessagingCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCenter.h; sourceTree = "<group>"; };
-		0F4DD4501EC3453E00C22FE3 /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppSupport.framework; sourceTree = "<group>"; };
-		0F90D79F1EC318D30027424D /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = librocketbootstrap.dylib; sourceTree = "<group>"; };
-		0F90D7A11EC3194B0027424D /* bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bootstrap.h; sourceTree = "<group>"; };
-		0F90D7A21EC3194B0027424D /* rocketbootstrap_dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_dynamic.h; sourceTree = "<group>"; };
-		0F90D7A31EC3194B0027424D /* rocketbootstrap_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_internal.h; sourceTree = "<group>"; };
-		0F90D7A41EC3194B0027424D /* rocketbootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap.h; sourceTree = "<group>"; };
-		0F90D7A51EC3194B0027424D /* sandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sandbox.h; sourceTree = "<group>"; };
+		0F44D80E1EC65439006BFD43 /* bootstrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bootstrap.h; sourceTree = "<group>"; };
+		0F44D80F1EC65439006BFD43 /* CaptainHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
+		0F44D8101EC65439006BFD43 /* CPBitmapStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPBitmapStore.h; sourceTree = "<group>"; };
+		0F44D8111EC65439006BFD43 /* CPDistributedMessagingCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCenter.h; sourceTree = "<group>"; };
+		0F44D8121EC65439006BFD43 /* MEWConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEWConfiguration.h; sourceTree = "<group>"; };
+		0F44D8131EC65439006BFD43 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		0F44D8141EC65439006BFD43 /* rocketbootstrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap.h; sourceTree = "<group>"; };
+		0F44D8151EC65439006BFD43 /* rocketbootstrap_dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_dynamic.h; sourceTree = "<group>"; };
+		0F44D8161EC65439006BFD43 /* rocketbootstrap_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_internal.h; sourceTree = "<group>"; };
+		0F44D8171EC65439006BFD43 /* sandbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sandbox.h; sourceTree = "<group>"; };
+		0F44D8181EC65439006BFD43 /* substrate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		0F44D8191EC6545C006BFD43 /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppSupport.framework; path = Library/AppSupport.framework; sourceTree = "<group>"; };
+		0F44D81A1EC6545C006BFD43 /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = Library/librocketbootstrap.dylib; sourceTree = "<group>"; };
+		0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = Library/libsubstrate.dylib; sourceTree = "<group>"; };
+		0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MewApp.xcodeproj; path = MewApp/MewApp.xcodeproj; sourceTree = "<group>"; };
+		0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEWDo.xcodeproj; path = MEWDo/MEWDo.xcodeproj; sourceTree = "<group>"; };
 		0F90D7B01EC319D40027424D /* MEWPasteboard.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MEWPasteboard.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F90D7BA1EC319D40027424D /* MEWPasteboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MEWPasteboard-Prefix.pch"; sourceTree = "<group>"; };
 		0F90D7BD1EC319D40027424D /* MEWPasteboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboard.m; sourceTree = "<group>"; };
 		0F90D7CD1EC31BED0027424D /* MEWPasteboard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWPasteboard.plist; sourceTree = "<group>"; };
-		0FA9BD1B1EBE1A5D0087D7B3 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
-		0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstrate.dylib; sourceTree = "<group>"; };
 		0FFB56F71EBC98E800A45144 /* MEW.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MEW.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFB56FA1EBC98E800A45144 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FFB56FC1EBC98E800A45144 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0FFB57051EBC98E800A45144 /* MEW-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MEW-Prefix.pch"; sourceTree = "<group>"; };
-		0FFB57141EBC993600A45144 /* substrate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
 		0FFB57161EBC99CF00A45144 /* MEWMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWMain.m; sourceTree = "<group>"; };
 		5251266A57D9FB5A983ED335 /* MEW.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = MEW.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,11 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F4DD4511EC3453E00C22FE3 /* AppSupport.framework in Frameworks */,
+				0F44D83E1EC65512006BFD43 /* AppSupport.framework in Frameworks */,
 				0F90D7B11EC319D40027424D /* Foundation.framework in Frameworks */,
 				0F90D7B21EC319D40027424D /* UIKit.framework in Frameworks */,
-				0F90D7C61EC31A1E0027424D /* librocketbootstrap.dylib in Frameworks */,
-				0F90D7C51EC31A1A0027424D /* libsubstrate.dylib in Frameworks */,
+				0F44D8211EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */,
+				0F44D81F1EC6545C006BFD43 /* librocketbootstrap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,16 +103,48 @@
 			files = (
 				0F3AE5461EC1AB930076C80B /* CoreTelephony.framework in Frameworks */,
 				0F2FDBAA1EBD118300773FD3 /* SystemConfiguration.framework in Frameworks */,
-				0FA9BD201EBE1AA60087D7B3 /* libsubstrate.dylib in Frameworks */,
-				0F90D7A01EC318D30027424D /* librocketbootstrap.dylib in Frameworks */,
 				0FFB56FB1EBC98E800A45144 /* Foundation.framework in Frameworks */,
 				0FFB56FD1EBC98E800A45144 /* UIKit.framework in Frameworks */,
+				0F44D8201EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F44D80D1EC65439006BFD43 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				0F44D80E1EC65439006BFD43 /* bootstrap.h */,
+				0F44D80F1EC65439006BFD43 /* CaptainHook.h */,
+				0F44D8101EC65439006BFD43 /* CPBitmapStore.h */,
+				0F44D8111EC65439006BFD43 /* CPDistributedMessagingCenter.h */,
+				0F44D8121EC65439006BFD43 /* MEWConfiguration.h */,
+				0F44D8131EC65439006BFD43 /* MobileGestalt.h */,
+				0F44D8141EC65439006BFD43 /* rocketbootstrap.h */,
+				0F44D8151EC65439006BFD43 /* rocketbootstrap_dynamic.h */,
+				0F44D8161EC65439006BFD43 /* rocketbootstrap_internal.h */,
+				0F44D8171EC65439006BFD43 /* sandbox.h */,
+				0F44D8181EC65439006BFD43 /* substrate.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		0F44D8231EC6548B006BFD43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F44D8271EC6548B006BFD43 /* MewApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0F44D82D1EC654A3006BFD43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0F90D7B31EC319D40027424D /* MEWPasteboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,16 +166,9 @@
 		0FFB56ED1EBC98E800A45144 = {
 			isa = PBXGroup;
 			children = (
-				0FA9BD1B1EBE1A5D0087D7B3 /* MobileGestalt.h */,
-				0F3E51691EC44E3F003E7FEA /* MEWConfiguration.h */,
-				0FFB57141EBC993600A45144 /* substrate.h */,
-				0F90D7A11EC3194B0027424D /* bootstrap.h */,
-				0F90D7A21EC3194B0027424D /* rocketbootstrap_dynamic.h */,
-				0F90D7A31EC3194B0027424D /* rocketbootstrap_internal.h */,
-				0F90D7A41EC3194B0027424D /* rocketbootstrap.h */,
-				0F90D7A51EC3194B0027424D /* sandbox.h */,
-				0F4DD44C1EC344A000C22FE3 /* CPBitmapStore.h */,
-				0F4DD44D1EC344A000C22FE3 /* CPDistributedMessagingCenter.h */,
+				0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */,
+				0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */,
+				0F44D80D1EC65439006BFD43 /* Header */,
 				0FFB56FE1EBC98E800A45144 /* MEW */,
 				0F90D7B31EC319D40027424D /* MEWPasteboard */,
 				0FFB56F91EBC98E800A45144 /* Frameworks */,
@@ -146,10 +188,10 @@
 		0FFB56F91EBC98E800A45144 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0F4DD4501EC3453E00C22FE3 /* AppSupport.framework */,
+				0F44D8191EC6545C006BFD43 /* AppSupport.framework */,
+				0F44D81A1EC6545C006BFD43 /* librocketbootstrap.dylib */,
+				0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */,
 				0F3AE5451EC1AB930076C80B /* CoreTelephony.framework */,
-				0FA9BD1F1EBE1AA60087D7B3 /* libsubstrate.dylib */,
-				0F90D79F1EC318D30027424D /* librocketbootstrap.dylib */,
 				0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */,
 				0FFB56FA1EBC98E800A45144 /* Foundation.framework */,
 				0FFB56FC1EBC98E800A45144 /* UIKit.framework */,
@@ -183,14 +225,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F90D7CE1EC31C1F0027424D /* substrate.h in Headers */,
-				0F4DD44F1EC344A000C22FE3 /* CPDistributedMessagingCenter.h in Headers */,
-				0F90D7CF1EC31C1F0027424D /* bootstrap.h in Headers */,
-				0F90D7D01EC31C1F0027424D /* rocketbootstrap_dynamic.h in Headers */,
-				0F4DD44E1EC344A000C22FE3 /* CPBitmapStore.h in Headers */,
-				0F90D7D11EC31C1F0027424D /* rocketbootstrap_internal.h in Headers */,
-				0F90D7D21EC31C1F0027424D /* rocketbootstrap.h in Headers */,
-				0F90D7D31EC31C1F0027424D /* sandbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,14 +232,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F90D7A61EC3194B0027424D /* bootstrap.h in Headers */,
-				0F3E516A1EC44E3F003E7FEA /* MEWConfiguration.h in Headers */,
-				0F90D7A81EC3194B0027424D /* rocketbootstrap_internal.h in Headers */,
-				0F90D7A71EC3194B0027424D /* rocketbootstrap_dynamic.h in Headers */,
-				0F90D7A91EC3194B0027424D /* rocketbootstrap.h in Headers */,
-				0FFB57151EBC993600A45144 /* substrate.h in Headers */,
-				0F90D7AA1EC3194B0027424D /* sandbox.h in Headers */,
-				0FA9BD1C1EBE1A5D0087D7B3 /* MobileGestalt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +268,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				0F44D8311EC654A8006BFD43 /* PBXTargetDependency */,
+				0F44D82B1EC6549A006BFD43 /* PBXTargetDependency */,
+				0F44D8291EC65496006BFD43 /* PBXTargetDependency */,
 			);
 			name = MEW;
 			productName = MEW;
@@ -278,6 +307,16 @@
 			mainGroup = 0FFB56ED1EBC98E800A45144;
 			productRefGroup = 0FFB56F81EBC98E800A45144 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0F44D8231EC6548B006BFD43 /* Products */;
+					ProjectRef = 0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */;
+				},
+				{
+					ProductGroup = 0F44D82D1EC654A3006BFD43 /* Products */;
+					ProjectRef = 0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0FFB56F61EBC98E800A45144 /* MEW */,
@@ -285,6 +324,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0F44D8271EC6548B006BFD43 /* MewApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = MewApp.app;
+			remoteRef = 0F44D8261EC6548B006BFD43 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		0F90D79C1EC3022B0027424D /* ShellScript */ = {
@@ -334,6 +383,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0F44D8291EC65496006BFD43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F90D7AF1EC319D40027424D /* MEWPasteboard */;
+			targetProxy = 0F44D8281EC65496006BFD43 /* PBXContainerItemProxy */;
+		};
+		0F44D82B1EC6549A006BFD43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MewApp;
+			targetProxy = 0F44D82A1EC6549A006BFD43 /* PBXContainerItemProxy */;
+		};
+		0F44D8311EC654A8006BFD43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MEWDo;
+			targetProxy = 0F44D8301EC654A8006BFD43 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		0F90D7C31EC319D40027424D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -346,6 +413,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MEWPasteboard/MEWPasteboard-Prefix.pch";
@@ -354,6 +422,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -378,6 +447,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MEWPasteboard/MEWPasteboard-Prefix.pch";
@@ -386,6 +456,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -460,6 +531,10 @@
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MEW/MEW-Prefix.pch";
 				INSTALL_PATH = /usr/lib;
@@ -468,6 +543,7 @@
 					"$(inherited)",
 					/opt/theos/lib,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -489,6 +565,10 @@
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MEW/MEW-Prefix.pch";
 				INSTALL_PATH = /usr/lib;
@@ -497,6 +577,7 @@
 					"$(inherited)",
 					/opt/theos/lib,
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

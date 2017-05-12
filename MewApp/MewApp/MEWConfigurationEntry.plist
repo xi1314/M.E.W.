@@ -124,7 +124,7 @@
 			<key>cell</key>
 			<string>XUIGroupCell</string>
 			<key>label</key>
-			<string></string>
+			<string>Identifying</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -143,6 +143,16 @@
 			<string>UDID</string>
 			<key>key</key>
 			<string>UniqueDeviceID</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>OpenUDID</string>
+			<key>key</key>
+			<string>OpenUDID</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
 		</dict>
@@ -200,6 +210,62 @@
 			<key>cell</key>
 			<string>XUIEditTextCell</string>
 			<key>label</key>
+			<string>Mobile ID</string>
+			<key>key</key>
+			<string>CurrentMobileId</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Subscriber ID</string>
+			<key>key</key>
+			<string>CurrentSubscriberId</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>ICCID</string>
+			<key>key</key>
+			<string>ICCID</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>MEID</string>
+			<key>key</key>
+			<string>MEID</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>IMSI</string>
+			<key>key</key>
+			<string>IMSI</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIGroupCell</string>
+			<key>label</key>
+			<string>Network</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
 			<string>IPv4</string>
 			<key>key</key>
 			<string>EthernetIPv4Address</string>
@@ -238,11 +304,107 @@
 		</dict>
 		<dict>
 			<key>cell</key>
+			<string>XUIGroupCell</string>
+			<key>label</key>
+			<string>Carrier</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUISegmentCell</string>
+			<key>label</key>
+			<string>Network</string>
+			<key>key</key>
+			<string>NetworkType</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+			<key>validTitles</key>
+			<array>
+				<string>2G</string>
+				<string>3G</string>
+				<string>4G</string>
+				<string>Wifi</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+				<string>5</string>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key>
 			<string>XUIEditTextCell</string>
 			<key>label</key>
-			<string>SSIDDATA</string>
+			<string>Carrier 1</string>
 			<key>key</key>
-			<string>EthernetSSIDDATA</string>
+			<string>CarrierName</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Carrier 2</string>
+			<key>key</key>
+			<string>ServiceString</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Version</string>
+			<key>key</key>
+			<string>CarrierVersionString</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Network</string>
+			<key>key</key>
+			<string>NetworkCode</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Country</string>
+			<key>key</key>
+			<string>CountryCode</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>ISO Country</string>
+			<key>key</key>
+			<string>ISOCountryCode</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIGroupCell</string>
+			<key>label</key>
+			<string>Region</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Timezone</string>
+			<key>key</key>
+			<string>TimezoneName</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
 		</dict>

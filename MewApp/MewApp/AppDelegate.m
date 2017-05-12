@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MEWOpenUDID.h"
 #import "MEWRootViewController.h"
 
 @interface AppDelegate ()
@@ -17,16 +18,27 @@
 
 - (void)loadDefaultConfiguration {
     
-    NSMutableString *conf = [NSMutableString string];
+//    NSMutableString *conf = [NSMutableString string];
     
     NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MEWDefaultConfiguration" ofType:@"plist"]];
     [defaultConfig enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
 #ifdef DEBUG
-        [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
-        [conf appendFormat:@"static NSString * const kMew%@ = @\"%@\";\n", key, key];
+        id answer = MEWCopyAnswer(key);
+        if (answer) {
+            NSLog(@"%@: %@", key, answer);
+            [[NSUserDefaults standardUserDefaults] setObject:answer forKey:key];
+        } else {
+            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+        }
+//        [conf appendFormat:@"static NSString * const kMew%@ = @\"%@\";\n", key, key];
 #else
         if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
-            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+            id answer = MEWCopyAnswer(key);
+            if (answer) {
+                [[NSUserDefaults standardUserDefaults] setObject:answer forKey:key];
+            } else {
+                [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+            }
         }
 #endif
     }];
@@ -35,8 +47,17 @@
     
 }
 
+- (void)loadStartupCommands {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kMewSwitchAutoCleanPasteboard]) {
+        system("/Applications/MewApp.app/MEWDo launchctl unload -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
+        system("/Applications/MewApp.app/MEWDo rm -rf /var/mobile/Library/Caches/com.apple.UIKit.pboard/*");
+        system("/Applications/MewApp.app/MEWDo launchctl load -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self loadDefaultConfiguration];
+    [self loadStartupCommands];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

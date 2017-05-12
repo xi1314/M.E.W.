@@ -123,6 +123,11 @@ static void initialize() {
             for (NSString *pasteboardType in [pb pasteboardTypes]) {
                 [pb setValue:@"" forPasteboardType:pasteboardType];
             }
+            /*
+             launchctl unload -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist
+             rm -rf /var/mobile/Library/Caches/com.apple.UIKit.pboard/*
+             launchctl load -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist
+             */
         }
         
     }

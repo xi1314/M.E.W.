@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
+    setgid(0); setuid(0);
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

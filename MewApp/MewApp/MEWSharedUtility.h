@@ -13,8 +13,6 @@
 
 + (instancetype)sharedInstance;
 - (id)MEWCopyAnswer:(NSString *)key;
-- (id)MEWCopyAnswer:(NSString *)key fromDictionary:(NSString *)dictionaryKey;
-- (void)MEWSaveAnswer:(id)answer forKey:(NSString *)key;
 - (BOOL)cleanSystemKeychainWithError:(NSError **)error;
 
 @end

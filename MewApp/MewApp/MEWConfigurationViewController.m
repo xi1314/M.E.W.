@@ -7,8 +7,6 @@
 //
 
 #import "MEWConfigurationViewController.h"
-#import "MobileGestalt.h"
-#import <Preferences/PSSpecifier.h>
 
 @interface MEWConfigurationViewController ()
 

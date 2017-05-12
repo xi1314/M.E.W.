@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F2E444C1EBF892E00F3A7F5 /* MEWRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */; };
 		0F2E44501EBF8B1500F3A7F5 /* MEWRootEntry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */; };
+		0F3B657C1EC634F0008606F9 /* MEWOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B657B1EC634F0008606F9 /* MEWOpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0F43F4471EC3B5DD00BBA182 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */; };
 		0F43F44A1EC3B7F900BBA182 /* MEWSharedUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */; };
 		0F43F44C1EC3C28100BBA182 /* MEWConfigurationEntry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */; };
@@ -33,51 +34,30 @@
 		0F5EE79B1EBE7CF300FBA3B5 /* XUISpecifierParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7921EBE7CF300FBA3B5 /* XUISpecifierParser.m */; };
 		0F5EE79D1EBE7D1F00FBA3B5 /* Preferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5EE79C1EBE7D1F00FBA3B5 /* Preferences.framework */; };
 		0F5EE7A11EBE821000FBA3B5 /* MewAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */; };
-		0F6B76EC1EC5021600691EAB /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6B76EB1EC5021600691EAB /* entitlements.plist */; };
 		0F6B76F11EC52A9F00691EAB /* MEWConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0F2E44371EBF812300F3A7F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0FFB56F71EBC98E800A45144;
-			remoteInfo = MEW;
-		};
-		0F43F43E1EC3A42D00BBA182 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0FFB56F61EBC98E800A45144;
-			remoteInfo = MEW;
-		};
-		0F43F4401EC3A42D00BBA182 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0F90D7AF1EC319D40027424D;
-			remoteInfo = MEWPasteboard;
-		};
-		0F90D7CA1EC31BB90027424D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0F90D7B01EC319D40027424D;
-			remoteInfo = MEWPasteboard;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEW.xcodeproj; path = ../MEW.xcodeproj; sourceTree = "<group>"; };
 		0F2E444A1EBF892E00F3A7F5 /* MEWRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWRootViewController.h; sourceTree = "<group>"; };
 		0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWRootViewController.m; sourceTree = "<group>"; };
 		0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWRootEntry.plist; sourceTree = "<group>"; };
-		0F43F4441EC3AC9500BBA182 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileGestalt.h; path = ../MobileGestalt.h; sourceTree = "<group>"; };
+		0F3B657A1EC634F0008606F9 /* MEWOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWOpenUDID.h; sourceTree = "<group>"; };
+		0F3B657B1EC634F0008606F9 /* MEWOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWOpenUDID.m; sourceTree = "<group>"; };
 		0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0F43F4481EC3B7F900BBA182 /* MEWSharedUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWSharedUtility.h; sourceTree = "<group>"; };
 		0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWSharedUtility.m; sourceTree = "<group>"; };
 		0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWConfigurationEntry.plist; sourceTree = "<group>"; };
+		0F44D8331EC654D5006BFD43 /* bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bootstrap.h; sourceTree = "<group>"; };
+		0F44D8341EC654D5006BFD43 /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
+		0F44D8351EC654D5006BFD43 /* CPBitmapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPBitmapStore.h; sourceTree = "<group>"; };
+		0F44D8361EC654D5006BFD43 /* CPDistributedMessagingCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCenter.h; sourceTree = "<group>"; };
+		0F44D8371EC654D5006BFD43 /* MEWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWConfiguration.h; sourceTree = "<group>"; };
+		0F44D8381EC654D5006BFD43 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		0F44D8391EC654D5006BFD43 /* rocketbootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap.h; sourceTree = "<group>"; };
+		0F44D83A1EC654D5006BFD43 /* rocketbootstrap_dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_dynamic.h; sourceTree = "<group>"; };
+		0F44D83B1EC654D5006BFD43 /* rocketbootstrap_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_internal.h; sourceTree = "<group>"; };
+		0F44D83C1EC654D5006BFD43 /* sandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sandbox.h; sourceTree = "<group>"; };
+		0F44D83D1EC654D5006BFD43 /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
 		0F4DD4521EC3837E00C22FE3 /* MEWPasteboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWPasteboardCell.h; sourceTree = "<group>"; };
 		0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboardCell.m; sourceTree = "<group>"; };
 		0F4DD4571EC3886A00C22FE3 /* MEWPasteboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWPasteboardViewController.h; sourceTree = "<group>"; };
@@ -120,10 +100,9 @@
 		0F5EE7951EBE7CF300FBA3B5 /* XUIListControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XUIListControllerProtocol.h; sourceTree = "<group>"; };
 		0F5EE79C1EBE7D1F00FBA3B5 /* Preferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Preferences.framework; sourceTree = "<group>"; };
 		0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MewAsset.xcassets; sourceTree = "<group>"; };
-		0F6B76EB1EC5021600691EAB /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
+		0F6B76EB1EC5021600691EAB /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = entitlements.plist; path = ../entitlements.plist; sourceTree = "<group>"; };
 		0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWConfigurationViewController.m; sourceTree = "<group>"; };
 		0F6B76F01EC52A9F00691EAB /* MEWConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWConfigurationViewController.h; sourceTree = "<group>"; };
-		0FC90EEB1EC4591F00F90674 /* MEWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEWConfiguration.h; path = ../MEWConfiguration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,13 +119,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F2E44341EBF812300F3A7F5 /* Products */ = {
+		0F44D8321EC654D5006BFD43 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				0F2E44381EBF812300F3A7F5 /* MEW.dylib */,
-				0F90D7CB1EC31BB90027424D /* MEWPasteboard.dylib */,
+				0F44D8331EC654D5006BFD43 /* bootstrap.h */,
+				0F44D8341EC654D5006BFD43 /* CaptainHook.h */,
+				0F44D8351EC654D5006BFD43 /* CPBitmapStore.h */,
+				0F44D8361EC654D5006BFD43 /* CPDistributedMessagingCenter.h */,
+				0F44D8371EC654D5006BFD43 /* MEWConfiguration.h */,
+				0F44D8381EC654D5006BFD43 /* MobileGestalt.h */,
+				0F44D8391EC654D5006BFD43 /* rocketbootstrap.h */,
+				0F44D83A1EC654D5006BFD43 /* rocketbootstrap_dynamic.h */,
+				0F44D83B1EC654D5006BFD43 /* rocketbootstrap_internal.h */,
+				0F44D83C1EC654D5006BFD43 /* sandbox.h */,
+				0F44D83D1EC654D5006BFD43 /* substrate.h */,
 			);
-			name = Products;
+			name = Header;
+			path = ../Header;
 			sourceTree = "<group>";
 		};
 		0F5E692C1EC0C07E00F2291F /* Frameworks */ = {
@@ -161,10 +150,7 @@
 		0F5EE7521EBE753300FBA3B5 = {
 			isa = PBXGroup;
 			children = (
-				0F6B76EB1EC5021600691EAB /* entitlements.plist */,
-				0F43F4441EC3AC9500BBA182 /* MobileGestalt.h */,
-				0FC90EEB1EC4591F00F90674 /* MEWConfiguration.h */,
-				0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */,
+				0F44D8321EC654D5006BFD43 /* Header */,
 				0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */,
 				0F5EE75D1EBE753400FBA3B5 /* MewApp */,
 				0F5EE75C1EBE753400FBA3B5 /* Products */,
@@ -186,6 +172,8 @@
 				0F5EE7831EBE7CF300FBA3B5 /* AppUI */,
 				0F5EE7611EBE753400FBA3B5 /* AppDelegate.h */,
 				0F5EE7621EBE753400FBA3B5 /* AppDelegate.m */,
+				0F3B657A1EC634F0008606F9 /* MEWOpenUDID.h */,
+				0F3B657B1EC634F0008606F9 /* MEWOpenUDID.m */,
 				0F43F4481EC3B7F900BBA182 /* MEWSharedUtility.h */,
 				0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */,
 				0F5E691B1EBFD25000F2291F /* LSApplicationProxy.h */,
@@ -212,7 +200,6 @@
 				0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */,
 				0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */,
 				0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */,
-				0F5EE76F1EBE753400FBA3B5 /* Info.plist */,
 				0F5EE75E1EBE753400FBA3B5 /* Supporting Files */,
 			);
 			path = MewApp;
@@ -221,6 +208,8 @@
 		0F5EE75E1EBE753400FBA3B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F5EE76F1EBE753400FBA3B5 /* Info.plist */,
+				0F6B76EB1EC5021600691EAB /* entitlements.plist */,
 				0F5EE75F1EBE753400FBA3B5 /* main.m */,
 				0F5EE7821EBE7BAB00FBA3B5 /* MEWPrefixHeader.pch */,
 			);
@@ -289,8 +278,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0F43F43F1EC3A42D00BBA182 /* PBXTargetDependency */,
-				0F43F4411EC3A42D00BBA182 /* PBXTargetDependency */,
 			);
 			name = MewApp;
 			productName = MewApp;
@@ -323,35 +310,12 @@
 			mainGroup = 0F5EE7521EBE753300FBA3B5;
 			productRefGroup = 0F5EE75C1EBE753400FBA3B5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0F2E44341EBF812300F3A7F5 /* Products */;
-					ProjectRef = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0F5EE75A1EBE753400FBA3B5 /* MewApp */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		0F2E44381EBF812300F3A7F5 /* MEW.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = MEW.dylib;
-			remoteRef = 0F2E44371EBF812300F3A7F5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F90D7CB1EC31BB90027424D /* MEWPasteboard.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = MEWPasteboard.dylib;
-			remoteRef = 0F90D7CA1EC31BB90027424D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0F5EE7591EBE753400FBA3B5 /* Resources */ = {
@@ -364,7 +328,6 @@
 				0F5E69171EBFD1B200F2291F /* MEWApplicationCell.xib in Resources */,
 				0F43F44C1EC3C28100BBA182 /* MEWConfigurationEntry.plist in Resources */,
 				0F2E44501EBF8B1500F3A7F5 /* MEWRootEntry.plist in Resources */,
-				0F6B76EC1EC5021600691EAB /* entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = " scp -rP 2222 ${BUILT_PRODUCTS_DIR}/MewApp.app root@127.0.0.1:/Applications/\n ssh root@127.0.0.1 -p 2222 killall MewApp\nexit 0\n";
+			shellScript = "scp -rP 2222 ${BUILT_PRODUCTS_DIR}/MewApp.app root@127.0.0.1:/Applications/\nssh root@127.0.0.1 -p 2222 killall MewApp Preferences\nexit 0\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -393,6 +356,7 @@
 			files = (
 				0F6B76F11EC52A9F00691EAB /* MEWConfigurationViewController.m in Sources */,
 				0F5EE7961EBE7CF300FBA3B5 /* XUIImageCell.m in Sources */,
+				0F3B657C1EC634F0008606F9 /* MEWOpenUDID.m in Sources */,
 				0F4DD4551EC3837E00C22FE3 /* MEWPasteboardCell.m in Sources */,
 				0F43F44A1EC3B7F900BBA182 /* MEWSharedUtility.m in Sources */,
 				0F5EE7631EBE753400FBA3B5 /* AppDelegate.m in Sources */,
@@ -413,19 +377,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0F43F43F1EC3A42D00BBA182 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MEW;
-			targetProxy = 0F43F43E1EC3A42D00BBA182 /* PBXContainerItemProxy */;
-		};
-		0F43F4411EC3A42D00BBA182 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MEWPasteboard;
-			targetProxy = 0F43F4401EC3A42D00BBA182 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0F5EE7701EBE753400FBA3B5 /* Debug */ = {
@@ -527,13 +478,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "";
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MewApp/AppUI",
 				);
 				GCC_PREFIX_HEADER = MewApp/MEWPrefixHeader.pch;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = MewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -556,6 +508,7 @@
 					"$(PROJECT_DIR)/MewApp/AppUI",
 				);
 				GCC_PREFIX_HEADER = MewApp/MEWPrefixHeader.pch;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = MewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
