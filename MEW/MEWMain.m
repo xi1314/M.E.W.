@@ -25,6 +25,9 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <SystemConfiguration/SCNetworkReachability.h>
 
+_Pragma("clang diagnostic push")
+_Pragma("clang diagnostic ignored \"-Wmissing-prototypes\"")
+
 #pragma mark - Config
 
 static CFAbsoluteTime mewStartTime = 0.f;
@@ -1308,3 +1311,5 @@ static void initialize() {
     }
     
 }
+
+_Pragma("clang diagnostic pop")

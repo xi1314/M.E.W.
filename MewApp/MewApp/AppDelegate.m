@@ -49,9 +49,9 @@
 
 - (void)loadStartupCommands {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kMewSwitchAutoCleanPasteboard]) {
-        system("/Applications/MewApp.app/MEWDo launchctl unload -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
-        system("/Applications/MewApp.app/MEWDo rm -rf /var/mobile/Library/Caches/com.apple.UIKit.pboard/*");
-        system("/Applications/MewApp.app/MEWDo launchctl load -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
+        system("/Applications/MewApp.app/MEWDo /bin/launchctl unload -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
+        system("/Applications/MewApp.app/MEWDo /bin/rm -rf /var/mobile/Library/Caches/com.apple.UIKit.pboard/*");
+        system("/Applications/MewApp.app/MEWDo /bin/launchctl load -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
     }
 }
 

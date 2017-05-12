@@ -58,7 +58,7 @@
 //#define OpenUDIDLog(fmt, ...) NSLog((@"[Line %d] " fmt), __LINE__, ##__VA_ARGS__);
 
 static NSString * kOpenUDIDSessionCache = nil;
-static NSString * const kOpenUDIDDescription = @"OpenUDID_with_iOS6_Support";
+//static NSString * const kOpenUDIDDescription = @"OpenUDID_with_iOS6_Support";
 static NSString * const kOpenUDIDKey = @"OpenUDID";
 static NSString * const kOpenUDIDSlotKey = @"OpenUDID_slot";
 static NSString * const kOpenUDIDAppUIDKey = @"OpenUDID_appUID";
