@@ -157,7 +157,7 @@
                                       reuseIdentifier:kXUICellIdentifier];
     }
     cell.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    cell.tintColor = [UIColor blueColor];
+    cell.tintColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
     cell.showsReorderControl = YES;
     if (indexPath.section == 0) {
         cell.textLabel.text = self.specifier.titleDictionary[_currentValues[indexPath.row]];

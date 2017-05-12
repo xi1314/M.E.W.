@@ -16,9 +16,9 @@
 #import <ifaddrs.h>
 #import <sys/stat.h>
 #import <sys/types.h>
-#import <net/if_dl.h>
 #import <mach/port.h>
 #import <arpa/inet.h>
+#import <net/if_dl.h>
 #import <sys/socket.h>
 #import <sys/sysctl.h>
 #import <netinet/in.h>
@@ -35,6 +35,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <SystemConfiguration/SCNetworkReachability.h>
+#import "SCNetworkConfiguration.h"
 
 #define kIODeviceTreePlane		"IODeviceTree"
 
@@ -54,8 +55,7 @@ NSString *getValue(NSString *iosearch)
     if (IOKit)
     {
         CFTypeRef
-        (* IORegistryEntrySearchCFProperty)(
-                                            io_registry_entry_t	entry,
+        (* IORegistryEntrySearchCFProperty)(io_registry_entry_t	entry,
                                             const io_name_t		plane,
                                             CFStringRef		key,
                                             CFAllocatorRef		allocator,
@@ -113,6 +113,8 @@ NSString *getValue(NSString *iosearch)
 - (NSString *) getSysInfoByName:(char *)typeSpecifier
 {
     size_t size = 1024;
+    
+    sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
     
     char *answer = malloc(size);
     sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
@@ -223,6 +225,7 @@ NSString *getValue(NSString *iosearch)
     NSLog(@"%u, Cellular = %d", flags, (flags & kSCNetworkReachabilityFlagsIsWWAN) != 0);
     
     struct utsname systemInfo;
+    bzero(&systemInfo, sizeof(systemInfo));
     NSLog(@"%d", uname(&systemInfo));
     NSLog(@"%s", systemInfo.sysname);
     NSLog(@"%s", systemInfo.nodename);
@@ -242,8 +245,8 @@ NSString *getValue(NSString *iosearch)
             }
             const struct sockaddr_in *addr = (const struct sockaddr_in*)interface->ifa_addr;
             char addrBuf[ MAX(INET_ADDRSTRLEN, INET6_ADDRSTRLEN) ];
+            NSString *name = [NSString stringWithUTF8String:interface->ifa_name];
             if (addr && (addr->sin_family == AF_INET || addr->sin_family == AF_INET6)) {
-                NSString *name = [NSString stringWithUTF8String:interface->ifa_name];
                 NSString *type;
                 if (addr->sin_family == AF_INET) {
                     if(inet_ntop(AF_INET, &addr->sin_addr, addrBuf, INET_ADDRSTRLEN)) {
@@ -275,7 +278,7 @@ NSString *getValue(NSString *iosearch)
                     sprintf(partialAddr, "%02X", base[i]);
                     strcat(macAddress, partialAddr);
                 }
-                NSLog(@"%s", macAddress); // Always return 02:00:00:00:00:00
+                NSLog(@"%@/%s", name, macAddress); // Always return 02:00:00:00:00:00
             }
         }
         // Free memory
@@ -339,7 +342,7 @@ NSString *getValue(NSString *iosearch)
     NSString *macAddressString = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
                                   macAddress[0], macAddress[1], macAddress[2],
                                   macAddress[3], macAddress[4], macAddress[5]];
-    NSLog(@"Mac Address: %@", macAddressString);  // Always return 02:00:00:00:00:00
+    NSLog(@"en0/%@", macAddressString);  // Always return 02:00:00:00:00:00
     
     // Release the buffer memory
     free(msgBuffer);
@@ -355,6 +358,16 @@ NSString *getValue(NSString *iosearch)
         mach_port_t (*IOServiceGetMatchingService)(mach_port_t masterPort, CFDictionaryRef matching) = dlsym(IOKit, "IOServiceGetMatchingService");
         CFTypeRef (*IORegistryEntryCreateCFProperty)(mach_port_t entry, CFStringRef key, CFAllocatorRef allocator, uint32_t options) = dlsym(IOKit, "IORegistryEntryCreateCFProperty");
         kern_return_t (*IOObjectRelease)(mach_port_t object) = dlsym(IOKit, "IOObjectRelease");
+        CFTypeRef
+        (* IORegistryEntrySearchCFProperty)(io_registry_entry_t	entry,
+                                            const io_name_t		plane,
+                                            CFStringRef		key,
+                                            CFAllocatorRef		allocator,
+                                            IOOptionBits		options ) = dlsym(IOKit, "IORegistryEntrySearchCFProperty");
+        kern_return_t
+        (* IOMasterPort)( mach_port_t	bootstrapPort,
+                         mach_port_t *	masterPort ) = dlsym(IOKit, "IOMasterPort");
+        CFMutableDictionaryRef (* IOServiceNameMatching)(const char *name) = dlsym(IOKit, "IOServiceNameMatching");
         
         if (kIOMasterPortDefault && IOServiceGetMatchingService && IORegistryEntryCreateCFProperty && IOObjectRelease)
         {
@@ -362,14 +375,14 @@ NSString *getValue(NSString *iosearch)
             if (platformExpertDevice)
             {
                 CFTypeRef platformSerialNumber = IORegistryEntryCreateCFProperty(platformExpertDevice, CFSTR("IOPlatformSerialNumber"), kCFAllocatorDefault, 0);
-                if (CFGetTypeID(platformSerialNumber) == CFStringGetTypeID())
+                if (platformSerialNumber && CFGetTypeID(platformSerialNumber) == CFStringGetTypeID())
                 {
                     serialNumber = [NSString stringWithString:(__bridge NSString*)platformSerialNumber];
                     CFRelease(platformSerialNumber);
                 }
                 
                 CFTypeRef platformUUID = IORegistryEntryCreateCFProperty(platformExpertDevice, CFSTR("IOPlatformUUID"), kCFAllocatorDefault, 0);
-                if (CFGetTypeID(platformUUID) == CFStringGetTypeID())
+                if (platformUUID && CFGetTypeID(platformUUID) == CFStringGetTypeID())
                 {
                     uuid = [NSString stringWithString:(__bridge NSString*)platformUUID];
                     CFRelease(platformUUID);
@@ -378,6 +391,7 @@ NSString *getValue(NSString *iosearch)
                 IOObjectRelease(platformExpertDevice);
             }
         }
+        
         dlclose(IOKit);
     }
     
@@ -408,8 +422,8 @@ NSString *getValue(NSString *iosearch)
     NSLog(@"%d", checkRange.location != NSNotFound);
     
     InitAddresses();
-    GetIPAddresses();
-    GetHWAddresses();
+    GetIPAddresses(); // TODO
+    GetHWAddresses(); // TODO
     
     int i;
     for (i=0; i < MAXADDRS; ++i)
@@ -422,14 +436,26 @@ NSString *getValue(NSString *iosearch)
         if (theAddr == 0) break;
         if (theAddr == localHost) continue;
         
-        NSLog(@"Name: %s MAC: %s IP: %s\n", if_names[i], hw_addrs[i], ip_names[i]);
-        
-        //decided what adapter you want details for
-        if (strncmp(if_names[i], "en", 2) == 0)
-        {
-            NSLog(@"Adapter en has a IP of %s", ip_names[i]);
+        NSLog(@"%s/%s/%s", if_names[i], hw_addrs[i], ip_names[i]);
+    }
+    
+    void * systemConfiguration = dlopen("/System/Library/Framework/SystemConfiguration.framework/SystemConfiguration", RTLD_LAZY);
+    if (systemConfiguration) {
+        CFArrayRef (*orig_SCNetworkInterfaceCopyAll) () = dlsym(systemConfiguration, "SCNetworkInterfaceCopyAll");
+        CFStringRef (*orig_SCNetworkInterfaceGetInterfaceType) (SCNetworkInterfaceRef interface) = dlsym(systemConfiguration, "SCNetworkInterfaceGetInterfaceType");
+        const CFStringRef *orig_kSCNetworkInterfaceTypeIEEE80211 = dlsym(systemConfiguration, "kSCNetworkInterfaceTypeIEEE80211");
+        CFStringRef (* orig_SCNetworkInterfaceGetHardwareAddressString)(SCNetworkInterfaceRef interface) = dlsym(systemConfiguration, "SCNetworkInterfaceGetHardwareAddressString");
+        NSArray *interfaces = (__bridge NSArray *)(orig_SCNetworkInterfaceCopyAll());
+        for (id interface in interfaces) {
+            if ([(__bridge NSString *)orig_SCNetworkInterfaceGetInterfaceType((__bridge SCNetworkInterfaceRef)(interface)) isEqualToString:(__bridge NSString * _Nonnull)(*orig_kSCNetworkInterfaceTypeIEEE80211)]) {
+                NSLog(@"%@", orig_SCNetworkInterfaceGetHardwareAddressString((__bridge SCNetworkInterfaceRef)(interface)));
+            }
         }
     }
+    
+    NSDictionary *systemVersion = [[NSDictionary alloc] initWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+    // We have to modify this file!
+    NSLog(@"%@", systemVersion);
     
 }
 

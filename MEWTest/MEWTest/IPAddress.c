@@ -17,6 +17,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <net/ethernet.h>
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <sys/sockio.h>

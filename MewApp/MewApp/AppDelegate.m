@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MEWNavigationController.h"
-#import "MEWTableViewController.h"
+#import "MEWRootViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,12 +15,34 @@
 
 @implementation AppDelegate
 
+- (void)loadDefaultConfiguration {
+    
+    NSMutableString *conf = [NSMutableString string];
+    
+    NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MEWDefaultConfiguration" ofType:@"plist"]];
+    [defaultConfig enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+#ifdef DEBUG
+        [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+        [conf appendFormat:@"static NSString * const kMew%@ = @\"%@\";\n", key, key];
+#else
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
+            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+        }
+#endif
+    }];
+    
+//    NSLog(@"%@", conf);
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self loadDefaultConfiguration];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[MEWNavigationController alloc] initWithRootViewController:[MEWTableViewController new]];
+    MEWRootViewController *listController = [[MEWRootViewController alloc] init];
+    listController.filePath = [[NSBundle mainBundle] pathForResource:@"MEWRootEntry" ofType:@"plist"];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listController];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -19,7 +19,6 @@
 @interface XUIListController () <XUIAction>
 @property (nonatomic, strong) UIBarButtonItem *closeItem;
 @property (nonatomic, strong) NSDictionary *plistDict;
-//@property (nonatomic, strong) XXDarwinNotificationsManager *notificationManager;
 
 @end
 
@@ -36,7 +35,7 @@
     if (tintSwitches_) {
         if ([self respondsToSelector:@selector(switchOnTintColor)]) {
             START_IGNORE_PARTIAL
-            if (XXT_SYSTEM_9)
+            if (!XXT_SYSTEM_9)
                 [UISwitch appearanceWhenContainedIn:self.class, nil].onTintColor = self.switchOnTintColor;
             else
                 [UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]].onTintColor = self.switchOnTintColor;
@@ -44,7 +43,7 @@
         } else {
             if ([self respondsToSelector:@selector(tintColor)]) {
                 START_IGNORE_PARTIAL
-                if (XXT_SYSTEM_9)
+                if (!XXT_SYSTEM_9)
                     [UISwitch appearanceWhenContainedIn:self.class, nil].onTintColor = self.tintColor;
                 else
                     [UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]].onTintColor = self.tintColor;
@@ -54,14 +53,14 @@
         
         if ([self respondsToSelector:@selector(switchTintColor)]) {
             START_IGNORE_PARTIAL
-            if (XXT_SYSTEM_9)
+            if (!XXT_SYSTEM_9)
                 [UISwitch appearanceWhenContainedIn:self.class, nil].onTintColor = self.switchTintColor;
             else
                 [UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]].onTintColor = self.switchTintColor;
             END_IGNORE_PARTIAL
         } else if ([self respondsToSelector:@selector(tintColor)]) {
             START_IGNORE_PARTIAL
-            if (XXT_SYSTEM_9)
+            if (!XXT_SYSTEM_9)
                 [UISwitch appearanceWhenContainedIn:self.class, nil].onTintColor = self.tintColor;
             else
                 [UISwitch appearanceWhenContainedInInstancesOfClasses:@[self.class]].onTintColor = self.tintColor;
@@ -191,11 +190,6 @@
                                                   otherButtonTitles:nil];
         [alertView show];
     }
-    
-//    self.notificationManager = [[XXDarwinNotificationsManager alloc] init];
-//    [self.notificationManager registerForNotificationName:[kXUINotificationString copy] callback:^{
-//        [self reload];
-//    }];
 }
 
 - (void)setupAppearance {
@@ -207,7 +201,7 @@
 - (UIBarButtonItem *)closeItem {
     if (!_closeItem) {
         UIBarButtonItem *closeItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Close", nil) style:UIBarButtonItemStylePlain target:self action:@selector(closeItemTapped:)];
-        closeItem.tintColor = [UIColor whiteColor];
+        closeItem.tintColor = [UIColor blackColor];
         _closeItem = closeItem;
     }
     return _closeItem;
@@ -279,15 +273,15 @@
 }
 
 - (UIColor *)navigationTintColor {
-    return [UIColor whiteColor];
+    return MAIN_COLOR;
 }
 
 - (UIColor *)navigationTitleTintColor {
-    return [UIColor whiteColor];
+    return [UIColor blackColor];
 }
 
 - (UIColor *)tintColor {
-    return [UIColor blackColor];
+    return MAIN_COLOR;
 }
 
 - (UIColor *)headerColor {
@@ -295,11 +289,11 @@
 }
 
 - (UIColor *)switchTintColor {
-    return [UIColor blackColor];
+    return MAIN_COLOR;
 }
 
 - (UIColor *)switchOnTintColor {
-    return [UIColor blackColor];
+    return MAIN_COLOR;
 }
 
 #pragma mark - Keyboard

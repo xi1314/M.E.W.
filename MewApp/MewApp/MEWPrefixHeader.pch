@@ -10,11 +10,16 @@
 #define MEWPrefixHeader_pch
 
 #import <UIKit/UIKit.h>
+#import "MEWSharedUtility.h"
 
 #define START_IGNORE_PARTIAL _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Wpartial-availability\"")
 #define END_IGNORE_PARTIAL _Pragma("clang diagnostic pop")
 
 #define XXT_SYSTEM_9 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_0)
 #define XXT_SYSTEM_8 (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_0)
+
+#define MAIN_COLOR ([UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0])
+#define MEWCopyAnswer(skey) ([[MEWSharedUtility sharedInstance] MEWCopyAnswer:skey])
+#define MEWCopyAnswerFromDictionary(skey, dkey) ([[MEWSharedUtility sharedInstance] MEWCopyAnswer:skey fromDictionary:dkey])
 
 #endif /* MEWPrefixHeader_pch */

@@ -7,15 +7,25 @@
 		<key>MEW.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+		<key>MEWPasteboard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0F90D7AF1EC319D40027424D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0FFB56F61EBC98E800A45144</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -7,35 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2E44271EBF4C1C00F3A7F5 /* MEW.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F50E56A1EBF4BF000ED5002 /* MEW.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0F2E442D1EBF4E4600F3A7F5 /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E442B1EBF4E4600F3A7F5 /* IPAddress.c */; };
 		0F2FDBA41EBD035E00773FD3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA31EBD035E00773FD3 /* AdSupport.framework */; };
 		0F2FDBA61EBD065B00773FD3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA51EBD065B00773FD3 /* CoreTelephony.framework */; };
 		0F2FDBA81EBD0ECE00773FD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA71EBD0ECE00773FD3 /* SystemConfiguration.framework */; };
 		0F3C2A9B1EBE5B9600B542EB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3C2A9A1EBE5B9600B542EB /* CoreLocation.framework */; };
 		0F5EE7271EBE737200FBA3B5 /* MEWTestDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7261EBE737200FBA3B5 /* MEWTestDemo.m */; };
-		0F5EE72A1EBE745F00FBA3B5 /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7281EBE745F00FBA3B5 /* IPAddress.c */; };
+		0FD9B5021EC1C3F0001BB9A4 /* com.darwindev.MewApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD9B5011EC1C3F0001BB9A4 /* com.darwindev.MewApp.plist */; };
 		0FE060291EBCB04F0045D076 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE060281EBCB04F0045D076 /* main.m */; };
 		0FE0602C1EBCB04F0045D076 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0602B1EBCB04F0045D076 /* AppDelegate.m */; };
 		0FE0602F1EBCB04F0045D076 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0602E1EBCB04F0045D076 /* ViewController.m */; };
 		0FE060321EBCB04F0045D076 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE060301EBCB04F0045D076 /* Main.storyboard */; };
 		0FE060341EBCB04F0045D076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE060331EBCB04F0045D076 /* Assets.xcassets */; };
 		0FE060371EBCB04F0045D076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE060351EBCB04F0045D076 /* LaunchScreen.storyboard */; };
-		0FE060491EBCB4200045D076 /* MEW.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0FE060431EBCB1EC0045D076 /* MEW.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		0FE0604C1EBCB4660045D076 /* MEWConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0604B1EBCB4660045D076 /* MEWConfiguration.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0FE060421EBCB1EC0045D076 /* PBXContainerItemProxy */ = {
+		0F2E44241EBF4C0D00F3A7F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0FE0603E1EBCB1EC0045D076 /* MEW.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0FFB56F71EBC98E800A45144;
-			remoteInfo = MEW;
-		};
-		0FE060441EBCB1F60045D076 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FE0603E1EBCB1EC0045D076 /* MEW.xcodeproj */;
+			containerPortal = 0F50E5651EBF4BF000ED5002 /* MEW.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 0FFB56F61EBC98E800A45144;
+			remoteInfo = MEW;
+		};
+		0F50E5691EBF4BF000ED5002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F50E5651EBF4BF000ED5002 /* MEW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0FFB56F71EBC98E800A45144;
 			remoteInfo = MEW;
 		};
 /* End PBXContainerItemProxy section */
@@ -47,23 +47,25 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				0FE060491EBCB4200045D076 /* MEW.dylib in CopyFiles */,
+				0F2E44271EBF4C1C00F3A7F5 /* MEW.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0F2FDBA01EBCD7F800773FD3 /* LSApplicationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSApplicationProxy.h; path = ../../MEW/MEW/LSApplicationProxy.h; sourceTree = "<group>"; };
+		0F2E442A1EBF4C4700F3A7F5 /* LSApplicationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSApplicationProxy.h; path = ../MEW/LSApplicationProxy.h; sourceTree = "<group>"; };
+		0F2E442B1EBF4E4600F3A7F5 /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		0F2E442C1EBF4E4600F3A7F5 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		0F2FDBA31EBD035E00773FD3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0F2FDBA51EBD065B00773FD3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0F2FDBA71EBD0ECE00773FD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0F3C2A9A1EBE5B9600B542EB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0F50E5651EBF4BF000ED5002 /* MEW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEW.xcodeproj; path = ../MEW.xcodeproj; sourceTree = "<group>"; };
 		0F5EE7251EBE737200FBA3B5 /* MEWTestDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWTestDemo.h; sourceTree = "<group>"; };
 		0F5EE7261EBE737200FBA3B5 /* MEWTestDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWTestDemo.m; sourceTree = "<group>"; };
-		0F5EE7281EBE745F00FBA3B5 /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
-		0F5EE7291EBE745F00FBA3B5 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
-		0FA9BD271EBE1B800087D7B3 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileGestalt.h; path = ../../MEW/MobileGestalt.h; sourceTree = "<group>"; };
+		0FC03E3E1EC27F9800A70DF7 /* SCNetworkConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNetworkConfiguration.h; sourceTree = "<group>"; };
+		0FD9B5011EC1C3F0001BB9A4 /* com.darwindev.MewApp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.darwindev.MewApp.plist; sourceTree = "<group>"; };
 		0FE060241EBCB04F0045D076 /* MEWTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEWTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE060281EBCB04F0045D076 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0FE0602A1EBCB04F0045D076 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,8 +76,6 @@
 		0FE060331EBCB04F0045D076 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FE060361EBCB04F0045D076 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FE060381EBCB04F0045D076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FE0603E1EBCB1EC0045D076 /* MEW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEW.xcodeproj; path = ../MEW/MEW.xcodeproj; sourceTree = "<group>"; };
-		0FE0604B1EBCB4660045D076 /* MEWConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MEWConfiguration.plist; path = ../../MEW/MEW/MEWConfiguration.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +104,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0F50E5661EBF4BF000ED5002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F50E56A1EBF4BF000ED5002 /* MEW.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0FE0601B1EBCB04F0045D076 = {
 			isa = PBXGroup;
 			children = (
-				0FE0603E1EBCB1EC0045D076 /* MEW.xcodeproj */,
+				0F2E442A1EBF4C4700F3A7F5 /* LSApplicationProxy.h */,
+				0FD9B5011EC1C3F0001BB9A4 /* com.darwindev.MewApp.plist */,
+				0F50E5651EBF4BF000ED5002 /* MEW.xcodeproj */,
 				0FE060261EBCB04F0045D076 /* MEWTest */,
 				0FE060251EBCB04F0045D076 /* Products */,
 				0F2FDBA21EBD035E00773FD3 /* Frameworks */,
@@ -125,10 +135,8 @@
 		0FE060261EBCB04F0045D076 /* MEWTest */ = {
 			isa = PBXGroup;
 			children = (
-				0F2FDBA01EBCD7F800773FD3 /* LSApplicationProxy.h */,
-				0FA9BD271EBE1B800087D7B3 /* MobileGestalt.h */,
-				0F5EE7281EBE745F00FBA3B5 /* IPAddress.c */,
-				0F5EE7291EBE745F00FBA3B5 /* IPAddress.h */,
+				0F2E442B1EBF4E4600F3A7F5 /* IPAddress.c */,
+				0F2E442C1EBF4E4600F3A7F5 /* IPAddress.h */,
 				0FE0602A1EBCB04F0045D076 /* AppDelegate.h */,
 				0FE0602B1EBCB04F0045D076 /* AppDelegate.m */,
 				0FE0602D1EBCB04F0045D076 /* ViewController.h */,
@@ -140,6 +148,7 @@
 				0FE060351EBCB04F0045D076 /* LaunchScreen.storyboard */,
 				0FE060381EBCB04F0045D076 /* Info.plist */,
 				0FE060271EBCB04F0045D076 /* Supporting Files */,
+				0FC03E3E1EC27F9800A70DF7 /* SCNetworkConfiguration.h */,
 			);
 			path = MEWTest;
 			sourceTree = "<group>";
@@ -148,17 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				0FE060281EBCB04F0045D076 /* main.m */,
-				0FE0604B1EBCB4660045D076 /* MEWConfiguration.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0FE0603F1EBCB1EC0045D076 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0FE060431EBCB1EC0045D076 /* MEW.dylib */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +176,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0FE060451EBCB1F60045D076 /* PBXTargetDependency */,
+				0F2E44251EBF4C0D00F3A7F5 /* PBXTargetDependency */,
 			);
 			name = MEWTest;
 			productName = MEWTest;
@@ -212,8 +212,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0FE0603F1EBCB1EC0045D076 /* Products */;
-					ProjectRef = 0FE0603E1EBCB1EC0045D076 /* MEW.xcodeproj */;
+					ProductGroup = 0F50E5661EBF4BF000ED5002 /* Products */;
+					ProjectRef = 0F50E5651EBF4BF000ED5002 /* MEW.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -224,11 +224,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0FE060431EBCB1EC0045D076 /* MEW.dylib */ = {
+		0F50E56A1EBF4BF000ED5002 /* MEW.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = MEW.dylib;
-			remoteRef = 0FE060421EBCB1EC0045D076 /* PBXContainerItemProxy */;
+			remoteRef = 0F50E5691EBF4BF000ED5002 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -239,9 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FE060371EBCB04F0045D076 /* LaunchScreen.storyboard in Resources */,
+				0FD9B5021EC1C3F0001BB9A4 /* com.darwindev.MewApp.plist in Resources */,
 				0FE060341EBCB04F0045D076 /* Assets.xcassets in Resources */,
 				0FE060321EBCB04F0045D076 /* Main.storyboard in Resources */,
-				0FE0604C1EBCB4660045D076 /* MEWConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FE0602F1EBCB04F0045D076 /* ViewController.m in Sources */,
-				0F5EE72A1EBE745F00FBA3B5 /* IPAddress.c in Sources */,
+				0F2E442D1EBF4E4600F3A7F5 /* IPAddress.c in Sources */,
 				0FE0602C1EBCB04F0045D076 /* AppDelegate.m in Sources */,
 				0F5EE7271EBE737200FBA3B5 /* MEWTestDemo.m in Sources */,
 				0FE060291EBCB04F0045D076 /* main.m in Sources */,
@@ -263,10 +263,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0FE060451EBCB1F60045D076 /* PBXTargetDependency */ = {
+		0F2E44251EBF4C0D00F3A7F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MEW;
-			targetProxy = 0FE060441EBCB1F60045D076 /* PBXContainerItemProxy */;
+			targetProxy = 0F2E44241EBF4C0D00F3A7F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

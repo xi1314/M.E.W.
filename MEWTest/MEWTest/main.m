@@ -12,10 +12,10 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        void *lib = dlopen([[NSBundle mainBundle] pathForResource:@"MEW" ofType:@"dylib"].UTF8String, RTLD_NOW);
-        if (lib == NULL) {
-            exit(-1);
-        }
+//        void *lib = dlopen([[NSBundle mainBundle] pathForResource:@"MEW" ofType:@"dylib"].UTF8String, RTLD_NOW);
+//        if (lib == NULL) {
+//            exit(-1);
+//        }
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

@@ -7,10 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2E444C1EBF892E00F3A7F5 /* MEWRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */; };
+		0F2E44501EBF8B1500F3A7F5 /* MEWRootEntry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */; };
+		0F43F4471EC3B5DD00BBA182 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */; };
+		0F43F44A1EC3B7F900BBA182 /* MEWSharedUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */; };
+		0F43F44C1EC3C28100BBA182 /* MEWConfigurationEntry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */; };
+		0F4DD4551EC3837E00C22FE3 /* MEWPasteboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */; };
+		0F4DD4591EC3886A00C22FE3 /* MEWPasteboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DD4581EC3886A00C22FE3 /* MEWPasteboardViewController.m */; };
+		0F4DD45B1EC38A9000C22FE3 /* MEWPasteboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F4DD45A1EC38A9000C22FE3 /* MEWPasteboardCell.xib */; };
+		0F5E69141EBFD17D00F2291F /* MEWApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E69131EBFD17D00F2291F /* MEWApplicationViewController.m */; };
+		0F5E69171EBFD1B200F2291F /* MEWApplicationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5E69161EBFD1B200F2291F /* MEWApplicationCell.xib */; };
+		0F5E691A1EBFD1E100F2291F /* MEWApplicationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E69191EBFD1E100F2291F /* MEWApplicationCell.m */; };
+		0F5E691E1EBFD25000F2291F /* UIImage+imageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E691D1EBFD25000F2291F /* UIImage+imageData.m */; };
+		0F5E69251EC0970500F2291F /* MEWDefaultConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */; };
+		0F5E69281EC0B22F00F2291F /* MEWInsetsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E69271EC0B22F00F2291F /* MEWInsetsLabel.m */; };
+		0F5E692B1EC0C04000F2291F /* MEWLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E692A1EC0C04000F2291F /* MEWLocationViewController.m */; };
+		0F5E692E1EC0C07F00F2291F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5E692D1EC0C07F00F2291F /* MapKit.framework */; };
 		0F5EE7601EBE753400FBA3B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE75F1EBE753400FBA3B5 /* main.m */; };
 		0F5EE7631EBE753400FBA3B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7621EBE753400FBA3B5 /* AppDelegate.m */; };
-		0F5EE7771EBE761800FBA3B5 /* MEWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7761EBE761800FBA3B5 /* MEWNavigationController.m */; };
-		0F5EE77A1EBE764100FBA3B5 /* MEWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7791EBE764100FBA3B5 /* MEWTableViewController.m */; };
 		0F5EE7961EBE7CF300FBA3B5 /* XUIImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7861EBE7CF300FBA3B5 /* XUIImageCell.m */; };
 		0F5EE7971EBE7CF300FBA3B5 /* XUIListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7891EBE7CF300FBA3B5 /* XUIListController.m */; };
 		0F5EE7981EBE7CF300FBA3B5 /* XUIListItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE78B1EBE7CF300FBA3B5 /* XUIListItemsController.m */; };
@@ -19,18 +33,75 @@
 		0F5EE79B1EBE7CF300FBA3B5 /* XUISpecifierParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EE7921EBE7CF300FBA3B5 /* XUISpecifierParser.m */; };
 		0F5EE79D1EBE7D1F00FBA3B5 /* Preferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5EE79C1EBE7D1F00FBA3B5 /* Preferences.framework */; };
 		0F5EE7A11EBE821000FBA3B5 /* MewAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */; };
+		0F6B76EC1EC5021600691EAB /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6B76EB1EC5021600691EAB /* entitlements.plist */; };
+		0F6B76F11EC52A9F00691EAB /* MEWConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0F2E44371EBF812300F3A7F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0FFB56F71EBC98E800A45144;
+			remoteInfo = MEW;
+		};
+		0F43F43E1EC3A42D00BBA182 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FFB56F61EBC98E800A45144;
+			remoteInfo = MEW;
+		};
+		0F43F4401EC3A42D00BBA182 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F90D7AF1EC319D40027424D;
+			remoteInfo = MEWPasteboard;
+		};
+		0F90D7CA1EC31BB90027424D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0F90D7B01EC319D40027424D;
+			remoteInfo = MEWPasteboard;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEW.xcodeproj; path = ../MEW.xcodeproj; sourceTree = "<group>"; };
+		0F2E444A1EBF892E00F3A7F5 /* MEWRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWRootViewController.h; sourceTree = "<group>"; };
+		0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWRootViewController.m; sourceTree = "<group>"; };
+		0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWRootEntry.plist; sourceTree = "<group>"; };
+		0F43F4441EC3AC9500BBA182 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileGestalt.h; path = ../MobileGestalt.h; sourceTree = "<group>"; };
+		0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0F43F4481EC3B7F900BBA182 /* MEWSharedUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWSharedUtility.h; sourceTree = "<group>"; };
+		0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWSharedUtility.m; sourceTree = "<group>"; };
+		0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWConfigurationEntry.plist; sourceTree = "<group>"; };
+		0F4DD4521EC3837E00C22FE3 /* MEWPasteboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWPasteboardCell.h; sourceTree = "<group>"; };
+		0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboardCell.m; sourceTree = "<group>"; };
+		0F4DD4571EC3886A00C22FE3 /* MEWPasteboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWPasteboardViewController.h; sourceTree = "<group>"; };
+		0F4DD4581EC3886A00C22FE3 /* MEWPasteboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboardViewController.m; sourceTree = "<group>"; };
+		0F4DD45A1EC38A9000C22FE3 /* MEWPasteboardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEWPasteboardCell.xib; sourceTree = "<group>"; };
+		0F5E69121EBFD17D00F2291F /* MEWApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWApplicationViewController.h; sourceTree = "<group>"; };
+		0F5E69131EBFD17D00F2291F /* MEWApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWApplicationViewController.m; sourceTree = "<group>"; };
+		0F5E69161EBFD1B200F2291F /* MEWApplicationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEWApplicationCell.xib; sourceTree = "<group>"; };
+		0F5E69181EBFD1E100F2291F /* MEWApplicationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWApplicationCell.h; sourceTree = "<group>"; };
+		0F5E69191EBFD1E100F2291F /* MEWApplicationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWApplicationCell.m; sourceTree = "<group>"; };
+		0F5E691B1EBFD25000F2291F /* LSApplicationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSApplicationProxy.h; sourceTree = "<group>"; };
+		0F5E691C1EBFD25000F2291F /* UIImage+imageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageData.h"; sourceTree = "<group>"; };
+		0F5E691D1EBFD25000F2291F /* UIImage+imageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageData.m"; sourceTree = "<group>"; };
+		0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWDefaultConfiguration.plist; sourceTree = "<group>"; };
+		0F5E69261EC0B22F00F2291F /* MEWInsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWInsetsLabel.h; sourceTree = "<group>"; };
+		0F5E69271EC0B22F00F2291F /* MEWInsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWInsetsLabel.m; sourceTree = "<group>"; };
+		0F5E69291EC0C04000F2291F /* MEWLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWLocationViewController.h; sourceTree = "<group>"; };
+		0F5E692A1EC0C04000F2291F /* MEWLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWLocationViewController.m; sourceTree = "<group>"; };
+		0F5E692D1EC0C07F00F2291F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0F5EE75B1EBE753400FBA3B5 /* MewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5EE75F1EBE753400FBA3B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F5EE7611EBE753400FBA3B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F5EE7621EBE753400FBA3B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0F5EE76F1EBE753400FBA3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F5EE7751EBE761800FBA3B5 /* MEWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWNavigationController.h; sourceTree = "<group>"; };
-		0F5EE7761EBE761800FBA3B5 /* MEWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWNavigationController.m; sourceTree = "<group>"; };
-		0F5EE7781EBE764100FBA3B5 /* MEWTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWTableViewController.h; sourceTree = "<group>"; };
-		0F5EE7791EBE764100FBA3B5 /* MEWTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWTableViewController.m; sourceTree = "<group>"; };
 		0F5EE7821EBE7BAB00FBA3B5 /* MEWPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEWPrefixHeader.pch; sourceTree = "<group>"; };
 		0F5EE7851EBE7CF300FBA3B5 /* XUIImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XUIImageCell.h; sourceTree = "<group>"; };
 		0F5EE7861EBE7CF300FBA3B5 /* XUIImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XUIImageCell.m; sourceTree = "<group>"; };
@@ -49,6 +120,10 @@
 		0F5EE7951EBE7CF300FBA3B5 /* XUIListControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XUIListControllerProtocol.h; sourceTree = "<group>"; };
 		0F5EE79C1EBE7D1F00FBA3B5 /* Preferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Preferences.framework; sourceTree = "<group>"; };
 		0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MewAsset.xcassets; sourceTree = "<group>"; };
+		0F6B76EB1EC5021600691EAB /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
+		0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWConfigurationViewController.m; sourceTree = "<group>"; };
+		0F6B76F01EC52A9F00691EAB /* MEWConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWConfigurationViewController.h; sourceTree = "<group>"; };
+		0FC90EEB1EC4591F00F90674 /* MEWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEWConfiguration.h; path = ../MEWConfiguration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F43F4471EC3B5DD00BBA182 /* libsqlite3.tbd in Frameworks */,
+				0F5E692E1EC0C07F00F2291F /* MapKit.framework in Frameworks */,
 				0F5EE79D1EBE7D1F00FBA3B5 /* Preferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,12 +140,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F2E44341EBF812300F3A7F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F2E44381EBF812300F3A7F5 /* MEW.dylib */,
+				0F90D7CB1EC31BB90027424D /* MEWPasteboard.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0F5E692C1EC0C07E00F2291F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */,
+				0F5E692D1EC0C07F00F2291F /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0F5EE7521EBE753300FBA3B5 = {
 			isa = PBXGroup;
 			children = (
+				0F6B76EB1EC5021600691EAB /* entitlements.plist */,
+				0F43F4441EC3AC9500BBA182 /* MobileGestalt.h */,
+				0FC90EEB1EC4591F00F90674 /* MEWConfiguration.h */,
+				0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */,
 				0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */,
 				0F5EE75D1EBE753400FBA3B5 /* MewApp */,
 				0F5EE75C1EBE753400FBA3B5 /* Products */,
+				0F5E692C1EC0C07E00F2291F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,10 +186,32 @@
 				0F5EE7831EBE7CF300FBA3B5 /* AppUI */,
 				0F5EE7611EBE753400FBA3B5 /* AppDelegate.h */,
 				0F5EE7621EBE753400FBA3B5 /* AppDelegate.m */,
-				0F5EE7751EBE761800FBA3B5 /* MEWNavigationController.h */,
-				0F5EE7761EBE761800FBA3B5 /* MEWNavigationController.m */,
-				0F5EE7781EBE764100FBA3B5 /* MEWTableViewController.h */,
-				0F5EE7791EBE764100FBA3B5 /* MEWTableViewController.m */,
+				0F43F4481EC3B7F900BBA182 /* MEWSharedUtility.h */,
+				0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */,
+				0F5E691B1EBFD25000F2291F /* LSApplicationProxy.h */,
+				0F5E691C1EBFD25000F2291F /* UIImage+imageData.h */,
+				0F5E691D1EBFD25000F2291F /* UIImage+imageData.m */,
+				0F5E69261EC0B22F00F2291F /* MEWInsetsLabel.h */,
+				0F5E69271EC0B22F00F2291F /* MEWInsetsLabel.m */,
+				0F5E69161EBFD1B200F2291F /* MEWApplicationCell.xib */,
+				0F5E69181EBFD1E100F2291F /* MEWApplicationCell.h */,
+				0F5E69191EBFD1E100F2291F /* MEWApplicationCell.m */,
+				0F5E69121EBFD17D00F2291F /* MEWApplicationViewController.h */,
+				0F5E69131EBFD17D00F2291F /* MEWApplicationViewController.m */,
+				0F5E69291EC0C04000F2291F /* MEWLocationViewController.h */,
+				0F5E692A1EC0C04000F2291F /* MEWLocationViewController.m */,
+				0F4DD45A1EC38A9000C22FE3 /* MEWPasteboardCell.xib */,
+				0F4DD4521EC3837E00C22FE3 /* MEWPasteboardCell.h */,
+				0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */,
+				0F4DD4571EC3886A00C22FE3 /* MEWPasteboardViewController.h */,
+				0F4DD4581EC3886A00C22FE3 /* MEWPasteboardViewController.m */,
+				0F2E444A1EBF892E00F3A7F5 /* MEWRootViewController.h */,
+				0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */,
+				0F6B76F01EC52A9F00691EAB /* MEWConfigurationViewController.h */,
+				0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */,
+				0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */,
+				0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */,
+				0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */,
 				0F5EE76F1EBE753400FBA3B5 /* Info.plist */,
 				0F5EE75E1EBE753400FBA3B5 /* Supporting Files */,
 			);
@@ -162,10 +284,13 @@
 				0F5EE7571EBE753400FBA3B5 /* Sources */,
 				0F5EE7581EBE753400FBA3B5 /* Frameworks */,
 				0F5EE7591EBE753400FBA3B5 /* Resources */,
+				0F90D79A1EC300F50027424D /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0F43F43F1EC3A42D00BBA182 /* PBXTargetDependency */,
+				0F43F4411EC3A42D00BBA182 /* PBXTargetDependency */,
 			);
 			name = MewApp;
 			productName = MewApp;
@@ -193,12 +318,17 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0F5EE7521EBE753300FBA3B5;
 			productRefGroup = 0F5EE75C1EBE753400FBA3B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0F2E44341EBF812300F3A7F5 /* Products */;
+					ProjectRef = 0F2E44331EBF812300F3A7F5 /* MEW.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0F5EE75A1EBE753400FBA3B5 /* MewApp */,
@@ -206,42 +336,103 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0F2E44381EBF812300F3A7F5 /* MEW.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = MEW.dylib;
+			remoteRef = 0F2E44371EBF812300F3A7F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F90D7CB1EC31BB90027424D /* MEWPasteboard.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = MEWPasteboard.dylib;
+			remoteRef = 0F90D7CA1EC31BB90027424D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		0F5EE7591EBE753400FBA3B5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4DD45B1EC38A9000C22FE3 /* MEWPasteboardCell.xib in Resources */,
 				0F5EE7A11EBE821000FBA3B5 /* MewAsset.xcassets in Resources */,
+				0F5E69251EC0970500F2291F /* MEWDefaultConfiguration.plist in Resources */,
+				0F5E69171EBFD1B200F2291F /* MEWApplicationCell.xib in Resources */,
+				0F43F44C1EC3C28100BBA182 /* MEWConfigurationEntry.plist in Resources */,
+				0F2E44501EBF8B1500F3A7F5 /* MEWRootEntry.plist in Resources */,
+				0F6B76EC1EC5021600691EAB /* entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F90D79A1EC300F50027424D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = " scp -rP 2222 ${BUILT_PRODUCTS_DIR}/MewApp.app root@127.0.0.1:/Applications/\n ssh root@127.0.0.1 -p 2222 killall MewApp\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F5EE7571EBE753400FBA3B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F6B76F11EC52A9F00691EAB /* MEWConfigurationViewController.m in Sources */,
 				0F5EE7961EBE7CF300FBA3B5 /* XUIImageCell.m in Sources */,
+				0F4DD4551EC3837E00C22FE3 /* MEWPasteboardCell.m in Sources */,
+				0F43F44A1EC3B7F900BBA182 /* MEWSharedUtility.m in Sources */,
 				0F5EE7631EBE753400FBA3B5 /* AppDelegate.m in Sources */,
 				0F5EE79B1EBE7CF300FBA3B5 /* XUISpecifierParser.m in Sources */,
+				0F5E691A1EBFD1E100F2291F /* MEWApplicationCell.m in Sources */,
+				0F4DD4591EC3886A00C22FE3 /* MEWPasteboardViewController.m in Sources */,
 				0F5EE7971EBE7CF300FBA3B5 /* XUIListController.m in Sources */,
 				0F5EE7601EBE753400FBA3B5 /* main.m in Sources */,
-				0F5EE7771EBE761800FBA3B5 /* MEWNavigationController.m in Sources */,
+				0F2E444C1EBF892E00F3A7F5 /* MEWRootViewController.m in Sources */,
+				0F5E691E1EBFD25000F2291F /* UIImage+imageData.m in Sources */,
 				0F5EE7981EBE7CF300FBA3B5 /* XUIListItemsController.m in Sources */,
+				0F5E692B1EC0C04000F2291F /* MEWLocationViewController.m in Sources */,
 				0F5EE7991EBE7CF300FBA3B5 /* XUIMultipleListItemsController.m in Sources */,
+				0F5E69281EC0B22F00F2291F /* MEWInsetsLabel.m in Sources */,
 				0F5EE79A1EBE7CF300FBA3B5 /* XUIOrderingListItemsController.m in Sources */,
-				0F5EE77A1EBE764100FBA3B5 /* MEWTableViewController.m in Sources */,
+				0F5E69141EBFD17D00F2291F /* MEWApplicationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0F43F43F1EC3A42D00BBA182 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MEW;
+			targetProxy = 0F43F43E1EC3A42D00BBA182 /* PBXContainerItemProxy */;
+		};
+		0F43F4411EC3A42D00BBA182 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MEWPasteboard;
+			targetProxy = 0F43F4401EC3A42D00BBA182 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0F5EE7701EBE753400FBA3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -279,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -291,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -322,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -335,6 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/entitlements.plist";
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -346,6 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				WARNING_CFLAGS = "-Wpartial-availability";
 			};
 			name = Debug;
@@ -355,6 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "${SRCROOT}/entitlements.plist";
 				DEVELOPMENT_TEAM = GXZ23M5TP2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,6 +561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				WARNING_CFLAGS = "-Wpartial-availability";
 			};
 			name = Release;
@@ -389,6 +585,7 @@
 				0F5EE7741EBE753400FBA3B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -94,7 +94,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                           reuseIdentifier:kXUICellIdentifier];
         }
-        cell.tintColor = [UIColor blueColor];
+        cell.tintColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
         id curKey = self.specifier.titleDictionary.allKeys[indexPath.row];
         cell.textLabel.text = self.specifier.titleDictionary[curKey];
         for (id value in _currentValues) {

@@ -100,7 +100,7 @@
         }
         if (dict[PSDetailControllerClassKey]) {
             START_IGNORE_PARTIAL
-            if (XXT_SYSTEM_8) {
+            if (!XXT_SYSTEM_8) {
                 [spec setProperty:@"presentViewController:" forKey:PSActionKey];
                 spec->action = NSSelectorFromString(@"presentViewController:");
             }

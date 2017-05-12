@@ -10,7 +10,7 @@
     
     if ([self respondsToSelector:@selector(switchTintColor)]) {
         START_IGNORE_PARTIAL
-        if (XXT_SYSTEM_9)
+        if (!XXT_SYSTEM_9)
             [UITableViewCell appearanceWhenContainedIn:self.class, nil].tintColor = self.switchTintColor;
         else
             [UITableViewCell appearanceWhenContainedInInstancesOfClasses:@[self.class]].tintColor = self.switchTintColor;

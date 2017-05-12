@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <dlfcn.h>
+#import <errno.h>
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
