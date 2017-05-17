@@ -166,7 +166,7 @@ static int const kOpenUDIDRedundancySlots = 100;
     
     // Next we generate a UUID.
     // UUIDs (Universally Unique Identifiers), also known as GUIDs (Globally Unique Identifiers) or IIDs
-    // (Interface Identifiers), are 128-bit values guaranteed to be unique. A UUID is made unique over 
+    // (Interface Identifiers), are 128-bit values guaranteed to be unique. A UUID is made unique over
     // both space and time by combining a value unique to the computer on which it was generated—usually the
     // Ethernet hardware address—and a value representing the number of 100-nanosecond intervals since 
     // October 15, 1582 at 00:00:00.
@@ -178,7 +178,7 @@ static int const kOpenUDIDRedundancySlots = 100;
         CFStringRef cfstring = CFUUIDCreateString(kCFAllocatorDefault, uuid);
         const char *cStr = CFStringGetCStringPtr(cfstring,CFStringGetFastestEncoding(cfstring));
         unsigned char result[16];
-        CC_MD5( cStr, strlen(cStr), result );
+        CC_MD5( cStr, (CC_LONG)strlen(cStr), result );
         CFRelease(uuid);
         CFRelease(cfstring);
 
@@ -188,7 +188,7 @@ static int const kOpenUDIDRedundancySlots = 100;
                 result[4], result[5], result[6], result[7],
                 result[8], result[9], result[10], result[11],
                 result[12], result[13], result[14], result[15],
-                     (NSUInteger)(arc4random() % NSUIntegerMax)];  
+                     (int)(arc4random() % NSUIntegerMax)];
     }
     
     // Call to other developers in the Open Source community:

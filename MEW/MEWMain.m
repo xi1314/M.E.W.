@@ -30,26 +30,28 @@ _Pragma("clang diagnostic ignored \"-Wmissing-prototypes\"")
 
 #pragma mark - Config
 
+static NSDictionary *MEWConfig = nil;
 static CFAbsoluteTime mewStartTime = 0.f;
 static NSDictionary *getMewConfig() {
-    static NSDictionary *mewConfig = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSString *mewConfigPath = kMewConfigPath;
         NSDictionary *mewDict = [[NSDictionary alloc] initWithContentsOfFile:mewConfigPath];
         if (!mewDict)
             mewDict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"com.darwindev.MewApp" ofType:@"plist"]];
+#ifdef TEST_FLAG
         NSLog(@"%@", mewDict);
-        mewConfig = mewDict;
+#endif
+        MEWConfig = mewDict;
     });
-    return mewConfig;
+    return MEWConfig;
 }
 
 #pragma mark - Dynamic Image Check
 
 int (*original_dladdr)(void *addr, Dl_info *info);
 static int replaced_dladdr(void *addr, Dl_info *info) {
-    NSArray <NSString *> *replaceList = getMewConfig()[kMewReplaceImagePathList];
+    NSArray <NSString *> *replaceList = MEWConfig[kMewReplaceImagePathList];
     if (!replaceList) {
         return original_dladdr(addr, info);
     }
@@ -73,7 +75,7 @@ static int replaced_dladdr(void *addr, Dl_info *info) {
 
 char *(* original_dyld_get_image_name)(int index);
 static char *replaced_dyld_get_image_name(int index) {
-    NSArray <NSString *> *replaceList = getMewConfig()[kMewReplaceImagePathList];
+    NSArray <NSString *> *replaceList = MEWConfig[kMewReplaceImagePathList];
     if (!replaceList) {
         return original_dyld_get_image_name(index);
     }
@@ -95,7 +97,7 @@ static char *replaced_dyld_get_image_name(int index) {
 
 char *(* original_getenv)(const char* name);
 static char *replaced_getenv(const char* name) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewReplaceEnvironmentVariableList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewReplaceEnvironmentVariableList];
     for (NSString *bypassName in bypassList) {
         if (strcmp(name, bypassName.UTF8String) == 0) {
             return NULL;
@@ -109,7 +111,7 @@ static char *replaced_getenv(const char* name) {
 
 int (*original_stat)(const char *path, struct stat *info);
 static int replaced_stat(const char *path, struct stat *info) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewPathCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewPathCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         if (strcmp([bypassPath UTF8String], path) == 0) {
             errno = ENOENT;
@@ -121,7 +123,7 @@ static int replaced_stat(const char *path, struct stat *info) {
 
 int (*original_access)(const char *path, int mode);
 static int replaced_access(const char *path, int mode) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewPathCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewPathCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         if (strcmp([bypassPath UTF8String], path) == 0) {
             errno = ENOENT;
@@ -133,7 +135,7 @@ static int replaced_access(const char *path, int mode) {
 
 DIR *(*original_opendir)(const char *path);
 static DIR *replaced_opendir(const char *path) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewPathCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewPathCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         if (strcmp([bypassPath UTF8String], path) == 0) {
             errno = ENOENT;
@@ -145,7 +147,7 @@ static DIR *replaced_opendir(const char *path) {
 
 FILE *(*original_fopen)(const char *filename, const char *mode);
 static FILE *replaced_fopen(const char *filename, const char *mode) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewPathCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewPathCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         if (strcmp([bypassPath UTF8String], filename) == 0) {
             errno = ENOENT;
@@ -157,7 +159,7 @@ static FILE *replaced_fopen(const char *filename, const char *mode) {
 
 static BOOL (* _orig_NSFileManager_fileExistsAtPath)(id _self, SEL _cmd1, NSString *path);
 BOOL NSFileManager_fileExistsAtPath(id _self, SEL _cmd1, NSString *path) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewPathCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewPathCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         if ([bypassPath isEqualToString:path]) {
             return NO;
@@ -168,7 +170,7 @@ BOOL NSFileManager_fileExistsAtPath(id _self, SEL _cmd1, NSString *path) {
 
 static BOOL (* _orig_NSFileManager_fileExistsAtPath_isDirectory)(id _self, SEL _cmd1, NSString *path, BOOL *isDirectory);
 BOOL NSFileManager_fileExistsAtPath_isDirectory(id _self, SEL _cmd1, NSString *path, BOOL *isDirectory) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewPathCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewPathCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         if ([bypassPath isEqualToString:path]) {
             return NO;
@@ -179,7 +181,7 @@ BOOL NSFileManager_fileExistsAtPath_isDirectory(id _self, SEL _cmd1, NSString *p
 
 static IMP _orig_NSFileManager_contentsOfDirectoryAtPath_error;
 NSArray *NSFileManager_contentsOfDirectoryAtPath_error(id _self, SEL _cmd1, NSString *path, NSError **error) {
-    NSArray <NSString *> *directoryList = getMewConfig()[kMewDirectoryCheckBypassList];
+    NSArray <NSString *> *directoryList = MEWConfig[kMewDirectoryCheckBypassList];
     for (NSString *directoryPath in directoryList) {
         if ([directoryPath isEqualToString:path]) {
             return @[];
@@ -192,7 +194,7 @@ NSArray *NSFileManager_contentsOfDirectoryAtPath_error(id _self, SEL _cmd1, NSSt
 
 static BOOL (* _orig_UIApplication_canOpenURL)(id _self, SEL _cmd1, NSURL *url);
 BOOL UIApplication_canOpenURL(id _self, SEL _cmd1, NSURL *url) {
-    NSArray <NSString *> *bypassList = getMewConfig()[kMewURLSchemeCheckBypassList];
+    NSArray <NSString *> *bypassList = MEWConfig[kMewURLSchemeCheckBypassList];
     for (NSString *bypassPath in bypassList) {
         NSRange pathRange = [[url path] rangeOfString:bypassPath];
         if (pathRange.location != NSNotFound) {
@@ -206,7 +208,7 @@ BOOL UIApplication_canOpenURL(id _self, SEL _cmd1, NSURL *url) {
 
 static IMP _orig_LSApplicationWorkspace_allApplications;
 NSArray <LSApplicationProxy *> *LSApplicationWorkspace_allApplications(id _self, SEL _cmd1) {
-    NSArray <NSString *> *filteredApplications = getMewConfig()[kMewReplaceApplicationIdentifierList];
+    NSArray <NSString *> *filteredApplications = MEWConfig[kMewReplaceApplicationIdentifierList];
     NSArray <LSApplicationProxy *> *result = (NSArray<LSApplicationProxy *> *) [_orig_LSApplicationWorkspace_allApplications(_self, _cmd1) retain];
     if (!filteredApplications || filteredApplications.count == 0) {
         return result;
@@ -230,7 +232,7 @@ NSArray <LSApplicationProxy *> *LSApplicationWorkspace_allApplications(id _self,
 
 static IMP _orig_LSApplicationWorkspace_allInstalledApplications;
 NSArray <LSApplicationProxy *> *LSApplicationWorkspace_allInstalledApplications(id _self, SEL _cmd1) {
-    NSArray <NSString *> *filteredApplications = getMewConfig()[kMewReplaceApplicationIdentifierList];
+    NSArray <NSString *> *filteredApplications = MEWConfig[kMewReplaceApplicationIdentifierList];
     NSArray <LSApplicationProxy *> *result = (NSArray<LSApplicationProxy *> *) [_orig_LSApplicationWorkspace_allInstalledApplications(_self, _cmd1) retain];
     if (!filteredApplications || filteredApplications.count == 0) {
         return result;
@@ -252,11 +254,47 @@ NSArray <LSApplicationProxy *> *LSApplicationWorkspace_allInstalledApplications(
     return mutableResult;
 }
 
+static IMP _orig_LSApplicationWorkspace_deviceIdentifierForAdvertising;
+NSString *LSApplicationWorkspace_deviceIdentifierForAdvertising(id _self, SEL _cmd1) {
+    NSString *result = _orig_LSApplicationWorkspace_deviceIdentifierForAdvertising(_self, _cmd1);
+    if (!MEWConfig[kMewAdvertisingIdentifier]) {
+        return result;
+    }
+    return MEWConfig[kMewAdvertisingIdentifier];
+}
+
+static IMP _orig_LSApplicationWorkspace_deviceIdentifierForVendor;
+NSString *LSApplicationWorkspace_deviceIdentifierForVendor(id _self, SEL _cmd1) {
+    NSString *result = _orig_LSApplicationWorkspace_deviceIdentifierForVendor(_self, _cmd1);
+    if (!MEWConfig[kMewIdentifierForVendor]) {
+        return result;
+    }
+    return MEWConfig[kMewIdentifierForVendor];
+}
+
+static IMP _orig_LSApplicationProxy_deviceIdentifierForAdvertising;
+NSString *LSApplicationProxy_deviceIdentifierForAdvertising(id _self, SEL _cmd1) {
+    NSString *result = _orig_LSApplicationProxy_deviceIdentifierForAdvertising(_self, _cmd1);
+    if (!MEWConfig[kMewAdvertisingIdentifier]) {
+        return result;
+    }
+    return MEWConfig[kMewAdvertisingIdentifier];
+}
+
+static IMP _orig_LSApplicationProxy_deviceIdentifierForVendor;
+NSString *LSApplicationProxy_deviceIdentifierForVendor(id _self, SEL _cmd1) {
+    NSString *result = _orig_LSApplicationProxy_deviceIdentifierForVendor(_self, _cmd1);
+    if (!MEWConfig[kMewIdentifierForVendor]) {
+        return result;
+    }
+    return MEWConfig[kMewIdentifierForVendor];
+}
+
 #pragma mark - Device Info Check
 
 static IMP _orig_UIDevice_name;
 NSString *UIDevice_name(id _self, SEL _cmd1) {
-    NSString *fakeName = getMewConfig()[kMewDeviceName];
+    NSString *fakeName = MEWConfig[kMewDeviceName];
     if (!fakeName) {
         return _orig_UIDevice_name(_self, _cmd1);
     }
@@ -265,8 +303,8 @@ NSString *UIDevice_name(id _self, SEL _cmd1) {
 
 int (*original_uname)(struct utsname *uts);
 static int replace_uname(struct utsname *uts) {
-    NSString *fakeName = getMewConfig()[kMewDeviceName];
-    NSString *fakeType = getMewConfig()[kMewProductType];
+    NSString *fakeName = MEWConfig[kMewDeviceName];
+    NSString *fakeType = MEWConfig[kMewProductType];
     int result = original_uname(uts);
     if (fakeName && fakeType && fakeName.length != 0 && fakeType.length != 0) {
         strncpy(uts->nodename, [fakeName UTF8String], fakeName.length);
@@ -277,7 +315,7 @@ static int replace_uname(struct utsname *uts) {
 
 static IMP _orig_UIDevice_model;
 NSString *UIDevice_model(id _self, SEL _cmd1) {
-    NSString *fakeModel = getMewConfig()[kMewDeviceCategory];
+    NSString *fakeModel = MEWConfig[kMewDeviceCategory];
     if (!fakeModel) {
         return _orig_UIDevice_model(_self, _cmd1);
     }
@@ -285,7 +323,7 @@ NSString *UIDevice_model(id _self, SEL _cmd1) {
 }
 static IMP _orig_UIDevice_localizedModel;
 NSString *UIDevice_localizedModel(id _self, SEL _cmd1) {
-    NSString *fakeModel = getMewConfig()[kMewDeviceCategory];
+    NSString *fakeModel = MEWConfig[kMewDeviceCategory];
     if (!fakeModel) {
         return _orig_UIDevice_localizedModel(_self, _cmd1);
     }
@@ -294,7 +332,7 @@ NSString *UIDevice_localizedModel(id _self, SEL _cmd1) {
 
 static IMP _orig_UIDevice_systemName;
 NSString *UIDevice_systemName(id _self, SEL _cmd1) {
-    NSString *fakeName = getMewConfig()[kMewSystemName];
+    NSString *fakeName = MEWConfig[kMewSystemName];
     if (!fakeName) {
         return _orig_UIDevice_systemName(_self, _cmd1);
     }
@@ -303,7 +341,7 @@ NSString *UIDevice_systemName(id _self, SEL _cmd1) {
 
 static IMP _orig_UIDevice_systemVersion;
 NSString *UIDevice_systemVersion(id _self, SEL _cmd1) {
-    NSString *fakeVersion = getMewConfig()[kMewSystemVersion];
+    NSString *fakeVersion = MEWConfig[kMewSystemVersion];
     if (!fakeVersion) {
         return _orig_UIDevice_systemVersion(_self, _cmd1);
     }
@@ -312,7 +350,7 @@ NSString *UIDevice_systemVersion(id _self, SEL _cmd1) {
 
 static IMP _orig_UIDevice_uniqueIdentifier;
 NSString *UIDevice_uniqueIdentifier(id _self, SEL _cmd1) {
-    NSString *fakeIdentifier = getMewConfig()[kMewUniqueIdentifier];
+    NSString *fakeIdentifier = MEWConfig[kMewUniqueIdentifier];
     if (!fakeIdentifier) {
         return _orig_UIDevice_uniqueIdentifier(_self, _cmd1);
     }
@@ -321,7 +359,7 @@ NSString *UIDevice_uniqueIdentifier(id _self, SEL _cmd1) {
 
 static IMP _orig_UIDevice_identifierForVendor;
 NSUUID *UIDevice_identifierForVendor(id _self, SEL _cmd1) {
-    NSString *fakeIdentifier = getMewConfig()[kMewIdentifierForVendor];
+    NSString *fakeIdentifier = MEWConfig[kMewIdentifierForVendor];
     if (!fakeIdentifier) {
         return _orig_UIDevice_identifierForVendor(_self, _cmd1);
     }
@@ -330,7 +368,7 @@ NSUUID *UIDevice_identifierForVendor(id _self, SEL _cmd1) {
 
 static NSUInteger (*_orig_UIDevice_batteryState)(id _self, SEL _cmd1);
 NSUInteger UIDevice_batteryState(id _self, SEL _cmd1) {
-    NSNumber *fakeState = getMewConfig()[kMewDeviceBatteryState];
+    NSNumber *fakeState = MEWConfig[kMewDeviceBatteryState];
     if (!fakeState) {
         return _orig_UIDevice_batteryState(_self, _cmd1);
     }
@@ -352,7 +390,7 @@ float UIDevice_batteryLevel(id _self, SEL _cmd1) {
 static IMP _orig_UIStatusBarDataNetworkItemView_valueForKeyPath;
 id UIStatusBarDataNetworkItemView_valueForKeyPath(id _self, SEL _cmd1, NSString *keyPath) {
     if ([keyPath isEqualToString:@"dataNetworkType"]) {
-        NSNumber *fakeType = getMewConfig()[kMewNetworkType];
+        NSNumber *fakeType = MEWConfig[kMewNetworkType];
         if (fakeType) {
             return fakeType;
         }
@@ -363,7 +401,7 @@ id UIStatusBarDataNetworkItemView_valueForKeyPath(id _self, SEL _cmd1, NSString 
 static IMP _orig_UIStatusBarServiceItemView_valueForKey;
 id UIStatusBarServiceItemView_valueForKey(id _self, SEL _cmd1, NSString *keyPath) {
     if ([keyPath isEqualToString:@"serviceString"]) {
-        NSString *fakeSerivceString = getMewConfig()[kMewServiceString];
+        NSString *fakeSerivceString = MEWConfig[kMewServiceString];
         if (fakeSerivceString) {
             return fakeSerivceString;
         }
@@ -373,7 +411,7 @@ id UIStatusBarServiceItemView_valueForKey(id _self, SEL _cmd1, NSString *keyPath
 
 static float (*_orig_UIScreen_brightness)(id _self, SEL _cmd1);
 float UIScreen_brightness(id _self, SEL _cmd1) {
-    NSNumber *fakeBrightness = getMewConfig()[kMewScreenBrightness];
+    NSNumber *fakeBrightness = MEWConfig[kMewScreenBrightness];
     if (!fakeBrightness) {
         return _orig_UIScreen_brightness(_self, _cmd1);
     }
@@ -387,7 +425,7 @@ BOOL ASIdentifierManager_isAdvertisingTrackingEnabled(id _self, SEL _cmd1) {
 
 static IMP _orig_ASIdentifierManager_advertisingIdentifier;
 NSUUID *ASIdentifierManager_advertisingIdentifier(id _self, SEL _cmd1) {
-    NSString *fakeIdentifier = getMewConfig()[kMewAdvertisingIdentifier];
+    NSString *fakeIdentifier = MEWConfig[kMewAdvertisingIdentifier];
     if (!fakeIdentifier) {
         return _orig_ASIdentifierManager_advertisingIdentifier(_self, _cmd1);
     }
@@ -398,7 +436,7 @@ NSUUID *ASIdentifierManager_advertisingIdentifier(id _self, SEL _cmd1) {
 
 static IMP _orig_CTCarrier_carrierName;
 NSString *CTCarrier_carrierName(id _self, SEL _cmd1) {
-    NSString *fakeCarrierName = getMewConfig()[kMewCarrierName];
+    NSString *fakeCarrierName = MEWConfig[kMewCarrierName];
     if (!fakeCarrierName) {
         return _orig_CTCarrier_carrierName(_self, _cmd1);
     }
@@ -407,7 +445,7 @@ NSString *CTCarrier_carrierName(id _self, SEL _cmd1) {
 
 static IMP _orig_CTCarrier_mobileCountryCode;
 NSString *CTCarrier_mobileCountryCode(id _self, SEL _cmd1) {
-    NSString *fakeCountryCode = getMewConfig()[kMewCountryCode];
+    NSString *fakeCountryCode = MEWConfig[kMewCountryCode];
     if (!fakeCountryCode) {
         return _orig_CTCarrier_mobileCountryCode(_self, _cmd1);
     }
@@ -416,7 +454,7 @@ NSString *CTCarrier_mobileCountryCode(id _self, SEL _cmd1) {
 
 static IMP _orig_CTCarrier_mobileNetworkCode;
 NSString *CTCarrier_mobileNetworkCode(id _self, SEL _cmd1) {
-    NSString *fakeNetworkCode = getMewConfig()[kMewNetworkCode];
+    NSString *fakeNetworkCode = MEWConfig[kMewNetworkCode];
     if (!fakeNetworkCode) {
         return _orig_CTCarrier_mobileNetworkCode(_self, _cmd1);
     }
@@ -425,7 +463,7 @@ NSString *CTCarrier_mobileNetworkCode(id _self, SEL _cmd1) {
 
 static IMP _orig_CTCarrier_isoCountryCode;
 NSString *CTCarrier_isoCountryCode(id _self, SEL _cmd1) {
-    NSString *fakeCountryCode = getMewConfig()[kMewISOCountryCode];
+    NSString *fakeCountryCode = MEWConfig[kMewISOCountryCode];
     if (!fakeCountryCode) {
         return _orig_CTCarrier_isoCountryCode(_self, _cmd1);
     }
@@ -439,13 +477,13 @@ BOOL CTCarrier_allowsVOIP(id _self, SEL _cmd1) {
 
 CFStringRef (*original_CNCopyCurrentNetworkInfo)(NSString *ifname);
 static CFStringRef replaced_CNCopyCurrentNetworkInfo(NSString *ifname) {
-    NSNumber *networkType = getMewConfig()[kMewNetworkType];
+    NSNumber *networkType = MEWConfig[kMewNetworkType];
     int nType = [networkType intValue];
-    if (nType != 5 && getMewConfig()[kMewEthernetBSSID] && getMewConfig()[kMewEthernetSSID]) {
+    if (nType != 5 && MEWConfig[kMewEthernetBSSID] && MEWConfig[kMewEthernetSSID]) {
         NSDictionary *networkInfo = @{
-                                      @"BSSID": getMewConfig()[kMewEthernetBSSID],
-                                      @"SSID": getMewConfig()[kMewEthernetSSID],
-                                      @"SSIDDATA": [getMewConfig()[kMewEthernetSSID] dataUsingEncoding:NSUTF8StringEncoding]
+                                      @"BSSID": MEWConfig[kMewEthernetBSSID],
+                                      @"SSID": MEWConfig[kMewEthernetSSID],
+                                      @"SSIDDATA": [MEWConfig[kMewEthernetSSID] dataUsingEncoding:NSUTF8StringEncoding]
                                       };
         return CFBridgingRetain(networkInfo);
     }
@@ -455,7 +493,7 @@ static CFStringRef replaced_CNCopyCurrentNetworkInfo(NSString *ifname) {
 Boolean (*original_SCNetworkReachabilityGetFlags)(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags *flags);
 static Boolean replaced_SCNetworkReachabilityGetFlags(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags *flags) {
     if (flags != NULL) {
-        NSNumber *networkType = getMewConfig()[kMewNetworkType];
+        NSNumber *networkType = MEWConfig[kMewNetworkType];
         original_SCNetworkReachabilityGetFlags(target, flags);
         
         int nType = [networkType intValue];
@@ -476,7 +514,7 @@ static Boolean replaced_SCNetworkReachabilityGetFlags(SCNetworkReachabilityRef t
 
 int (*original_getifaddrs)(struct ifaddrs **interfaces);
 static int replaced_getifaddrs(struct ifaddrs **interfaces) {
-    NSDictionary *ifaddrs = getMewConfig()[kMewNetworkInterfaces];
+    NSDictionary *ifaddrs = MEWConfig[kMewNetworkInterfaces];
     int result = original_getifaddrs(interfaces);
     if (!ifaddrs) {
         return result;
@@ -499,8 +537,8 @@ static int replaced_getifaddrs(struct ifaddrs **interfaces) {
                     if (name && ifaddrs[name] && ifaddrs[name][@"ipv4"]) {
                         ipAddress = [ifaddrs[name][@"ipv4"] UTF8String];
                         
-                    } else if (strstr(interface->ifa_name, "en") && getMewConfig()[kMewEthernetIPv4Address]) {
-                        ipAddress = [getMewConfig()[kMewEthernetIPv4Address] UTF8String];
+                    } else if (strstr(interface->ifa_name, "en") && MEWConfig[kMewEthernetIPv4Address]) {
+                        ipAddress = [MEWConfig[kMewEthernetIPv4Address] UTF8String];
                     }
                     inet_pton(AF_INET, ipAddress, (void *)&addr->sin_addr);
                 }
@@ -510,8 +548,8 @@ static int replaced_getifaddrs(struct ifaddrs **interfaces) {
                     const char *ipAddress = "::1";
                     if (name && ifaddrs[name] && ifaddrs[name][@"ipv6"]) {
                         ipAddress = [ifaddrs[name][@"ipv6"] UTF8String];
-                    } else if (strstr(interface->ifa_name, "en") && getMewConfig()[kMewEthernetIPv6Address]) {
-                        ipAddress = [getMewConfig()[kMewEthernetIPv6Address] UTF8String];
+                    } else if (strstr(interface->ifa_name, "en") && MEWConfig[kMewEthernetIPv6Address]) {
+                        ipAddress = [MEWConfig[kMewEthernetIPv6Address] UTF8String];
                     }
                     inet_pton(AF_INET6, ipAddress, (void *)&addr6->sin6_addr);
                 }
@@ -526,8 +564,8 @@ static int replaced_getifaddrs(struct ifaddrs **interfaces) {
                 NSData *ipData = ifaddrs[name][@"mac"];
                 const char *macAddress = [ipData bytes];
                 memcpy((void *)&dlAddr->sdl_data[dlAddr->sdl_nlen], (void *)macAddress, [ipData length]);
-            } else if (strstr(interface->ifa_name, "en") && getMewConfig()[kMewEthernetMacAddress]) {
-                const char *mac = [[getMewConfig()[kMewEthernetMacAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
+            } else if (strstr(interface->ifa_name, "en") && MEWConfig[kMewEthernetMacAddress]) {
+                const char *mac = [[MEWConfig[kMewEthernetMacAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
                 if (mac) {
                     char macValue[7] = "";
                     sscanf(mac, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx", &macValue[0], &macValue[1], &macValue[2], &macValue[3], &macValue[4], &macValue[5]);
@@ -552,23 +590,23 @@ static CFTypeRef replaced_IORegistryEntryCreateCFProperty(mach_port_t entry, CFS
     if (!keyString || !result) {
         return result;
     }
-    id replace = getMewConfig()[kMewReplaceIOKitProperties][keyString];
+    id replace = MEWConfig[kMewReplaceIOKitProperties][keyString];
     if (!replace) {
         if ([keyString isEqualToString:kMewIOPlatformSerialNumber]) {
-            replace = getMewConfig()[kMewSerialNumber];
+            replace = MEWConfig[kMewSerialNumber];
         }
         else if ([keyString isEqualToString:kMewIOPlatformUUID]) {
-            replace = getMewConfig()[kMewUniqueIdentifier];
+            replace = MEWConfig[kMewUniqueIdentifier];
         }
         else if ([keyString isEqualToString:kMewIOSerialNumber]) {
-            replace = [getMewConfig()[kMewSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOMLBSerialNumber]) {
-            replace = [getMewConfig()[kMewMLBSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewMLBSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOBluetoothAddress]) {
-            if (getMewConfig()[kMewBluetoothAddress]) {
-                const char *mac = [[getMewConfig()[kMewBluetoothAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
+            if (MEWConfig[kMewBluetoothAddress]) {
+                const char *mac = [[MEWConfig[kMewBluetoothAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
                 if (mac) {
                     char macValue[7] = "";
                     sscanf(mac, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx", &macValue[0], &macValue[1], &macValue[2], &macValue[3], &macValue[4], &macValue[5]);
@@ -577,10 +615,10 @@ static CFTypeRef replaced_IORegistryEntryCreateCFProperty(mach_port_t entry, CFS
             }
         }
         else if ([keyString isEqualToString:kMewIOInternationalMobileEquipmentIdentity]) {
-            replace = [getMewConfig()[kMewInternationalMobileEquipmentIdentity] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewInternationalMobileEquipmentIdentity] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOUniqueChipId]) {
-            replace = [getMewConfig()[kMewUniqueChipID] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewUniqueChipID] dataUsingEncoding:NSUTF8StringEncoding];
         }
     }
     if (!replace) {
@@ -598,27 +636,27 @@ static kern_return_t replaced_IORegistryEntryCreateCFProperties(io_registry_entr
                                                                 CFMutableDictionaryRef *properties,
                                                                 CFAllocatorRef allocator,
                                                                 IOOptionBits options) {
-    NSDictionary *replaceProperties = getMewConfig()[kMewReplaceIOKitProperties];
+    NSDictionary *replaceProperties = MEWConfig[kMewReplaceIOKitProperties];
     kern_return_t result = original_IORegistryEntryCreateCFProperties(entry, properties, allocator, options);
     NSMutableDictionary *propertiesObj = (__bridge NSMutableDictionary *)*properties;
     NSMutableDictionary *replaceObj = [[NSMutableDictionary alloc] init];
     for (NSString *keyString in propertiesObj) {
         id replace = nil;
         if ([keyString isEqualToString:kMewIOPlatformSerialNumber]) {
-            replace = getMewConfig()[kMewSerialNumber];
+            replace = MEWConfig[kMewSerialNumber];
         }
         else if ([keyString isEqualToString:kMewIOPlatformUUID]) {
-            replace = getMewConfig()[kMewUniqueIdentifier];
+            replace = MEWConfig[kMewUniqueIdentifier];
         }
         else if ([keyString isEqualToString:kMewIOSerialNumber]) {
-            replace = [getMewConfig()[kMewSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOMLBSerialNumber]) {
-            replace = [getMewConfig()[kMewMLBSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewMLBSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOBluetoothAddress]) {
-            if (getMewConfig()[kMewBluetoothAddress]) {
-                const char *mac = [[getMewConfig()[kMewBluetoothAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
+            if (MEWConfig[kMewBluetoothAddress]) {
+                const char *mac = [[MEWConfig[kMewBluetoothAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
                 if (mac) {
                     char macValue[7] = "";
                     sscanf(mac, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx", &macValue[0], &macValue[1], &macValue[2], &macValue[3], &macValue[4], &macValue[5]);
@@ -627,10 +665,10 @@ static kern_return_t replaced_IORegistryEntryCreateCFProperties(io_registry_entr
             }
         }
         else if ([keyString isEqualToString:kMewIOInternationalMobileEquipmentIdentity]) {
-            replace = [getMewConfig()[kMewInternationalMobileEquipmentIdentity] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewInternationalMobileEquipmentIdentity] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOUniqueChipId]) {
-            replace = [getMewConfig()[kMewUniqueChipID] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewUniqueChipID] dataUsingEncoding:NSUTF8StringEncoding];
         }
         if (replace != nil) {
             replaceObj[keyString] = replace;
@@ -662,23 +700,23 @@ static CFTypeRef replaced_IORegistryEntrySearchCFProperty(io_registry_entry_t en
     if (!keyString || !result) {
         return result;
     }
-    id replace = getMewConfig()[kMewReplaceIOKitProperties][keyString];
+    id replace = MEWConfig[kMewReplaceIOKitProperties][keyString];
     if (!replace) {
         if ([keyString isEqualToString:kMewIOPlatformSerialNumber]) {
-            replace = getMewConfig()[kMewSerialNumber];
+            replace = MEWConfig[kMewSerialNumber];
         }
         else if ([keyString isEqualToString:kMewIOPlatformUUID]) {
-            replace = getMewConfig()[kMewUniqueIdentifier];
+            replace = MEWConfig[kMewUniqueIdentifier];
         }
         else if ([keyString isEqualToString:kMewIOSerialNumber]) {
-            replace = [getMewConfig()[kMewSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOMLBSerialNumber]) {
-            replace = [getMewConfig()[kMewMLBSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewMLBSerialNumber] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOBluetoothAddress]) {
-            if (getMewConfig()[kMewBluetoothAddress]) {
-                const char *mac = [[getMewConfig()[kMewBluetoothAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
+            if (MEWConfig[kMewBluetoothAddress]) {
+                const char *mac = [[MEWConfig[kMewBluetoothAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
                 if (mac) {
                     char macValue[7] = "";
                     sscanf(mac, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx", &macValue[0], &macValue[1], &macValue[2], &macValue[3], &macValue[4], &macValue[5]);
@@ -687,10 +725,10 @@ static CFTypeRef replaced_IORegistryEntrySearchCFProperty(io_registry_entry_t en
             }
         }
         else if ([keyString isEqualToString:kMewIOInternationalMobileEquipmentIdentity]) {
-            replace = [getMewConfig()[kMewInternationalMobileEquipmentIdentity] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewInternationalMobileEquipmentIdentity] dataUsingEncoding:NSUTF8StringEncoding];
         }
         else if ([keyString isEqualToString:kMewIOUniqueChipId]) {
-            replace = [getMewConfig()[kMewUniqueChipID] dataUsingEncoding:NSUTF8StringEncoding];
+            replace = [MEWConfig[kMewUniqueChipID] dataUsingEncoding:NSUTF8StringEncoding];
         }
     }
     if (!replace) {
@@ -705,13 +743,13 @@ static int replaced_sysctlbyname(const char *name, void *oldp, size_t *oldlenp, 
     int result = original_sysctlbyname(name, oldp, oldlenp, newp, newlen);
     NSString *replaceName = nil;
     if (strcmp(name, "kern.hostname") == 0) {
-        replaceName = getMewConfig()[kMewDeviceName];
+        replaceName = MEWConfig[kMewDeviceName];
     } else if (strcmp(name, "hw.machine") == 0) {
-        replaceName = getMewConfig()[kMewProductType];
+        replaceName = MEWConfig[kMewProductType];
     } else if (strcmp(name, "hw.model") == 0) {
-        replaceName = getMewConfig()[kMewProductHWModel];
+        replaceName = MEWConfig[kMewProductHWModel];
     } else if (strcmp(name, "kern.osversion") == 0) {
-        replaceName = getMewConfig()[kMewSystemBuildVersion];
+        replaceName = MEWConfig[kMewSystemBuildVersion];
     }
     if (replaceName) {
         const char *replaceStr = [replaceName UTF8String];
@@ -758,7 +796,7 @@ static int replaced_sysctl(const int *name, u_int namelen, void *oldp, size_t *o
                 char if_name[IFNAMSIZ] = "";
                 if_indextoname((unsigned int) name[5], if_name);
                 NSString *ifNameString = [[NSString alloc] initWithUTF8String:if_name];
-                NSDictionary *ifaddrs = getMewConfig()[kMewNetworkInterfaces];
+                NSDictionary *ifaddrs = MEWConfig[kMewNetworkInterfaces];
                 if (!ifaddrs) {
                     return result;
                 }
@@ -769,8 +807,8 @@ static int replaced_sysctl(const int *name, u_int namelen, void *oldp, size_t *o
                     ) {
                     const char *macAddress = [ifaddrs[ifNameString][@"mac"] bytes];
                     memcpy((void *)&dlAddr->sdl_data[dlAddr->sdl_nlen], (void *)macAddress, 6);
-                } else if (strstr(if_name, "en") && getMewConfig()[kMewEthernetMacAddress]) {
-                    const char *mac = [[getMewConfig()[kMewEthernetMacAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
+                } else if (strstr(if_name, "en") && MEWConfig[kMewEthernetMacAddress]) {
+                    const char *mac = [[MEWConfig[kMewEthernetMacAddress] dataUsingEncoding:NSUTF8StringEncoding] bytes];
                     if (mac) {
                         char macValue[7] = "";
                         sscanf(mac, "%02hhx:%02hhx:%02hhx:%02hhx:%02hhx:%02hhx", &macValue[0], &macValue[1], &macValue[2], &macValue[3], &macValue[4], &macValue[5]);
@@ -786,7 +824,7 @@ static int replaced_sysctl(const int *name, u_int namelen, void *oldp, size_t *o
 
 static CFPropertyListRef (*orig_MGCopyAnswer_internal)(CFStringRef prop, uint32_t* outTypeCode);
 CFPropertyListRef new_MGCopyAnswer_internal(CFStringRef prop, uint32_t* outTypeCode) {
-    NSDictionary *answers = getMewConfig()[kMewReplaceMGCopyAnswer];
+    NSDictionary *answers = MEWConfig[kMewReplaceMGCopyAnswer];
     NSString *answerKey = (__bridge NSString *)prop;
     if (answers && answers[answerKey]) {
         return CFBridgingRetain(answers[answerKey]);
@@ -834,15 +872,24 @@ CFPropertyListRef new_MGCopyAnswer_internal(CFStringRef prop, uint32_t* outTypeC
     else if ([answerKey isEqualToString:(__bridge NSString *)kMGWifiAddress]) {
         anotherKey = kMewEthernetMacAddress;
     }
-    if (anotherKey && getMewConfig()[anotherKey]) {
-        return CFBridgingRetain(getMewConfig()[anotherKey]);
+    else if ([answerKey isEqualToString:(__bridge NSString *)kMGModelNumber]) {
+        anotherKey = kMewProductModel;
+    }
+    else if ([answerKey isEqualToString:(__bridge NSString *)kMGRegionCode]) {
+        anotherKey = kMewRegionCode;
+    }
+    else if ([answerKey isEqualToString:(__bridge NSString *)kMGRegionInfo]) {
+        anotherKey = kMewRegionInfo;
+    }
+    if (anotherKey && MEWConfig[anotherKey]) {
+        return CFBridgingRetain(MEWConfig[anotherKey]);
     }
     return orig_MGCopyAnswer_internal(prop, outTypeCode);
 }
 
 static CFPropertyListRef (*orig_MGCopyAnswer)(CFStringRef prop);
 CFPropertyListRef new_MGCopyAnswer(CFStringRef prop) {
-    NSDictionary *answers = getMewConfig()[kMewReplaceMGCopyAnswer];
+    NSDictionary *answers = MEWConfig[kMewReplaceMGCopyAnswer];
     NSString *answerKey = (__bridge NSString *)prop;
     if (answers && answers[answerKey]) {
         return CFBridgingRetain(answers[answerKey]);
@@ -890,8 +937,17 @@ CFPropertyListRef new_MGCopyAnswer(CFStringRef prop) {
     else if ([answerKey isEqualToString:(__bridge NSString *)kMGWifiAddress]) {
         anotherKey = kMewEthernetMacAddress;
     }
-    if (anotherKey && getMewConfig()[anotherKey]) {
-        return CFBridgingRetain(getMewConfig()[anotherKey]);
+    else if ([answerKey isEqualToString:(__bridge NSString *)kMGModelNumber]) {
+        anotherKey = kMewProductModel;
+    }
+    else if ([answerKey isEqualToString:(__bridge NSString *)kMGRegionCode]) {
+        anotherKey = kMewRegionCode;
+    }
+    else if ([answerKey isEqualToString:(__bridge NSString *)kMGRegionInfo]) {
+        anotherKey = kMewRegionInfo;
+    }
+    if (anotherKey && MEWConfig[anotherKey]) {
+        return CFBridgingRetain(MEWConfig[anotherKey]);
     }
     return orig_MGCopyAnswer(prop);
 }
@@ -900,7 +956,7 @@ static BOOL (* _orig_NSArray_containsObject)(id _self, SEL _cmd1, id obj);
 BOOL NSArray_containsObject(NSArray *_self, SEL _cmd1, id obj) {
     if (_self.count != 0) {
         if ([obj isKindOfClass:[NSString class]]) {
-            NSArray <NSString *> *bypassList = getMewConfig()[kMewStringSearchBypassList];
+            NSArray <NSString *> *bypassList = MEWConfig[kMewStringSearchBypassList];
             for (NSString *bypassSubstr in bypassList) {
                 if ([bypassSubstr isEqualToString:obj]) {
                     return NO;
@@ -914,7 +970,7 @@ BOOL NSArray_containsObject(NSArray *_self, SEL _cmd1, id obj) {
 static NSRange (* _orig_NSString_rangeOfString)(id _self, SEL _cmd1, id sub);
 NSRange NSString_rangeOfString(NSString *_self, SEL _cmd1, NSString *sub) {
     if (_self.length != 0) {
-        NSArray <NSString *> *bypassList = getMewConfig()[kMewStringSearchBypassList];
+        NSArray <NSString *> *bypassList = MEWConfig[kMewStringSearchBypassList];
         for (NSString *bypassSubstr in bypassList) {
             if ([bypassSubstr isEqualToString:sub]) {
                 return NSMakeRange(NSNotFound, NSNotFound);
@@ -929,14 +985,14 @@ NSDictionary *NSDictionary_newWithContentsOf_immutable(id _self, SEL _cmd1, NSSt
     NSDictionary *result = _orig_NSDictionary_newWithContentsOf_immutable(_self, _cmd1, path, immutable);
     if ([path isEqualToString:kMewPlistSystemVersionPlistPath]) {
         NSMutableDictionary *mutableResult = [result mutableCopy];
-        if (getMewConfig()[kMewSystemVersion]) {
-            [mutableResult setObject:getMewConfig()[kMewSystemVersion] forKey:kMewPlistSystemVersionProductVersion];
+        if (MEWConfig[kMewSystemVersion]) {
+            [mutableResult setObject:MEWConfig[kMewSystemVersion] forKey:kMewPlistSystemVersionProductVersion];
         }
-        if (getMewConfig()[kMewSystemBuildVersion]) {
-            [mutableResult setObject:getMewConfig()[kMewSystemBuildVersion] forKey:kMewPlistSystemVersionProductBuildVersion];
+        if (MEWConfig[kMewSystemBuildVersion]) {
+            [mutableResult setObject:MEWConfig[kMewSystemBuildVersion] forKey:kMewPlistSystemVersionProductBuildVersion];
         }
-        if (getMewConfig()[kMewSystemName]) {
-            [mutableResult setObject:getMewConfig()[kMewSystemName] forKey:kMewPlistSystemVersionProductName];
+        if (MEWConfig[kMewSystemName]) {
+            [mutableResult setObject:MEWConfig[kMewSystemName] forKey:kMewPlistSystemVersionProductName];
         }
         NSDictionary *newResult = [[NSDictionary alloc] initWithDictionary:mutableResult];
         [mutableResult release];
@@ -957,8 +1013,8 @@ CLLocationCoordinate2D CLLocation_coordinate(id _self, SEL _cmd1) {
     if (useRandomLocation) {
         return randomLocation;
     }
-    NSString *fakeLatitude = getMewConfig()[kMewCoordinateRegionLatitudeKey];
-    NSString *fakeLongitude = getMewConfig()[kMewCoordinateRegionLongitudeKey];
+    NSString *fakeLatitude = MEWConfig[kMewCoordinateRegionLatitudeKey];
+    NSString *fakeLongitude = MEWConfig[kMewCoordinateRegionLongitudeKey];
     if (!fakeLatitude || !fakeLongitude) {
         return _orig_CLLocation_coordinate(_self, _cmd1);
     }
@@ -992,8 +1048,8 @@ static CLLocation *CLLocationManager_location(id _self, SEL _cmd1) {
         coordinate.latitude = randomLocation.latitude;
         coordinate.longitude = randomLocation.longitude;
     } else {
-        NSString *fakeLatitude = getMewConfig()[kMewCoordinateRegionLatitudeKey];
-        NSString *fakeLongitude = getMewConfig()[kMewCoordinateRegionLongitudeKey];
+        NSString *fakeLatitude = MEWConfig[kMewCoordinateRegionLatitudeKey];
+        NSString *fakeLongitude = MEWConfig[kMewCoordinateRegionLongitudeKey];
         if (!fakeLatitude || !fakeLongitude) {
             return location;
         }
@@ -1041,7 +1097,7 @@ int *  _CTServerConnectionCopyMobileEquipmentInfo(
 int *(* original_CTServerConnectionCopyMobileIdentity)(struct CTResult *res, struct CTServerConnection *connection, NSString **stringBuf);
 static int * replaced_CTServerConnectionCopyMobileIdentity(struct CTResult *res, struct CTServerConnection *connection, NSString **stringBuf) {
     int *result = original_CTServerConnectionCopyMobileIdentity(res, connection, stringBuf);
-    NSString *replaceIMEI = getMewConfig()[kMewInternationalMobileEquipmentIdentity];
+    NSString *replaceIMEI = MEWConfig[kMewInternationalMobileEquipmentIdentity];
     if (!replaceIMEI) {
         return result;
     }
@@ -1053,23 +1109,23 @@ int *(* original_CTServerConnectionCopyMobileEquipmentInfo)(struct CTResult *, s
 static int * replaced_CTServerConnectionCopyMobileEquipmentInfo(struct CTResult *res, struct CTServerConnection *connection, CFDictionaryRef *dictBuf) {
     int *result = original_CTServerConnectionCopyMobileEquipmentInfo(res, connection, dictBuf);
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary *) *dictBuf];
-    if (dict[kCTMobileEquipmentInfoIMEI] && getMewConfig()[kMewInternationalMobileEquipmentIdentity]) {
-        dict[kCTMobileEquipmentInfoIMEI] = getMewConfig()[kMewInternationalMobileEquipmentIdentity];
+    if (dict[kCTMobileEquipmentInfoIMEI] && MEWConfig[kMewInternationalMobileEquipmentIdentity]) {
+        dict[kCTMobileEquipmentInfoIMEI] = MEWConfig[kMewInternationalMobileEquipmentIdentity];
     }
-    if (dict[kCTMobileEquipmentInfoCurrentMobileId] && getMewConfig()[kMewCurrentMobileId]) {
-        dict[kCTMobileEquipmentInfoCurrentMobileId] = getMewConfig()[kMewCurrentMobileId];
+    if (dict[kCTMobileEquipmentInfoCurrentMobileId] && MEWConfig[kMewCurrentMobileId]) {
+        dict[kCTMobileEquipmentInfoCurrentMobileId] = MEWConfig[kMewCurrentMobileId];
     }
-    if (dict[kCTMobileEquipmentInfoICCID] && getMewConfig()[kMewICCID]) {
-        dict[kCTMobileEquipmentInfoICCID] = getMewConfig()[kMewICCID];
+    if (dict[kCTMobileEquipmentInfoICCID] && MEWConfig[kMewICCID]) {
+        dict[kCTMobileEquipmentInfoICCID] = MEWConfig[kMewICCID];
     }
-    if (dict[kCTMobileEquipmentInfoMEID] && getMewConfig()[kMewMEID]) {
-        dict[kCTMobileEquipmentInfoMEID] = getMewConfig()[kMewMEID];
+    if (dict[kCTMobileEquipmentInfoMEID] && MEWConfig[kMewMEID]) {
+        dict[kCTMobileEquipmentInfoMEID] = MEWConfig[kMewMEID];
     }
-    if (dict[kCTMobileEquipmentInfoIMSI] && getMewConfig()[kMewIMSI]) {
-        dict[kCTMobileEquipmentInfoIMSI] = getMewConfig()[kMewIMSI];
+    if (dict[kCTMobileEquipmentInfoIMSI] && MEWConfig[kMewIMSI]) {
+        dict[kCTMobileEquipmentInfoIMSI] = MEWConfig[kMewIMSI];
     }
-    if (dict[kCTMobileEquipmentInfoCurrentSubscriberId] && getMewConfig()[kMewCurrentSubscriberId]) {
-        dict[kCTMobileEquipmentInfoCurrentSubscriberId] = getMewConfig()[kMewCurrentSubscriberId];
+    if (dict[kCTMobileEquipmentInfoCurrentSubscriberId] && MEWConfig[kMewCurrentSubscriberId]) {
+        dict[kCTMobileEquipmentInfoCurrentSubscriberId] = MEWConfig[kMewCurrentSubscriberId];
     }
     *dictBuf = CFBridgingRetain(dict);
     [dict release];
@@ -1085,7 +1141,7 @@ static CFStringRef replaced_SCNetworkInterfaceGetHardwareAddressString(SCNetwork
     CFStringRef result = original_SCNetworkInterfaceGetHardwareAddressString(anInterface);
     if ([(__bridge NSString *)orig_SCNetworkInterfaceGetInterfaceType(anInterface) isEqualToString:(__bridge NSString * _Nonnull)(*orig_kSCNetworkInterfaceTypeIEEE80211)]) {
         NSString *ifNameString = (__bridge NSString *)orig_SCNetworkInterfaceGetBSDName(anInterface);
-        NSDictionary *ifaddrs = getMewConfig()[kMewNetworkInterfaces];
+        NSDictionary *ifaddrs = MEWConfig[kMewNetworkInterfaces];
         if (!ifaddrs) {
             return result;
         }
@@ -1096,8 +1152,8 @@ static CFStringRef replaced_SCNetworkInterfaceGetHardwareAddressString(SCNetwork
             const char *address = [ifaddrs[ifNameString][@"mac"] bytes];
             NSString *addressString = [NSString stringWithFormat:@"%02hhX:%02hhX:%02hhX:%02hhX:%02hhX:%02hhX", address[0], address[1], address[2], address[3], address[4], address[5]];
             return (__bridge CFStringRef) addressString;
-        } else if ([ifNameString rangeOfString:@"en"].location != NSNotFound && getMewConfig()[kMewEthernetMacAddress]) {
-            return (__bridge CFStringRef) getMewConfig()[kMewEthernetMacAddress];
+        } else if ([ifNameString rangeOfString:@"en"].location != NSNotFound && MEWConfig[kMewEthernetMacAddress]) {
+            return (__bridge CFStringRef) MEWConfig[kMewEthernetMacAddress];
         }
     }
     return result;
@@ -1105,7 +1161,7 @@ static CFStringRef replaced_SCNetworkInterfaceGetHardwareAddressString(SCNetwork
 
 static IMP _orig_CTTelephonyNetworkInfo_currentRadioAccessTechnology;
 NSString *CTTelephonyNetworkInfo_currentRadioAccessTechnology(id _self, SEL _cmd1) {
-    NSNumber *networkType = getMewConfig()[kMewNetworkType];
+    NSNumber *networkType = MEWConfig[kMewNetworkType];
     int nType = [networkType intValue];
     if (nType == 5) {
         // Wifi
@@ -1127,7 +1183,7 @@ NSString *CTTelephonyNetworkInfo_currentRadioAccessTechnology(id _self, SEL _cmd
 
 static IMP _orig_NSTimeZone_name;
 NSString *NSTimeZone_name(id _self, SEL _cmd1) {
-    NSString *timezoneName = getMewConfig()[kMewTimezoneName];
+    NSString *timezoneName = MEWConfig[kMewTimezoneName];
     if (timezoneName && [timezoneName isKindOfClass:[NSString class]]) {
         return timezoneName;
     }
@@ -1136,7 +1192,7 @@ NSString *NSTimeZone_name(id _self, SEL _cmd1) {
 
 static IMP _orig_NSTimeZone_data;
 NSData *NSTimeZone_data(id _self, SEL _cmd1) {
-    NSData *timezoneData = getMewConfig()[kMewTimezoneData];
+    NSData *timezoneData = MEWConfig[kMewTimezoneData];
     if (timezoneData && [timezoneData isKindOfClass:[NSData class]]) {
         return timezoneData;
     }
@@ -1168,7 +1224,9 @@ static void ExternallyPostedNotification(CFNotificationCenterRef center, void *o
 
 __attribute__((constructor))
 static void initialize() {
-    if (![getMewConfig()[kMewEnabled] boolValue]) {
+    getMewConfig();
+    
+    if (![MEWConfig[kMewEnabled] boolValue]) {
         return;
     }
     
@@ -1181,8 +1239,8 @@ static void initialize() {
     CFNotificationCenterAddObserver(darwin, NULL, ExternallyPostedNotification, CFSTR("com.darwindev.mew.prefsChanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     
     BOOL enabledApplication = NO;
-    NSArray <NSString *> *appIdentifierList = getMewConfig()[kMewApplicationIdentifierWhiteList];
-    NSArray <NSString *> *appBlackList = getMewConfig()[kMewApplicationIdentifierBlackList];
+    NSArray <NSString *> *appIdentifierList = MEWConfig[kMewApplicationIdentifierWhiteList];
+    NSArray <NSString *> *appBlackList = MEWConfig[kMewApplicationIdentifierBlackList];
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     for (NSString *appIdentifier in appIdentifierList) {
         if ([appIdentifier isEqualToString:bundleIdentifier]) {
@@ -1199,7 +1257,7 @@ static void initialize() {
     
     if (enabledApplication) {
         
-        if ([getMewConfig()[kMewSwitchFakeJailbreak] boolValue]) {
+        if ([MEWConfig[kMewSwitchFakeJailbreak] boolValue]) {
             MSHookFunction(dladdr, replaced_dladdr, (void **) &original_dladdr);
             MSHookFunction(_dyld_get_image_name, replaced_dyld_get_image_name, (void **) &original_dyld_get_image_name);
             
@@ -1217,10 +1275,14 @@ static void initialize() {
             
             MSHookMessageEx(objc_getClass("LSApplicationWorkspace"), @selector(allApplications), (IMP)LSApplicationWorkspace_allApplications, &_orig_LSApplicationWorkspace_allApplications);
             MSHookMessageEx(objc_getClass("LSApplicationWorkspace"), @selector(allInstalledApplications), (IMP)LSApplicationWorkspace_allInstalledApplications, &_orig_LSApplicationWorkspace_allInstalledApplications);
+            MSHookMessageEx(objc_getClass("LSApplicationWorkspace"), @selector(deviceIdentifierForAdvertising), (IMP)LSApplicationWorkspace_deviceIdentifierForAdvertising, &_orig_LSApplicationWorkspace_deviceIdentifierForAdvertising);
+            MSHookMessageEx(objc_getClass("LSApplicationWorkspace"), @selector(deviceIdentifierForVendor), (IMP)LSApplicationWorkspace_deviceIdentifierForVendor, &_orig_LSApplicationWorkspace_deviceIdentifierForVendor);
+            MSHookMessageEx(objc_getClass("LSApplicationProxy"), @selector(deviceIdentifierForAdvertising), (IMP)LSApplicationProxy_deviceIdentifierForAdvertising, &_orig_LSApplicationProxy_deviceIdentifierForAdvertising);
+            MSHookMessageEx(objc_getClass("LSApplicationProxy"), @selector(deviceIdentifierForVendor), (IMP)LSApplicationProxy_deviceIdentifierForVendor, &_orig_LSApplicationProxy_deviceIdentifierForVendor);
             MSHookMessageEx(objc_getClass("NSArray"), @selector(containsObject:), (IMP)NSArray_containsObject, (IMP *)&_orig_NSArray_containsObject);
             MSHookMessageEx(objc_getClass("NSString"), @selector(rangeOfString:), (IMP)NSString_rangeOfString, (IMP *)&_orig_NSString_rangeOfString);
         }
-        if ([getMewConfig()[kMewSwitchFakeDeviceInfo] boolValue]) {
+        if ([MEWConfig[kMewSwitchFakeDeviceInfo] boolValue]) {
             MSHookFunction(uname, replace_uname, (void **)&original_uname);
             MSHookMessageEx(objc_getClass("UIDevice"), @selector(name), (IMP)UIDevice_name, &_orig_UIDevice_name);
             MSHookMessageEx(objc_getClass("UIDevice"), @selector(model), (IMP)UIDevice_model, &_orig_UIDevice_model);
@@ -1254,8 +1316,13 @@ static void initialize() {
                 $MGCopyAnswer = dlsym(gestalt, "MGCopyAnswer");
                 
                 uint8_t MGCopyAnswer_arm64_impl[8] = {0x01, 0x00, 0x80, 0xd2, 0x01, 0x00, 0x00, 0x14};
+                uint8_t MGCopyAnswer_armv7_impl[8] = {0x00, 0x21, 0x00, 0xf0, 0x01, 0xb8, 0x00, 0xbf};
                 const uint8_t* MGCopyAnswer_ptr = (const uint8_t*) $MGCopyAnswer;
-                if (memcmp(MGCopyAnswer_ptr, MGCopyAnswer_arm64_impl, 8) == 0) {
+#ifdef __arm64__
+                if (memcmp((void *)MGCopyAnswer_ptr, (void *)MGCopyAnswer_arm64_impl, 8) == 0) {
+#else
+                if (memcmp((void *)(MGCopyAnswer_ptr - 1), (void *)MGCopyAnswer_armv7_impl, 8) == 0) {
+#endif
                     MSHookFunction((void *)(MGCopyAnswer_ptr + 8), (void*)new_MGCopyAnswer_internal, (void**)&orig_MGCopyAnswer_internal);
                 } else {
                     MSHookFunction((void *)MGCopyAnswer_ptr, (void*)new_MGCopyAnswer, (void**)&orig_MGCopyAnswer);
@@ -1275,7 +1342,7 @@ static void initialize() {
             }
             MSHookMessageEx(objc_getMetaClass("NSDictionary"), @selector(newWithContentsOf:immutable:), (IMP)NSDictionary_newWithContentsOf_immutable, (IMP *)&_orig_NSDictionary_newWithContentsOf_immutable);
         }
-        if ([getMewConfig()[kMewSwitchFakeNetworkInfo] boolValue]) {
+        if ([MEWConfig[kMewSwitchFakeNetworkInfo] boolValue]) {
             MSHookMessageEx(objc_getClass("CTCarrier"), @selector(carrierName), (IMP)CTCarrier_carrierName, (IMP *)&_orig_CTCarrier_carrierName);
             MSHookMessageEx(objc_getClass("CTCarrier"), @selector(mobileCountryCode), (IMP)CTCarrier_mobileCountryCode, (IMP *)&_orig_CTCarrier_mobileCountryCode);
             MSHookMessageEx(objc_getClass("CTCarrier"), @selector(mobileNetworkCode), (IMP)CTCarrier_mobileNetworkCode, (IMP *)&_orig_CTCarrier_mobileNetworkCode);
@@ -1288,23 +1355,17 @@ static void initialize() {
             MSHookFunction(getifaddrs, replaced_getifaddrs, (void **)&original_getifaddrs);
             MSHookMessageEx(objc_getClass("CTTelephonyNetworkInfo"), @selector(currentRadioAccessTechnology), (IMP)CTTelephonyNetworkInfo_currentRadioAccessTechnology, (IMP *)&_orig_CTTelephonyNetworkInfo_currentRadioAccessTechnology);
         }
-        if ([getMewConfig()[kMewSwitchFakeLocation] boolValue]) {
+        if ([MEWConfig[kMewSwitchFakeLocation] boolValue]) {
             MSHookMessageEx(objc_getClass("CLLocation"), @selector(coordinate), (IMP)CLLocation_coordinate, (IMP *)&_orig_CLLocation_coordinate);
             MSHookMessageEx(objc_getClass("CLLocationManager"), @selector(location), (IMP)CLLocationManager_location, (IMP *)&_orig_CLLocationManager_location);
             MSHookMessageEx(objc_getClass("NSTimeZone"), @selector(name), (IMP)NSTimeZone_name, (IMP *)&_orig_NSTimeZone_name);
             MSHookMessageEx(objc_getClass("NSTimeZone"), @selector(data), (IMP)NSTimeZone_data, (IMP *)&_orig_NSTimeZone_data);
-            if ([getMewConfig()[kMewSwitchFakeRandomLocation] boolValue]) {
+            if ([MEWConfig[kMewSwitchFakeRandomLocation] boolValue]) {
                 randomLocation.latitude = ((arc4random() % RAND_MAX) / (RAND_MAX * 1.0)) * (90.0 - -90.0) + -90.0;
                 randomLocation.longitude = ((arc4random() % RAND_MAX) / (RAND_MAX * 1.0)) * (180.0 - -180.0) + -180.0;
                 useRandomLocation = YES;
             } else {
                 useRandomLocation = NO;
-            }
-        }
-        if ([getMewConfig()[kMewSwitchAutoCleanPasteboard] boolValue]) {
-            UIPasteboard *pb = [UIPasteboard generalPasteboard];
-            for (NSString *pasteboardType in [pb pasteboardTypes]) {
-                [pb setValue:@"" forPasteboardType:pasteboardType];
             }
         }
         

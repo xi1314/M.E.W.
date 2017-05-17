@@ -21,7 +21,7 @@ static NSString * const kMewOriginalSystemVersion = @"OriginalSystemVersion";
 static NSString * const kMewOriginalDeviceType = @"OriginalDeviceType";
 static NSString * const kMewOriginalIOPlatformUUID = @"OriginalIOPlatformUUID";
 
-@interface MEWRootViewController ()
+@interface MEWRootViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -70,7 +70,7 @@ static NSString * const kMewOriginalIOPlatformUUID = @"OriginalIOPlatformUUID";
             NSError *error = nil;
             if ([[MEWSharedUtility sharedInstance] cleanSystemKeychainWithError:&error]) {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                                    message:@"Keychain 清理完成"
+                                                                    message:@"Keychain 清理完成。"
                                                                    delegate:nil
                                                           cancelButtonTitle:@"好"
                                                           otherButtonTitles:nil];
@@ -84,6 +84,84 @@ static NSString * const kMewOriginalIOPlatformUUID = @"OriginalIOPlatformUUID";
                 [alertView show];
             }
         }
+        else if ([action isEqualToString:@"reset_all"]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:@"设备信息将还原为初始状态，轻按「好」以重置并退出 M.E.W."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"取消"
+                                                      otherButtonTitles:@"好", nil];
+            [alertView show];
+        }
+        else if ([action isEqualToString:@"clean_safari"]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"清理中……"
+                                                                message:nil
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:nil];
+            [alertView show];
+            [self performSelector:@selector(performAction:) withObject:@[action, alertView] afterDelay:1.f];
+        }
+        else if ([action isEqualToString:@"new_device"]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"请稍候……"
+                                                                message:nil
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:nil];
+            [alertView show];
+            [self performSelector:@selector(performAction:) withObject:@[action, alertView] afterDelay:1.f];
+        }
+    }
+}
+
+- (void)performAction:(NSArray *)args {
+    if (args.count >= 1) {
+        if (args.count == 2 &&
+            [args[0] isKindOfClass:[NSString class]] &&
+            [args[0] isEqualToString:@"clean_safari"]
+            ) {
+            [[MEWSharedUtility sharedInstance] cleanSafariCaches];
+            [self performSelector:@selector(performAction:) withObject:@[@"clean_safari_done", args[1]] afterDelay:1.f];
+        }
+        else if (args.count == 2 &&
+                 [args[0] isKindOfClass:[NSString class]] &&
+                 [args[0] isEqualToString:@"new_device"]
+                 ) {
+            [[MEWSharedUtility sharedInstance] bootstrapDevice];
+            [self performSelector:@selector(performAction:) withObject:@[@"new_device_done", args[1]] afterDelay:1.f];
+        }
+        else if (args.count == 2 &&
+                 [args[0] isKindOfClass:[NSString class]] &&
+                 [args[0] isEqualToString:@"clean_safari_done"]) {
+            [args[1] dismissWithClickedButtonIndex:0 animated:YES];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:@"Safari 清理完成。"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"好"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }
+        else if (args.count == 2 &&
+                 [args[0] isKindOfClass:[NSString class]] &&
+                 [args[0] isEqualToString:@"new_device_done"]) {
+            
+            [args[1] dismissWithClickedButtonIndex:0 animated:YES];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:@"一键新机完成。"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"好"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MEWDefaultConfiguration" ofType:@"plist"]];
+        [defaultConfig enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+        }];
+        _exit(0);
     }
 }
 

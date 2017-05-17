@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0F2FDBAA1EBD118300773FD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */; };
 		0F3AE5461EC1AB930076C80B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3AE5451EC1AB930076C80B /* CoreTelephony.framework */; };
-		0F44D81F1EC6545C006BFD43 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81A1EC6545C006BFD43 /* librocketbootstrap.dylib */; };
 		0F44D8201EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */; };
 		0F44D8211EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */; };
-		0F44D83E1EC65512006BFD43 /* AppSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D8191EC6545C006BFD43 /* AppSupport.framework */; };
+		0F4F58BB1ECB9FEF00494174 /* MEWAuthorizationUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F4F58B91ECB9FEF00494174 /* MEWAuthorizationUtility.h */; };
+		0F4F58BC1ECB9FEF00494174 /* MEWAuthorizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4F58BA1ECB9FEF00494174 /* MEWAuthorizationUtility.m */; };
 		0F90D7B11EC319D40027424D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FA1EBC98E800A45144 /* Foundation.framework */; };
 		0F90D7B21EC319D40027424D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FC1EBC98E800A45144 /* UIKit.framework */; };
 		0F90D7BE1EC319D40027424D /* MEWPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F90D7BD1EC319D40027424D /* MEWPasteboard.m */; };
@@ -72,6 +72,8 @@
 		0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = Library/libsubstrate.dylib; sourceTree = "<group>"; };
 		0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MewApp.xcodeproj; path = MewApp/MewApp.xcodeproj; sourceTree = "<group>"; };
 		0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEWDo.xcodeproj; path = MEWDo/MEWDo.xcodeproj; sourceTree = "<group>"; };
+		0F4F58B91ECB9FEF00494174 /* MEWAuthorizationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWAuthorizationUtility.h; sourceTree = "<group>"; };
+		0F4F58BA1ECB9FEF00494174 /* MEWAuthorizationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWAuthorizationUtility.m; sourceTree = "<group>"; };
 		0F90D7B01EC319D40027424D /* MEWPasteboard.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MEWPasteboard.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F90D7BA1EC319D40027424D /* MEWPasteboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MEWPasteboard-Prefix.pch"; sourceTree = "<group>"; };
 		0F90D7BD1EC319D40027424D /* MEWPasteboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboard.m; sourceTree = "<group>"; };
@@ -89,11 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F44D83E1EC65512006BFD43 /* AppSupport.framework in Frameworks */,
 				0F90D7B11EC319D40027424D /* Foundation.framework in Frameworks */,
 				0F90D7B21EC319D40027424D /* UIKit.framework in Frameworks */,
 				0F44D8211EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */,
-				0F44D81F1EC6545C006BFD43 /* librocketbootstrap.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				0F90D7BD1EC319D40027424D /* MEWPasteboard.m */,
+				0F4F58B91ECB9FEF00494174 /* MEWAuthorizationUtility.h */,
+				0F4F58BA1ECB9FEF00494174 /* MEWAuthorizationUtility.m */,
 				0F90D7B81EC319D40027424D /* Supporting Files */,
 			);
 			path = MEWPasteboard;
@@ -166,9 +168,9 @@
 		0FFB56ED1EBC98E800A45144 = {
 			isa = PBXGroup;
 			children = (
+				0F44D80D1EC65439006BFD43 /* Header */,
 				0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */,
 				0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */,
-				0F44D80D1EC65439006BFD43 /* Header */,
 				0FFB56FE1EBC98E800A45144 /* MEW */,
 				0F90D7B31EC319D40027424D /* MEWPasteboard */,
 				0FFB56F91EBC98E800A45144 /* Frameworks */,
@@ -225,6 +227,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4F58BB1ECB9FEF00494174 /* MEWAuthorizationUtility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +271,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				0F44D8311EC654A8006BFD43 /* PBXTargetDependency */,
 				0F44D82B1EC6549A006BFD43 /* PBXTargetDependency */,
+				0F44D8311EC654A8006BFD43 /* PBXTargetDependency */,
 				0F44D8291EC65496006BFD43 /* PBXTargetDependency */,
 			);
 			name = MEW;
@@ -347,7 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scp -rP 2222 ${BUILT_PRODUCTS_DIR}/MEW.dylib root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\nscp -rP 2222 ${SRCROOT}/MEW/MEW.plist root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\n";
+			shellScript = "scp -P 2222 ${BUILT_PRODUCTS_DIR}/MEW.dylib root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\nscp -P 2222 ${SRCROOT}/MEW/MEW.plist root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\n";
 		};
 		0F90D7CC1EC31BC30027424D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -360,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scp -rP 2222 ${BUILT_PRODUCTS_DIR}/MEWPasteboard.dylib root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\nscp -rP 2222 ${SRCROOT}/MEWPasteboard/MEWPasteboard.plist root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\n";
+			shellScript = "scp -P 2222 ${BUILT_PRODUCTS_DIR}/MEWPasteboard.dylib root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\nscp -P 2222 ${SRCROOT}/MEWPasteboard/MEWPasteboard.plist root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4F58BC1ECB9FEF00494174 /* MEWAuthorizationUtility.m in Sources */,
 				0F90D7BE1EC319D40027424D /* MEWPasteboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,8 +428,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
@@ -458,8 +464,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
@@ -493,9 +501,11 @@
 				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevPath = /opt/iOSOpenDev;
 			};
 			name = Debug;
@@ -516,9 +526,11 @@
 				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevPath = /opt/iOSOpenDev;
 			};
 			name = Release;
@@ -545,8 +557,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
@@ -579,8 +593,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)$(LOCAL_LIBRARY_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";

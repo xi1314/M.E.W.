@@ -14,5 +14,8 @@
 + (instancetype)sharedInstance;
 - (id)MEWCopyAnswer:(NSString *)key;
 - (BOOL)cleanSystemKeychainWithError:(NSError **)error;
+- (void)cleanSafariCaches;
+- (void)bootstrapDevice;
+- (void)cleanAllPasteboard;
 
 @end

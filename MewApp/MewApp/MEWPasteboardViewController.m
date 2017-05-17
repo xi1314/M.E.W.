@@ -203,7 +203,7 @@ UIAlertViewDelegate
 #pragma mark - Memory
 
 - (void)dealloc {
-#ifdef DEBUG
+#ifdef TEST_FLAG
     NSLog(@"[MEWPasteboardViewController dealloc]");
 #endif
 }

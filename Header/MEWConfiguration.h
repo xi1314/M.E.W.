@@ -9,6 +9,9 @@
 #ifndef MEWConfiguration_h
 #define MEWConfiguration_h
 
+#define TEST_FLAG 1
+
+static NSString * const kMewBundleID = @"com.darwindev.MewApp";
 static NSString * const kMewConfigPath = @"/private/var/mobile/Library/Preferences/com.darwindev.MewApp.plist";
 static NSString * const kMewPasteboardHistoryPath = @"/private/var/mobile/Library/Preferences/com.darwindev.MewApp.pasteboard.plist";
 static NSString * const kMewPasteboardHistoryKey = @"PasteboardHistory";
@@ -17,9 +20,11 @@ static NSString * const kMewApplicationIdentifierWhiteList = @"ApplicationIdenti
 static NSString * const kMewApplicationIdentifierBlackList = @"ApplicationIdentifierBlackList";
 static NSString * const kMewEthernetIPv4Address = @"EthernetIPv4Address";
 static NSString * const kMewSwitchFakeRandomLocation = @"SwitchFakeRandomLocation";
+static NSString * const kMewTimezoneData = @"TimezoneData";
 static NSString * const kMewUniqueIdentifier = @"UniqueIdentifier";
 static NSString * const kMewStringSearchBypassList = @"StringSearchBypassList";
 static NSString * const kMewEthernetBSSID = @"EthernetBSSID";
+static NSString * const kMewOpenUDID = @"OpenUDID";
 static NSString * const kMewNetworkInterfaces = @"NetworkInterfaces";
 static NSString * const kMewSwitchFakeLocation = @"SwitchFakeLocation";
 static NSString * const kMewSwitchAutoBackup = @"SwitchAutoBackup";
@@ -32,20 +37,25 @@ static NSString * const kMewReplaceEnvironmentVariableList = @"ReplaceEnvironmen
 static NSString * const kMewDeviceName = @"DeviceName";
 static NSString * const kMewSerialNumber = @"SerialNumber";
 static NSString * const kMewDeviceBatteryState = @"DeviceBatteryState";
+static NSString * const kMewTimezoneName = @"TimezoneName";
 static NSString * const kMewProductHWModel = @"ProductHWModel";
 static NSString * const kMewBluetoothAddress = @"BluetoothAddress";
+static NSString * const kMewRegionInfo = @"RegionInfo";
 static NSString * const kMewMLBSerialNumber = @"MLBSerialNumber";
 static NSString * const kMewNetworkType = @"NetworkType";
 static NSString * const kMewCurrentMobileId = @"CurrentMobileId";
 static NSString * const kMewReplaceImagePathList = @"ReplaceImagePathList";
+static NSString * const kMewRegionCode = @"RegionCode";
 static NSString * const kMewURLSchemeCheckBypassList = @"URLSchemeCheckBypassList";
 static NSString * const kMewCountryCode = @"CountryCode";
 static NSString * const kMewSwitchFakeNetworkInfo = @"SwitchFakeNetworkInfo";
+static NSString * const kMewProductModel = @"ProductModel";
 static NSString * const kMewNetworkCode = @"NetworkCode";
 static NSString * const kMewUniqueChipID = @"UniqueChipID";
 static NSString * const kMewEthernetIPv6Address = @"EthernetIPv6Address";
 static NSString * const kMewEthernetMacAddress = @"EthernetMacAddress";
 static NSString * const kMewScreenBrightness = @"ScreenBrightness";
+static NSString * const kMewInverseDeviceID = @"InverseDeviceID";
 static NSString * const kMewCoordinateRegionLongitudeKey = @"CoordinateRegionLongitudeKey";
 static NSString * const kMewServiceString = @"ServiceString";
 static NSString * const kMewSystemVersion = @"SystemVersion";
@@ -58,6 +68,7 @@ static NSString * const kMewISOCountryCode = @"ISOCountryCode";
 static NSString * const kMewICCID = @"ICCID";
 static NSString * const kMewSystemBuildVersion = @"SystemBuildVersion";
 static NSString * const kMewSwitchMonitorPasteboard = @"SwitchMonitorPasteboard";
+static NSString * const kMewEthernetRSSID = @"EthernetRSSID";
 static NSString * const kMewCoordinateRegionLatitudeKey = @"CoordinateRegionLatitudeKey";
 static NSString * const kMewReplaceApplicationIdentifierList = @"ReplaceApplicationIdentifierList";
 static NSString * const kMewCarrierName = @"CarrierName";
@@ -72,9 +83,7 @@ static NSString * const kMewEnabled = @"Enabled";
 static NSString * const kMewCurrentSubscriberId = @"CurrentSubscriberId";
 static NSString * const kMewInternationalMobileEquipmentIdentity = @"InternationalMobileEquipmentIdentity";
 static NSString * const kMewSwitchFakeDeviceInfo = @"SwitchFakeDeviceInfo";
-static NSString * const kMewOpenUDID = @"OpenUDID";
-static NSString * const kMewTimezoneName = @"TimezoneName";
-static NSString * const kMewTimezoneData = @"TimezoneData";
+
 // Dictionary Key
 
 static NSString * const kMewIOPlatformSerialNumber = @"IOPlatformSerialNumber";

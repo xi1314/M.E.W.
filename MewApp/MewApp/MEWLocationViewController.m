@@ -125,7 +125,7 @@ static NSString * const kMEWMapViewAnnotationFormat = @"纬度: %f, 经度: %f";
 #pragma mark - Memory
 
 - (void)dealloc {
-#ifdef DEBUG
+#ifdef TEST_FLAG
     NSLog(@"[MEWLocationViewController dealloc]");
 #endif
 }

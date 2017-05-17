@@ -64,9 +64,39 @@
 			<key>cell</key>
 			<string>XUIEditTextCell</string>
 			<key>label</key>
-			<string>Model</string>
+			<string>HWModel</string>
 			<key>key</key>
 			<string>ProductHWModel</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Model</string>
+			<key>key</key>
+			<string>ProductModel</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Region</string>
+			<key>key</key>
+			<string>RegionInfo</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>Region Code</string>
+			<key>key</key>
+			<string>RegionCode</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
 		</dict>
@@ -153,6 +183,16 @@
 			<string>OpenUDID</string>
 			<key>key</key>
 			<string>OpenUDID</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>IDID</string>
+			<key>key</key>
+			<string>InverseDeviceID</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
 		</dict>
@@ -299,6 +339,16 @@
 			<string>SSID</string>
 			<key>key</key>
 			<string>EthernetSSID</string>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIEditTextCell</string>
+			<key>label</key>
+			<string>RSSID</string>
+			<key>key</key>
+			<string>EthernetRSSID</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
 		</dict>

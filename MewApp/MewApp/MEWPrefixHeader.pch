@@ -21,4 +21,17 @@
 #define MAIN_COLOR ([UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0])
 #define MEWCopyAnswer(skey) ([[MEWSharedUtility sharedInstance] MEWCopyAnswer:skey])
 
+static inline int mew_exec(char *args[]) {
+    pid_t i;
+    i = fork();
+    if (i == 0)
+    {
+        execv("/Applications/MewApp.app/MEWDo", args);
+        _exit(0);
+    }
+    int status = 0;
+    wait(&status);
+    return status;
+}
+
 #endif /* MEWPrefixHeader_pch */

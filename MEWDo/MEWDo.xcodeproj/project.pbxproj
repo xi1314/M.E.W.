@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FB54EFC1EC64E4E00927DB3 /* MEWDo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0FB54EFA1EC64E4E00927DB3 /* MEWDo.cpp */; };
+		0FB54EFC1EC64E4E00927DB3 /* MEWDo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FB54EFA1EC64E4E00927DB3 /* MEWDo.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F44D80A1EC652C6006BFD43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FB54EFA1EC64E4E00927DB3 /* MEWDo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MEWDo.cpp; sourceTree = "<group>"; };
+		0FB54EFA1EC64E4E00927DB3 /* MEWDo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MEWDo.mm; sourceTree = "<group>"; };
 		0FB54EFB1EC64E4E00927DB3 /* MenesFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenesFunction.h; sourceTree = "<group>"; };
 		0FB54EFD1EC64E9800927DB3 /* launch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = launch.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,7 +40,7 @@
 			children = (
 				0F44D80A1EC652C6006BFD43 /* Info.plist */,
 				0FB54EFD1EC64E9800927DB3 /* launch.h */,
-				0FB54EFA1EC64E4E00927DB3 /* MEWDo.cpp */,
+				0FB54EFA1EC64E4E00927DB3 /* MEWDo.mm */,
 				0FB54EFB1EC64E4E00927DB3 /* MenesFunction.h */,
 			);
 			path = MEWDo;
@@ -108,7 +108,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scp -P 2222 ${BUILT_PRODUCTS_DIR}/MEWDo.app/MEWDo root@127.0.0.1:/Applications/MewApp.app\n";
+			shellScript = "ssh root@127.0.0.1 -p 2222 mkdir -p /Applications/MewApp.app\nscp -P 2222 ${BUILT_PRODUCTS_DIR}/MEWDo.app/MEWDo root@127.0.0.1:/Applications/MewApp.app\nssh root@127.0.0.1 -p 2222 chmod a+s /Applications/MewApp.app/MEWDo\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -117,7 +117,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FB54EFC1EC64E4E00927DB3 /* MEWDo.cpp in Sources */,
+				0FB54EFC1EC64E4E00927DB3 /* MEWDo.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,9 +148,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
 				MACH_O_TYPE = mh_execute;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevPath = /opt/iOSOpenDev;
 			};
 			name = Debug;
@@ -172,9 +174,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
 				MACH_O_TYPE = mh_execute;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
 				iOSOpenDevPath = /opt/iOSOpenDev;
 			};
 			name = Release;
@@ -191,6 +195,7 @@
 				INSTALL_PATH = /usr/bin;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = mh_execute;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MEWDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -216,6 +221,7 @@
 				INSTALL_PATH = /usr/bin;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = mh_execute;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MEWDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

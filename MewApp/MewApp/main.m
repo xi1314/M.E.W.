@@ -1,15 +1,13 @@
 //
 //  main.m
-//  MewApp
+//  antidebugging
 //
-//  Created by Zheng on 06/05/2017.
-//  Copyright © 2017 Zheng. All rights reserved.
+//  Created by Vincent Tan on 7/8/15.
+//  Copyright (c) 2015 Vincent Tan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <dlfcn.h>
-#import <errno.h>
 #import "AppDelegate.h"
+#import <dlfcn.h>
 
 int main(int argc, char * argv[]) {
     setgid(0); setuid(0);

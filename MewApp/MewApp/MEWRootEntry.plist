@@ -64,6 +64,44 @@
 			<key>cell</key>
 			<string>XUIGroupCell</string>
 			<key>label</key>
+			<string>备份</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIButtonCell</string>
+			<key>label</key>
+			<string>立即备份</string>
+			<key>action</key>
+			<string>performButtonAction:</string>
+			<key>kwargs</key>
+			<array>
+				<string>backup_now</string>
+			</array>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUISwitchCell</string>
+			<key>label</key>
+			<string>自动备份</string>
+			<key>key</key>
+			<string>SwitchAutoBackup</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.darwindev.MewApp</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUILinkCell</string>
+			<key>label</key>
+			<string>从备份恢复</string>
+			<key>detail</key>
+			<string>MEWBackupViewController</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIGroupCell</string>
+			<key>label</key>
 			<string>功能</string>
 		</dict>
 		<dict>
@@ -206,45 +244,7 @@
 			<key>cell</key>
 			<string>XUIGroupCell</string>
 			<key>label</key>
-			<string>备份</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUIButtonCell</string>
-			<key>label</key>
-			<string>立即备份</string>
-			<key>action</key>
-			<string>performButtonAction:</string>
-			<key>kwargs</key>
-			<array>
-				<string>backup_now</string>
-			</array>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUISwitchCell</string>
-			<key>label</key>
-			<string>自动备份</string>
-			<key>key</key>
-			<string>SwitchAutoBackup</string>
-			<key>default</key>
-			<true/>
-			<key>defaults</key>
-			<string>com.darwindev.MewApp</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUILinkCell</string>
-			<key>label</key>
-			<string>从备份恢复</string>
-			<key>detail</key>
-			<string>MEWBackupViewController</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUIGroupCell</string>
-			<key>label</key>
-			<string>原始信息</string>
+			<string>设备信息</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -332,7 +332,7 @@
 			<key>cell</key>
 			<string>XUIButtonCell</string>
 			<key>label</key>
-			<string>还原设备信息</string>
+			<string>重置所有配置</string>
 			<key>action</key>
 			<string>performButtonAction:</string>
 			<key>kwargs</key>

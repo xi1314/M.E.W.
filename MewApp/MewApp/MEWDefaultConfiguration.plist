@@ -74,12 +74,6 @@
 			<key>main-screen-width</key>
 			<integer>640</integer>
 		</dict>
-		<key>RegionInfo</key>
-		<string>CH/A</string>
-		<key>RegionCode</key>
-		<string>CH</string>
-		<key>ModelNumber</key>
-		<string>FF000</string>
 		<key>HardwarePlatform</key>
 		<string>s5l8950b</string>
 	</dict>
@@ -153,6 +147,7 @@
 		<string>/var/mobile/Library/Preferences/com.darwindev.MewApp.plist</string>
 		<string>/private/var/mobile/Library/Preferences/com.darwindev.MewApp.pasteboard.plist</string>
 		<string>/var/mobile/Library/Preferences/com.darwindev.MewApp.pasteboard.plist</string>
+		<string>/Applications/MewApp.app/MewApp</string>
 	</array>
 	<key>DirectoryCheckBypassList</key>
 	<array>
@@ -212,6 +207,12 @@
 	<string></string>
 	<key>ProductHWModel</key>
 	<string></string>
+	<key>ProductModel</key>
+	<string></string>
+	<key>RegionCode</key>
+	<string></string>
+	<key>RegionInfo</key>
+	<string></string>
 	<key>SerialNumber</key>
 	<string></string>
 	<key>MLBSerialNumber</key>
@@ -254,6 +255,8 @@
 	<string></string>
 	<key>EthernetSSID</key>
 	<string></string>
+	<key>EthernetRSSID</key>
+	<string></string>
 	<key>CurrentMobileId</key>
 	<string></string>
 	<key>CurrentSubscriberId</key>
@@ -266,8 +269,10 @@
 	<string></string>
 	<key>OpenUDID</key>
 	<string></string>
+	<key>InverseDeviceID</key>
+	<string></string>
 	<key>TimezoneName</key>
-	<string>Asia/Shanghai</string>
+	<string></string>
 	<key>TimezoneData</key>
 	<data></data>
 	<key>NetworkInterfaces</key>

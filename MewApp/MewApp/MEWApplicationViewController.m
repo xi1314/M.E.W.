@@ -65,7 +65,7 @@ UISearchDisplayDelegate
 //        return [obj1.localizedName compare:obj2.localizedName];
 //    }];
     
-#ifndef DEBUG
+#ifdef TEST_FLAG
     self.unselectedApplications = [allApplications mutableCopy];
 #else
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"applicationType = 'User'"];
@@ -385,7 +385,7 @@ UISearchDisplayDelegate
 #pragma mark - Memory
 
 - (void)dealloc {
-#ifdef DEBUG
+#ifdef TEST_FLAG
     NSLog(@"[MEWApplicationViewController dealloc]");
 #endif
 }

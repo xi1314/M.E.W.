@@ -30,8 +30,12 @@
 #include "launch.h"
 
 #include <sys/stat.h>
+#include <Foundation/Foundation.h>
 
 #include "MenesFunction.h"
+
+_Pragma("clang diagnostic push")
+_Pragma("clang diagnostic ignored \"-Wmissing-prototypes\"")
 
 typedef Function<void, const char *, launch_data_t> LaunchDataIterator;
 
@@ -117,13 +121,11 @@ int main(int argc, char *argv[]) {
     setuid(0);
     setgid(0);
 
-    if (argc < 2 || argv[1][0] != '/')
-        argv[0] = "/usr/bin/dpkg";
-    else {
-        --argc;
-        ++argv;
-    }
+    --argc;
+    ++argv;
 
     execv(argv[0], argv);
     return EX_UNAVAILABLE;
 }
+
+_Pragma("clang diagnostic pop")

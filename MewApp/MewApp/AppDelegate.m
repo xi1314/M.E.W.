@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MEWOpenUDID.h"
 #import "MEWRootViewController.h"
+#import <unistd.h>
 
 @interface AppDelegate ()
 
@@ -18,11 +19,11 @@
 
 - (void)loadDefaultConfiguration {
     
-//    NSMutableString *conf = [NSMutableString string];
+    NSMutableString *conf = [NSMutableString string];
     
     NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MEWDefaultConfiguration" ofType:@"plist"]];
     [defaultConfig enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-#ifdef DEBUG
+#ifdef TEST_FLAG
         id answer = MEWCopyAnswer(key);
         if (answer) {
             NSLog(@"%@: %@", key, answer);
@@ -30,7 +31,7 @@
         } else {
             [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
         }
-//        [conf appendFormat:@"static NSString * const kMew%@ = @\"%@\";\n", key, key];
+        [conf appendFormat:@"static NSString * const kMew%@ = @\"%@\";\n", key, key];
 #else
         if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
             id answer = MEWCopyAnswer(key);
@@ -43,15 +44,13 @@
 #endif
     }];
     
-//    NSLog(@"%@", conf);
+    NSLog(@"%@", conf);
     
 }
 
 - (void)loadStartupCommands {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kMewSwitchAutoCleanPasteboard]) {
-        system("/Applications/MewApp.app/MEWDo /bin/launchctl unload -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
-        system("/Applications/MewApp.app/MEWDo /bin/rm -rf /var/mobile/Library/Caches/com.apple.UIKit.pboard/*");
-        system("/Applications/MewApp.app/MEWDo /bin/launchctl load -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
+        [[MEWSharedUtility sharedInstance] cleanAllPasteboard];
     }
 }
 
