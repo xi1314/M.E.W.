@@ -13,7 +13,7 @@
 	<key>SwitchFakeNetworkInfo</key>
 	<true/>
 	<key>SwitchFakeLocation</key>
-	<true/>
+	<false/>
 	<key>SwitchFakeRandomLocation</key>
 	<false/>
 	<key>SwitchAutoBackup</key>
@@ -21,7 +21,7 @@
 	<key>SwitchMonitorPasteboard</key>
 	<true/>
 	<key>SwitchAutoCleanPasteboard</key>
-	<true/>
+	<false/>
 	<key>ApplicationIdentifierBlackList</key>
 	<array>
 		<string>NZT</string>
@@ -30,6 +30,7 @@
 		<string>com.saurik.Cydia</string>
 		<string>com.saurik.Impactor</string>
 		<string>com.darwindev.MewApp</string>
+		<string>com.xxtouch.XXTouchApp</string>
 		<string>com.apple.AppStore</string>
 		<string>com.apple.springboard</string>
 		<string>com.apple.backupd</string>
@@ -181,9 +182,10 @@
 		<string>com.saurik.Cydia</string>
 		<string>com.touchsprite.ios</string>
 		<string>NZT</string>
-		<string>com.xxtouch.xxtouch</string>
+		<string>com.xxtouch.XXTouchApp</string>
 		<string>org.ioshack.igrimace</string>
 		<string>com.darwindev.MewApp</string>
+		<string></string>
 	</array>
 	<key>ReplaceEnvironmentVariableList</key>
 	<array>
@@ -267,7 +269,7 @@
 	<string></string>
 	<key>IMSI</key>
 	<string></string>
-	<key>OpenUDID</key>
+	<key>OpenUDIDValue</key>
 	<string></string>
 	<key>InverseDeviceID</key>
 	<string></string>
@@ -291,5 +293,74 @@
 	<string>460</string>
 	<key>ISOCountryCode</key>
 	<string></string>
+	<key>MewVersion</key>
+	<string>0.1-3</string>
+	<key>MewLastLaunchTime</key>
+	<integer>0</integer>
+	<key>MewUniqueId</key>
+	<string></string>
+	<key>MewVerifyKeys</key>
+	<array>
+		<string>Enabled</string>
+		<string>SwitchFakeApplicationList</string>
+		<string>SwitchFakeJailbreak</string>
+		<string>SwitchFakeDeviceInfo</string>
+		<string>SwitchFakeNetworkInfo</string>
+		<string>SwitchFakeLocation</string>
+		<string>SwitchFakeRandomLocation</string>
+		<string>SwitchAutoBackup</string>
+		<string>SwitchMonitorPasteboard</string>
+		<string>SwitchAutoCleanPasteboard</string>
+		<string>ApplicationIdentifierBlackList</string>
+		<string>ApplicationIdentifierWhiteList</string>
+		<string>DeviceName</string>
+		<string>DeviceCategory</string>
+		<string>ProductType</string>
+		<string>ProductHWModel</string>
+		<string>ProductModel</string>
+		<string>RegionCode</string>
+		<string>RegionInfo</string>
+		<string>SerialNumber</string>
+		<string>MLBSerialNumber</string>
+		<string>BluetoothAddress</string>
+		<string>SystemName</string>
+		<string>SystemVersion</string>
+		<string>SystemBuildVersion</string>
+		<string>UniqueIdentifier</string>
+		<string>UniqueDeviceID</string>
+		<string>UniqueChipID</string>
+		<string>IdentifierForVendor</string>
+		<string>AdvertisingIdentifier</string>
+		<string>InternationalMobileEquipmentIdentity</string>
+		<string>DeviceBatteryState</string>
+		<string>ScreenBrightness</string>
+		<string>CoordinateRegionLatitudeKey</string>
+		<string>CoordinateRegionLongitudeKey</string>
+		<string>EthernetMacAddress</string>
+		<string>EthernetIPv4Address</string>
+		<string>EthernetIPv6Address</string>
+		<string>EthernetBSSID</string>
+		<string>EthernetSSID</string>
+		<string>EthernetRSSID</string>
+		<string>CurrentMobileId</string>
+		<string>CurrentSubscriberId</string>
+		<string>ICCID</string>
+		<string>MEID</string>
+		<string>IMSI</string>
+		<string>OpenUDIDValue</string>
+		<string>InverseDeviceID</string>
+		<string>TimezoneName</string>
+		<string>NetworkType</string>
+		<string>CarrierName</string>
+		<string>ServiceString</string>
+		<string>CarrierVersionString</string>
+		<string>NetworkCode</string>
+		<string>CountryCode</string>
+		<string>ISOCountryCode</string>
+		<string>MewVersion</string>
+		<string>MewLastLaunchTime</string>
+		<string>MewUniqueId</string>
+		<string>MewVerifyKeys</string>
+	</array>
 </dict>
 </plist>

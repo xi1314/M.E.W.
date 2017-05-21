@@ -5,11 +5,12 @@
 //  Created by Zheng on 10/05/2017.
 //
 
+
+
 #import <dlfcn.h>
 #import <UIKit/UIKit.h>
 #import "substrate.h"
 #import "MEWConfiguration.h"
-#import "MEWAuthorizationUtility.h"
 
 #import <UIKit/UIKit.h>
 
@@ -45,10 +46,11 @@ typedef int (*ptrace_ptr_t)(int _request, pid_t _pid, caddr_t _addr, int _data);
  @brief This is the basic ptrace functionality.
  @link http://www.coredump.gr/articles/ios-anti-debugging-protections-part-1/
  */
-void debugger_ptrace()
+__attribute((obfuscate))
+void _pb_hook_A()
 {
     void* handle = dlopen(0, RTLD_GLOBAL | RTLD_NOW);
-    ptrace_ptr_t ptrace_ptr = dlsym(handle, "ptrace");
+    ptrace_ptr_t ptrace_ptr = dlsym(handle, [D(D(@"CZIbYlyp/fQ6LMVrUZTTUA==")) UTF8String]);
     ptrace_ptr(PT_DENY_ATTACH, 0, 0, 0);
     dlclose(handle);
 }
@@ -58,7 +60,8 @@ void debugger_ptrace()
  @link https://developer.apple.com/library/mac/qa/qa1361/_index.html
  @link http://www.coredump.gr/articles/ios-anti-debugging-protections-part-2/
  */
-static bool debugger_sysctl(void)
+__attribute((obfuscate))
+static bool _pb_hook_B(void)
 // Returns true if the current process is being debugged (either
 // running under the debugger or has a debugger attached post facto).
 {
@@ -93,22 +96,7 @@ static bool debugger_sysctl(void)
 
 #pragma mark - Config
 
-static NSDictionary *getMewConfig() {
-    static NSDictionary *mewConfig = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *mewConfigPath = kMewConfigPath;
-        NSDictionary *mewDict = [[NSDictionary alloc] initWithContentsOfFile:mewConfigPath];
-        if (!mewDict)
-            mewDict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"com.darwindev.MewApp" ofType:@"plist"]];
-#ifdef TEST_FLAG
-        NSLog(@"%@", mewDict);
-#endif
-        mewConfig = mewDict;
-    });
-    return mewConfig;
-}
-
+__attribute((obfuscate))
 static void mewReceiveClipBoardNotification(id _self, SEL _cmd1, NSNotification *notification) {
     NSString *pasteboardString = [[UIPasteboard generalPasteboard] string];
     if (pasteboardString) {
@@ -116,13 +104,13 @@ static void mewReceiveClipBoardNotification(id _self, SEL _cmd1, NSNotification 
         if (bundleIdentifier) {
             NSDate *date = [NSDate date];
             if (date) {
-                NSDictionary *historyDictionary = [[NSDictionary alloc] initWithContentsOfFile:kMewPasteboardHistoryPath];
+                NSDictionary *historyDictionary = [[NSDictionary alloc] initWithContentsOfFile:kMewEncPasteboardHistoryPath];
                 if (!historyDictionary) {
                     historyDictionary = [[NSDictionary alloc] initWithDictionary:@{
-                                                                                   kMewPasteboardHistoryKey: @[]
+                                                                                   kMewEncPasteboardHistoryKey: @[]
                                                                                    }];
                 }
-                NSArray <NSDictionary *> *historyArray = historyDictionary[kMewPasteboardHistoryKey];
+                NSArray <NSDictionary *> *historyArray = historyDictionary[kMewEncPasteboardHistoryKey];
                 if (historyArray) {
                     NSDictionary *appendDictionary = [[NSDictionary alloc] initWithDictionary:@{ @"string": pasteboardString,
                                                                                                  @"applicationIdentifier": bundleIdentifier,
@@ -132,9 +120,9 @@ static void mewReceiveClipBoardNotification(id _self, SEL _cmd1, NSNotification 
                         NSMutableArray <NSDictionary *> *mutableHistoryArray = [historyArray mutableCopy];
                         [mutableHistoryArray insertObject:appendDictionary atIndex:0];
                         NSDictionary *newDictionary = [[NSDictionary alloc] initWithDictionary:@{
-                                                                                                 kMewPasteboardHistoryKey: mutableHistoryArray
+                                                                                                 kMewEncPasteboardHistoryKey: mutableHistoryArray
                                                                                                  }];
-                        [newDictionary writeToFile:kMewPasteboardHistoryPath atomically:YES];
+                        [newDictionary writeToFile:kMewEncPasteboardHistoryPath atomically:YES];
                         [newDictionary release];
                         [mutableHistoryArray release];
                     }
@@ -151,6 +139,7 @@ static void mewHandleMessageNamed_withUserInfo(id _self, SEL _cmd1, NSString *na
 }
 
 static IMP _orig_UIApplication_init;
+__attribute((obfuscate))
 UIApplication *UIApplication_init(id _self, SEL _cmd1) {
     UIApplication *application = _orig_UIApplication_init(_self, _cmd1);
     if (application) {
@@ -160,6 +149,7 @@ UIApplication *UIApplication_init(id _self, SEL _cmd1) {
 }
 
 static IMP _orig__UIApplication_init;
+__attribute((obfuscate))
 UIApplication *_UIApplication_init(id _self, SEL _cmd1) {
     UIApplication *application = _orig__UIApplication_init(_self, _cmd1);
     
@@ -168,11 +158,11 @@ UIApplication *_UIApplication_init(id _self, SEL _cmd1) {
     
     // If enabled the program should exit with code 055 in GDB
     // Program exited with code 055.
-    debugger_ptrace();
+    _pb_hook_A();
     
     // If enabled the program should exit with code 0377 in GDB
     // Program exited with code 0377.
-    if (debugger_sysctl())
+    if (_pb_hook_B())
     {
         kill(pid, SIGKILL);
     }
@@ -216,20 +206,21 @@ UIApplication *_UIApplication_init(id _self, SEL _cmd1) {
     
 #endif
     
-    MEWAuthorizationUtility *test = [[MEWAuthorizationUtility alloc] init];
-    [test g0:application];
+    
+    
     return application;
 }
 
 __attribute__((constructor))
+__attribute((obfuscate))
 static void initialize() {
-    if (![getMewConfig()[kMewEnabled] boolValue]) {
+    if (![R(kMewEncEnabled) boolValue]) {
         return;
     }
     
     BOOL enabledApplication = NO;
-    NSArray <NSString *> *appIdentifierList = getMewConfig()[kMewApplicationIdentifierWhiteList];
-    NSArray <NSString *> *appBlackList = getMewConfig()[kMewApplicationIdentifierBlackList];
+    NSArray <NSString *> *appIdentifierList = R(kMewEncApplicationIdentifierWhiteList);
+    NSArray <NSString *> *appBlackList = R(kMewEncApplicationIdentifierBlackList);
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     for (NSString *appIdentifier in appIdentifierList) {
         if ([appIdentifier isEqualToString:bundleIdentifier]) {
@@ -246,13 +237,13 @@ static void initialize() {
     
     if (enabledApplication) {
         
-        if ([getMewConfig()[kMewSwitchMonitorPasteboard] boolValue]) {
+        if ([R(kMewEncSwitchMonitorPasteboard) boolValue]) {
             MSHookMessageEx(objc_getClass("UIApplication"), @selector(init), (IMP)UIApplication_init, (IMP *)&_orig_UIApplication_init);
             class_addMethod(objc_getClass("UIApplication"), @selector(mewReceiveClipBoardNotification:), (IMP)mewReceiveClipBoardNotification, "v@:@");
             class_addMethod(objc_getClass("UIApplication"), @selector(mewHandleMessageNamed:withUserInfo:), (IMP)mewHandleMessageNamed_withUserInfo, "v@:@:@");
         }
         
-        if ([getMewConfig()[kMewSwitchAutoCleanPasteboard] boolValue]) {
+        if ([R(kMewEncSwitchAutoCleanPasteboard) boolValue]) {
             UIPasteboard *pb = [UIPasteboard generalPasteboard];
             for (NSString *pasteboardType in [pb pasteboardTypes]) {
                 [pb setValue:@"" forPasteboardType:pasteboardType];
@@ -261,10 +252,12 @@ static void initialize() {
         
     }
     
-    if ([bundleIdentifier isEqualToString:kMewBundleID]) {
+    if ([bundleIdentifier isEqualToString:kMewEncBundleID]) {
         MSHookMessageEx(objc_getClass("UIApplication"), @selector(init), (IMP)_UIApplication_init, (IMP *)&_orig__UIApplication_init);
     }
     
 }
 
 _Pragma("clang diagnostic pop")
+
+

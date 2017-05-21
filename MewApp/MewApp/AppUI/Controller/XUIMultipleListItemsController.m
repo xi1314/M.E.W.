@@ -119,7 +119,7 @@
                 [self setPreferenceValue:[_currentValues copy] specifier:self.specifier];
             } else {
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                                    message:[NSString stringWithFormat:NSLocalizedString(@"You can select no more than %ld row(s).", nil), _maxCount]
+                                                                    message:[NSString stringWithFormat:NSLocalizedString(@"You can select no more than %ld row(s).", nil), (unsigned long)_maxCount]
                                                                    delegate:nil
                                                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                                           otherButtonTitles:nil];

@@ -37,7 +37,6 @@ UIAlertViewDelegate
     UISearchDisplayController *_searchDisplayController;
 }
 
-
 #pragma mark - Default Style
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -53,7 +52,7 @@ UIAlertViewDelegate
     
     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
     
-    NSArray *pasteboardArray = [self readPreferenceValue:self.specifier];
+    NSArray *pasteboardArray = R([self.specifier propertyForKey:PSKeyNameKey]);
     self.pasteboardArray = pasteboardArray;
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44.f)];
@@ -194,7 +193,7 @@ UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [self setPreferenceValue:@[] specifier:self.specifier];
+        S([self.specifier propertyForKey:PSKeyNameKey], @[]);
         self.pasteboardArray = @[];
         [self.tableView reloadData];
     }

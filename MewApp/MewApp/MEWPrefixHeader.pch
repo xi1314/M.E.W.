@@ -9,8 +9,14 @@
 #ifndef MEWPrefixHeader_pch
 #define MEWPrefixHeader_pch
 
-#import <UIKit/UIKit.h>
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
 #import "MEWSharedUtility.h"
+#endif
+
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 #define START_IGNORE_PARTIAL _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Wpartial-availability\"")
 #define END_IGNORE_PARTIAL _Pragma("clang diagnostic pop")

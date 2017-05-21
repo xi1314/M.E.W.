@@ -10,9 +10,7 @@
 #import <Preferences/PSSpecifier.h>
 #import "MEWLocationViewController.h"
 
-static NSString * const kMEWCoordinateRegionLatitudeKey = @"kMEWCoordinateRegionLatitudeKey";
-static NSString * const kMEWCoordinateRegionLongitudeKey = @"kMEWCoordinateRegionLongitudeKey";
-static NSString * const kMEWMapViewAnnotationIdentifier = @"kMEWMapViewAnnotationIdentifier";
+static NSString * const kMewMapViewAnnotationIdentifier = @"kMewMapViewAnnotationIdentifier";
 static NSString * const kMEWMapViewAnnotationFormat = @"纬度: %f, 经度: %f";
 
 @interface MEWLocationViewController () <MKMapViewDelegate, UIAlertViewDelegate>
@@ -57,8 +55,8 @@ static NSString * const kMEWMapViewAnnotationFormat = @"纬度: %f, 经度: %f";
     defaultCoordinate.longitude = 116.46f;
     MKCoordinateSpan defaultSpan = {1.f, 1.f};
     MKCoordinateRegion region = {defaultCoordinate, defaultSpan};
-    id latitudeObj = [[NSUserDefaults standardUserDefaults] objectForKey:kMEWCoordinateRegionLatitudeKey];
-    id longitudeObj = [[NSUserDefaults standardUserDefaults] objectForKey:kMEWCoordinateRegionLongitudeKey];
+    id latitudeObj = R(kMewEncCoordinateRegionLatitudeKey);
+    id longitudeObj = R(kMewEncCoordinateRegionLongitudeKey);
     if (
         latitudeObj && longitudeObj
         ) {
@@ -84,9 +82,9 @@ static NSString * const kMEWMapViewAnnotationFormat = @"纬度: %f, 经度: %f";
     if (annotation == mapView.userLocation) {
         return nil;
     }
-    MKPinAnnotationView *customPinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:kMEWMapViewAnnotationIdentifier];
+    MKPinAnnotationView *customPinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:kMewMapViewAnnotationIdentifier];
     if (!customPinView) {
-        customPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:kMEWMapViewAnnotationIdentifier];
+        customPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:kMewMapViewAnnotationIdentifier];
         START_IGNORE_PARTIAL
         if (XXT_SYSTEM_9) {
             customPinView.pinTintColor = MAIN_COLOR;
@@ -113,8 +111,8 @@ static NSString * const kMEWMapViewAnnotationFormat = @"纬度: %f, 经度: %f";
             break;
         case MKAnnotationViewDragStateEnding:
             anno.subtitle = dragTips;
-            [[NSUserDefaults standardUserDefaults] setObject:@((float) anno.coordinate.latitude) forKey:kMEWCoordinateRegionLatitudeKey];
-            [[NSUserDefaults standardUserDefaults] setObject:@((float) anno.coordinate.longitude) forKey:kMEWCoordinateRegionLongitudeKey];
+            S(kMewEncCoordinateRegionLatitudeKey, @((float) anno.coordinate.latitude));
+            S(kMewEncCoordinateRegionLongitudeKey, @((float) anno.coordinate.longitude));
             break;
         default:
             break;

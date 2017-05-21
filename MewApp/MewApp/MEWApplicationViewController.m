@@ -73,7 +73,7 @@ UISearchDisplayDelegate
 #endif
     self.selectedApplications = [NSMutableArray arrayWithCapacity:allApplications.count];
     
-    NSArray <NSString *> *selectedValues = [[self readPreferenceValue:self.specifier] mutableCopy];
+    NSArray <NSString *> *selectedValues = [R([self.specifier propertyForKey:PSKeyNameKey]) mutableCopy];
     for (NSString *appIdentifier in selectedValues) {
         for (LSApplicationProxy *appProxy in allApplications) {
             if ([appProxy.applicationIdentifier isEqualToString:appIdentifier]) {
@@ -217,7 +217,7 @@ UISearchDisplayDelegate
     if (XXT_SYSTEM_9) {
         [cell setApplicationIconData:[appProxy performSelector:@selector(iconDataForVariant:) withObject:@(2)]];
     } else {
-        [cell setApplicationIconData:[appProxy iconDataForVariant:0]];
+        [cell setApplicationIconData:[appProxy iconDataForVariant:16]];
     }
     [cell setTintColor:MAIN_COLOR];
     [cell setShowsReorderControl:YES];
@@ -288,7 +288,7 @@ UISearchDisplayDelegate
         appProxy = unselectedApplications[(NSUInteger) indexPath.row];
     }
     
-    NSArray <NSString *> *blacklistIdentifiers = [[NSUserDefaults standardUserDefaults] objectForKey:@"ApplicationIdentifierBlackList"];
+    NSArray <NSString *> *blacklistIdentifiers = R(kMewEncApplicationIdentifierBlackList);
     
     for (NSString *blacklistIdentifier in blacklistIdentifiers) {
         if ([blacklistIdentifier isEqualToString:appProxy.applicationIdentifier]) {
@@ -333,7 +333,7 @@ UISearchDisplayDelegate
     for (LSApplicationProxy *appProxy in self.selectedApplications) {
         [identifiers addObject:appProxy.applicationIdentifier];
     }
-    [self setPreferenceValue:[identifiers copy] specifier:self.specifier];
+    S([self.specifier propertyForKey:PSKeyNameKey], [identifiers copy]);
     
     [self tableView:tableView reloadHeaderView:[tableView headerViewForSection:indexPath.section] forSection:indexPath.section];
     [self tableView:tableView reloadHeaderView:[tableView headerViewForSection:toIndexPath.section] forSection:toIndexPath.section];

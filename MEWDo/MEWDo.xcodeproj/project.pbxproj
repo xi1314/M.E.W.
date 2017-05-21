@@ -196,6 +196,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MEWDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -222,6 +223,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MEWDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

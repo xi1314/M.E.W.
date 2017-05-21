@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		0F2E444C1EBF892E00F3A7F5 /* MEWRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */; };
-		0F2E44501EBF8B1500F3A7F5 /* MEWRootEntry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */; };
+		0F2E44501EBF8B1500F3A7F5 /* MEWRootViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F2E444F1EBF8B1500F3A7F5 /* MEWRootViewController.plist */; };
+		0F3ADC211ECD7F5E00FE2981 /* MEWMergedGlobalController.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3ADC201ECD7F5E00FE2981 /* MEWMergedGlobalController.plist */; };
+		0F3ADC241ECD80DA00FE2981 /* MEWMergedGlobalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ADC231ECD80DA00FE2981 /* MEWMergedGlobalController.m */; };
 		0F3B657C1EC634F0008606F9 /* MEWOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B657B1EC634F0008606F9 /* MEWOpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0F3FE4631ECF7E0D00E7B61B /* MEWBackupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3FE4621ECF7E0D00E7B61B /* MEWBackupViewController.m */; };
+		0F3FE4691ECF7F2700E7B61B /* MEWBackupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3FE4671ECF7F2700E7B61B /* MEWBackupCell.m */; };
+		0F3FE46A1ECF7F2700E7B61B /* MEWBackupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3FE4681ECF7F2700E7B61B /* MEWBackupCell.xib */; };
+		0F41A8DD1ED1BA7100A92927 /* myencrypt_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F41A8DA1ED1BA7100A92927 /* myencrypt_1.c */; };
+		0F41A8DE1ED1BA7100A92927 /* myencrypt_2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F41A8DB1ED1BA7100A92927 /* myencrypt_2.c */; };
+		0F41A8DF1ED1BA7100A92927 /* myencrypt_3.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F41A8DC1ED1BA7100A92927 /* myencrypt_3.c */; };
 		0F43F4471EC3B5DD00BBA182 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */; };
 		0F43F44A1EC3B7F900BBA182 /* MEWSharedUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */; };
-		0F43F44C1EC3C28100BBA182 /* MEWConfigurationEntry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */; };
+		0F43F44C1EC3C28100BBA182 /* MEWConfigurationViewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F43F44B1EC3C28100BBA182 /* MEWConfigurationViewController.plist */; };
+		0F4C83FB1ECFC31F009584C7 /* SpringBoardServices in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4C83FA1ECFC31F009584C7 /* SpringBoardServices */; };
 		0F4DD4551EC3837E00C22FE3 /* MEWPasteboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */; };
 		0F4DD4591EC3886A00C22FE3 /* MEWPasteboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DD4581EC3886A00C22FE3 /* MEWPasteboardViewController.m */; };
 		0F4DD45B1EC38A9000C22FE3 /* MEWPasteboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F4DD45A1EC38A9000C22FE3 /* MEWPasteboardCell.xib */; };
@@ -20,7 +29,7 @@
 		0F5E69171EBFD1B200F2291F /* MEWApplicationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5E69161EBFD1B200F2291F /* MEWApplicationCell.xib */; };
 		0F5E691A1EBFD1E100F2291F /* MEWApplicationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E69191EBFD1E100F2291F /* MEWApplicationCell.m */; };
 		0F5E691E1EBFD25000F2291F /* UIImage+imageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E691D1EBFD25000F2291F /* UIImage+imageData.m */; };
-		0F5E69251EC0970500F2291F /* MEWDefaultConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */; };
+		0F5E69251EC0970500F2291F /* com.darwindev.MewApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F5E69241EC0970500F2291F /* com.darwindev.MewApp.plist */; };
 		0F5E69281EC0B22F00F2291F /* MEWInsetsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E69271EC0B22F00F2291F /* MEWInsetsLabel.m */; };
 		0F5E692B1EC0C04000F2291F /* MEWLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E692A1EC0C04000F2291F /* MEWLocationViewController.m */; };
 		0F5E692E1EC0C07F00F2291F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5E692D1EC0C07F00F2291F /* MapKit.framework */; };
@@ -40,24 +49,26 @@
 /* Begin PBXFileReference section */
 		0F2E444A1EBF892E00F3A7F5 /* MEWRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWRootViewController.h; sourceTree = "<group>"; };
 		0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWRootViewController.m; sourceTree = "<group>"; };
-		0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWRootEntry.plist; sourceTree = "<group>"; };
+		0F2E444F1EBF8B1500F3A7F5 /* MEWRootViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWRootViewController.plist; sourceTree = "<group>"; };
+		0F3ADC201ECD7F5E00FE2981 /* MEWMergedGlobalController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MEWMergedGlobalController.plist; path = ../MEWMergedGlobalController.plist; sourceTree = "<group>"; };
+		0F3ADC221ECD80DA00FE2981 /* MEWMergedGlobalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWMergedGlobalController.h; sourceTree = "<group>"; };
+		0F3ADC231ECD80DA00FE2981 /* MEWMergedGlobalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MEWMergedGlobalController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0F3B657A1EC634F0008606F9 /* MEWOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWOpenUDID.h; sourceTree = "<group>"; };
 		0F3B657B1EC634F0008606F9 /* MEWOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWOpenUDID.m; sourceTree = "<group>"; };
+		0F3FE4611ECF7E0D00E7B61B /* MEWBackupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWBackupViewController.h; sourceTree = "<group>"; };
+		0F3FE4621ECF7E0D00E7B61B /* MEWBackupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MEWBackupViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0F3FE4661ECF7F2700E7B61B /* MEWBackupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWBackupCell.h; sourceTree = "<group>"; };
+		0F3FE4671ECF7F2700E7B61B /* MEWBackupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWBackupCell.m; sourceTree = "<group>"; };
+		0F3FE4681ECF7F2700E7B61B /* MEWBackupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEWBackupCell.xib; sourceTree = "<group>"; };
+		0F41A8D91ED1BA7100A92927 /* myencrypt_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = myencrypt_0.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0F41A8DA1ED1BA7100A92927 /* myencrypt_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myencrypt_1.c; sourceTree = "<group>"; };
+		0F41A8DB1ED1BA7100A92927 /* myencrypt_2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myencrypt_2.c; sourceTree = "<group>"; };
+		0F41A8DC1ED1BA7100A92927 /* myencrypt_3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = myencrypt_3.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0F43F4481EC3B7F900BBA182 /* MEWSharedUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWSharedUtility.h; sourceTree = "<group>"; };
-		0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWSharedUtility.m; sourceTree = "<group>"; };
-		0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWConfigurationEntry.plist; sourceTree = "<group>"; };
-		0F44D8331EC654D5006BFD43 /* bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bootstrap.h; sourceTree = "<group>"; };
-		0F44D8341EC654D5006BFD43 /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
-		0F44D8351EC654D5006BFD43 /* CPBitmapStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPBitmapStore.h; sourceTree = "<group>"; };
-		0F44D8361EC654D5006BFD43 /* CPDistributedMessagingCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCenter.h; sourceTree = "<group>"; };
-		0F44D8371EC654D5006BFD43 /* MEWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWConfiguration.h; sourceTree = "<group>"; };
-		0F44D8381EC654D5006BFD43 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
-		0F44D8391EC654D5006BFD43 /* rocketbootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap.h; sourceTree = "<group>"; };
-		0F44D83A1EC654D5006BFD43 /* rocketbootstrap_dynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_dynamic.h; sourceTree = "<group>"; };
-		0F44D83B1EC654D5006BFD43 /* rocketbootstrap_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_internal.h; sourceTree = "<group>"; };
-		0F44D83C1EC654D5006BFD43 /* sandbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sandbox.h; sourceTree = "<group>"; };
-		0F44D83D1EC654D5006BFD43 /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		0F43F4491EC3B7F900BBA182 /* MEWSharedUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MEWSharedUtility.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0F43F44B1EC3C28100BBA182 /* MEWConfigurationViewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWConfigurationViewController.plist; sourceTree = "<group>"; };
+		0F4C83FA1ECFC31F009584C7 /* SpringBoardServices */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = SpringBoardServices; sourceTree = "<group>"; };
 		0F4DD4521EC3837E00C22FE3 /* MEWPasteboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWPasteboardCell.h; sourceTree = "<group>"; };
 		0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboardCell.m; sourceTree = "<group>"; };
 		0F4DD4571EC3886A00C22FE3 /* MEWPasteboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWPasteboardViewController.h; sourceTree = "<group>"; };
@@ -71,7 +82,7 @@
 		0F5E691B1EBFD25000F2291F /* LSApplicationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSApplicationProxy.h; sourceTree = "<group>"; };
 		0F5E691C1EBFD25000F2291F /* UIImage+imageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageData.h"; sourceTree = "<group>"; };
 		0F5E691D1EBFD25000F2291F /* UIImage+imageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageData.m"; sourceTree = "<group>"; };
-		0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWDefaultConfiguration.plist; sourceTree = "<group>"; };
+		0F5E69241EC0970500F2291F /* com.darwindev.MewApp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.darwindev.MewApp.plist; sourceTree = "<group>"; };
 		0F5E69261EC0B22F00F2291F /* MEWInsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWInsetsLabel.h; sourceTree = "<group>"; };
 		0F5E69271EC0B22F00F2291F /* MEWInsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWInsetsLabel.m; sourceTree = "<group>"; };
 		0F5E69291EC0C04000F2291F /* MEWLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWLocationViewController.h; sourceTree = "<group>"; };
@@ -80,7 +91,7 @@
 		0F5EE75B1EBE753400FBA3B5 /* MewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5EE75F1EBE753400FBA3B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F5EE7611EBE753400FBA3B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0F5EE7621EBE753400FBA3B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0F5EE7621EBE753400FBA3B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0F5EE76F1EBE753400FBA3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F5EE7821EBE7BAB00FBA3B5 /* MEWPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEWPrefixHeader.pch; sourceTree = "<group>"; };
 		0F5EE7851EBE7CF300FBA3B5 /* XUIImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XUIImageCell.h; sourceTree = "<group>"; };
@@ -103,6 +114,12 @@
 		0F6B76EB1EC5021600691EAB /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = entitlements.plist; path = ../entitlements.plist; sourceTree = "<group>"; };
 		0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWConfigurationViewController.m; sourceTree = "<group>"; };
 		0F6B76F01EC52A9F00691EAB /* MEWConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWConfigurationViewController.h; sourceTree = "<group>"; };
+		0FB5E8711ED07CD2004A6200 /* MEWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MEWConfiguration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FB5E8721ED07CD2004A6200 /* MobileGestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
+		0FB5E8771ED07CD2004A6200 /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		0FB5E8781ED07CD2004A6200 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FB5E8791ED07CD2004A6200 /* check_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = check_config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FB5E87D1ED07CD2004A6200 /* myencrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myencrypt.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +129,7 @@
 			files = (
 				0F43F4471EC3B5DD00BBA182 /* libsqlite3.tbd in Frameworks */,
 				0F5E692E1EC0C07F00F2291F /* MapKit.framework in Frameworks */,
+				0F4C83FB1ECFC31F009584C7 /* SpringBoardServices in Frameworks */,
 				0F5EE79D1EBE7D1F00FBA3B5 /* Preferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,28 +137,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F44D8321EC654D5006BFD43 /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				0F44D8331EC654D5006BFD43 /* bootstrap.h */,
-				0F44D8341EC654D5006BFD43 /* CaptainHook.h */,
-				0F44D8351EC654D5006BFD43 /* CPBitmapStore.h */,
-				0F44D8361EC654D5006BFD43 /* CPDistributedMessagingCenter.h */,
-				0F44D8371EC654D5006BFD43 /* MEWConfiguration.h */,
-				0F44D8381EC654D5006BFD43 /* MobileGestalt.h */,
-				0F44D8391EC654D5006BFD43 /* rocketbootstrap.h */,
-				0F44D83A1EC654D5006BFD43 /* rocketbootstrap_dynamic.h */,
-				0F44D83B1EC654D5006BFD43 /* rocketbootstrap_internal.h */,
-				0F44D83C1EC654D5006BFD43 /* sandbox.h */,
-				0F44D83D1EC654D5006BFD43 /* substrate.h */,
-			);
-			name = Header;
-			path = ../Header;
-			sourceTree = "<group>";
-		};
 		0F5E692C1EC0C07E00F2291F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F4C83FA1ECFC31F009584C7 /* SpringBoardServices */,
 				0F43F4451EC3B5C800BBA182 /* libsqlite3.tbd */,
 				0F5E692D1EC0C07F00F2291F /* MapKit.framework */,
 			);
@@ -150,7 +150,7 @@
 		0F5EE7521EBE753300FBA3B5 = {
 			isa = PBXGroup;
 			children = (
-				0F44D8321EC654D5006BFD43 /* Header */,
+				0FB5E87E1ED07CD2004A6200 /* Header */,
 				0F5EE7A01EBE821000FBA3B5 /* MewAsset.xcassets */,
 				0F5EE75D1EBE753400FBA3B5 /* MewApp */,
 				0F5EE75C1EBE753400FBA3B5 /* Products */,
@@ -193,13 +193,21 @@
 				0F4DD4531EC3837E00C22FE3 /* MEWPasteboardCell.m */,
 				0F4DD4571EC3886A00C22FE3 /* MEWPasteboardViewController.h */,
 				0F4DD4581EC3886A00C22FE3 /* MEWPasteboardViewController.m */,
+				0F3FE4661ECF7F2700E7B61B /* MEWBackupCell.h */,
+				0F3FE4671ECF7F2700E7B61B /* MEWBackupCell.m */,
+				0F3FE4681ECF7F2700E7B61B /* MEWBackupCell.xib */,
+				0F3FE4611ECF7E0D00E7B61B /* MEWBackupViewController.h */,
+				0F3FE4621ECF7E0D00E7B61B /* MEWBackupViewController.m */,
 				0F2E444A1EBF892E00F3A7F5 /* MEWRootViewController.h */,
 				0F2E444B1EBF892E00F3A7F5 /* MEWRootViewController.m */,
+				0F3ADC221ECD80DA00FE2981 /* MEWMergedGlobalController.h */,
+				0F3ADC231ECD80DA00FE2981 /* MEWMergedGlobalController.m */,
 				0F6B76F01EC52A9F00691EAB /* MEWConfigurationViewController.h */,
 				0F6B76EF1EC52A9F00691EAB /* MEWConfigurationViewController.m */,
-				0F5E69241EC0970500F2291F /* MEWDefaultConfiguration.plist */,
-				0F2E444F1EBF8B1500F3A7F5 /* MEWRootEntry.plist */,
-				0F43F44B1EC3C28100BBA182 /* MEWConfigurationEntry.plist */,
+				0F5E69241EC0970500F2291F /* com.darwindev.MewApp.plist */,
+				0F2E444F1EBF8B1500F3A7F5 /* MEWRootViewController.plist */,
+				0F3ADC201ECD7F5E00FE2981 /* MEWMergedGlobalController.plist */,
+				0F43F44B1EC3C28100BBA182 /* MEWConfigurationViewController.plist */,
 				0F5EE75E1EBE753400FBA3B5 /* Supporting Files */,
 			);
 			path = MewApp;
@@ -263,6 +271,24 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		0FB5E87E1ED07CD2004A6200 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				0FB5E8711ED07CD2004A6200 /* MEWConfiguration.h */,
+				0FB5E8721ED07CD2004A6200 /* MobileGestalt.h */,
+				0FB5E8771ED07CD2004A6200 /* substrate.h */,
+				0FB5E8781ED07CD2004A6200 /* config.h */,
+				0FB5E8791ED07CD2004A6200 /* check_config.h */,
+				0F41A8D91ED1BA7100A92927 /* myencrypt_0.h */,
+				0F41A8DA1ED1BA7100A92927 /* myencrypt_1.c */,
+				0F41A8DB1ED1BA7100A92927 /* myencrypt_2.c */,
+				0F41A8DC1ED1BA7100A92927 /* myencrypt_3.c */,
+				0FB5E87D1ED07CD2004A6200 /* myencrypt.h */,
+			);
+			name = Header;
+			path = ../Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,12 +348,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3ADC211ECD7F5E00FE2981 /* MEWMergedGlobalController.plist in Resources */,
+				0F3FE46A1ECF7F2700E7B61B /* MEWBackupCell.xib in Resources */,
 				0F4DD45B1EC38A9000C22FE3 /* MEWPasteboardCell.xib in Resources */,
 				0F5EE7A11EBE821000FBA3B5 /* MewAsset.xcassets in Resources */,
-				0F5E69251EC0970500F2291F /* MEWDefaultConfiguration.plist in Resources */,
+				0F5E69251EC0970500F2291F /* com.darwindev.MewApp.plist in Resources */,
 				0F5E69171EBFD1B200F2291F /* MEWApplicationCell.xib in Resources */,
-				0F43F44C1EC3C28100BBA182 /* MEWConfigurationEntry.plist in Resources */,
-				0F2E44501EBF8B1500F3A7F5 /* MEWRootEntry.plist in Resources */,
+				0F43F44C1EC3C28100BBA182 /* MEWConfigurationViewController.plist in Resources */,
+				0F2E44501EBF8B1500F3A7F5 /* MEWRootViewController.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,15 +391,21 @@
 				0F5EE79B1EBE7CF300FBA3B5 /* XUISpecifierParser.m in Sources */,
 				0F5E691A1EBFD1E100F2291F /* MEWApplicationCell.m in Sources */,
 				0F4DD4591EC3886A00C22FE3 /* MEWPasteboardViewController.m in Sources */,
+				0F41A8DD1ED1BA7100A92927 /* myencrypt_1.c in Sources */,
 				0F5EE7971EBE7CF300FBA3B5 /* XUIListController.m in Sources */,
 				0F5EE7601EBE753400FBA3B5 /* main.m in Sources */,
+				0F3FE4691ECF7F2700E7B61B /* MEWBackupCell.m in Sources */,
 				0F2E444C1EBF892E00F3A7F5 /* MEWRootViewController.m in Sources */,
+				0F3ADC241ECD80DA00FE2981 /* MEWMergedGlobalController.m in Sources */,
 				0F5E691E1EBFD25000F2291F /* UIImage+imageData.m in Sources */,
 				0F5EE7981EBE7CF300FBA3B5 /* XUIListItemsController.m in Sources */,
 				0F5E692B1EC0C04000F2291F /* MEWLocationViewController.m in Sources */,
+				0F41A8DE1ED1BA7100A92927 /* myencrypt_2.c in Sources */,
 				0F5EE7991EBE7CF300FBA3B5 /* XUIMultipleListItemsController.m in Sources */,
 				0F5E69281EC0B22F00F2291F /* MEWInsetsLabel.m in Sources */,
 				0F5EE79A1EBE7CF300FBA3B5 /* XUIOrderingListItemsController.m in Sources */,
+				0F41A8DF1ED1BA7100A92927 /* myencrypt_3.c in Sources */,
+				0F3FE4631ECF7E0D00E7B61B /* MEWBackupViewController.m in Sources */,
 				0F5E69141EBFD17D00F2291F /* MEWApplicationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,12 +520,20 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MewApp/AppUI",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MewApp",
+					/opt/theos/sdks/iPhoneOS9.2.sdk/System/Library/PrivateFrameworks,
 				);
 				GCC_PREFIX_HEADER = MewApp/MEWPrefixHeader.pch;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = MewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -509,12 +551,20 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MewApp/AppUI",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MewApp",
+					/opt/theos/sdks/iPhoneOS9.2.sdk/System/Library/PrivateFrameworks,
 				);
 				GCC_PREFIX_HEADER = MewApp/MEWPrefixHeader.pch;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = MewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darwindev.MewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;

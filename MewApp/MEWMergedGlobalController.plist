@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key>
+	<string>全局配置</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>XUIGroupCell</string>
+			<key>label</key>
+			<string>设备信息</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUITitleValueCell</string>
+			<key>label</key>
+			<string>名称</string>
+			<key>key</key>
+			<string>OriginalDeviceName</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUITitleValueCell</string>
+			<key>label</key>
+			<string>类型</string>
+			<key>key</key>
+			<string>OriginalDeviceType</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUITitleValueCell</string>
+			<key>label</key>
+			<string>版本</string>
+			<key>key</key>
+			<string>OriginalSystemVersion</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUITitleValueCell</string>
+			<key>label</key>
+			<string>序列号</string>
+			<key>key</key>
+			<string>OriginalIOPlatformSerialNumber</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUILinkCell</string>
+			<key>label</key>
+			<string>自定义全局参数</string>
+			<key>detail</key>
+			<string>MEWConfigurationViewController</string>
+			<key>path</key>
+			<string>MEWConfigurationViewController.plist</string>
+		</dict>
+	</array>
+</dict>
+</plist>

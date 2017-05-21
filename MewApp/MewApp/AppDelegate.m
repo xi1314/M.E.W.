@@ -17,53 +17,58 @@
 
 @implementation AppDelegate
 
+#pragma obfuscate on
 - (void)loadDefaultConfiguration {
-    
-    NSMutableString *conf = [NSMutableString string];
-    
-    NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MEWDefaultConfiguration" ofType:@"plist"]];
+    NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:kMewEncBundleID ofType:@"plist"]];
     [defaultConfig enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-#ifdef TEST_FLAG
-        id answer = MEWCopyAnswer(key);
-        if (answer) {
-            NSLog(@"%@: %@", key, answer);
-            [[NSUserDefaults standardUserDefaults] setObject:answer forKey:key];
-        } else {
-            [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
-        }
-        [conf appendFormat:@"static NSString * const kMew%@ = @\"%@\";\n", key, key];
-#else
-        if (![[NSUserDefaults standardUserDefaults] objectForKey:key]) {
+        if (
+            ![key isEqualToString:kMewEncVerifyKeys] &&
+            ![key isEqualToString:kMewEncUniqueId] &&
+            !R(key)
+            ) {
             id answer = MEWCopyAnswer(key);
             if (answer) {
-                [[NSUserDefaults standardUserDefaults] setObject:answer forKey:key];
+                S(key, answer);
             } else {
-                [[NSUserDefaults standardUserDefaults] setObject:obj forKey:key];
+                S(key, obj);
             }
         }
-#endif
     }];
-    
-    NSLog(@"%@", conf);
-    
+    NSData *MGCAVerify = [[NSString stringWithFormat:@"%@/%@/%@", kMewEncSerialNumber, kMewEncMLBSerialNumber, kMewEncUniqueDeviceID] dataUsingEncoding:NSUTF8StringEncoding];
+    unsigned char hashBuffer[20] = "";
+    _T(MGCAVerify.bytes, (unsigned int)MGCAVerify.length, hashBuffer);
+//    CC_SHA1(MGCAVerify.bytes, (CC_LONG)MGCAVerify.length, hashBuffer);
+    NSMutableString *outputHash = [NSMutableString stringWithCapacity:40];
+    for (int i = 0; i < 20; i++)
+        [outputHash appendFormat:@"%02x", hashBuffer[i]];
+    NSString *storedUniqueId = R(kMewEncUniqueId);
+    if (!storedUniqueId) {
+        S(kMewEncUniqueId, outputHash);
+    } else {
+        assert([outputHash isEqualToString:storedUniqueId]);
+    }
+    S(kMewEncVerifyKeys, defaultConfig[kMewEncVerifyKeys]);
 }
 
 - (void)loadStartupCommands {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kMewSwitchAutoCleanPasteboard]) {
+    if (R(kMewEncSwitchAutoCleanPasteboard)) {
         [[MEWSharedUtility sharedInstance] cleanAllPasteboard];
     }
 }
+#pragma obfuscate off
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     [self loadDefaultConfiguration];
     [self loadStartupCommands];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     MEWRootViewController *listController = [[MEWRootViewController alloc] init];
-    listController.filePath = [[NSBundle mainBundle] pathForResource:@"MEWRootEntry" ofType:@"plist"];
+    listController.filePath = [[NSBundle mainBundle] pathForResource:@"MEWRootViewController" ofType:@"plist"];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:listController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

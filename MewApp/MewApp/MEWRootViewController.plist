@@ -7,14 +7,14 @@
 	<key>header</key>
 	<string>M.E.W.</string>
 	<key>subheader</key>
-	<string>🐱 Meeeeeeew~ v0.1-1 🐱</string>
+	<string>🐱 Meeeeeeew~ v0.1-3 🐱</string>
 	<key>items</key>
 	<array>
 		<dict>
 			<key>cell</key>
 			<string>XUIGroupCell</string>
 			<key>label</key>
-			<string>全局</string>
+			<string> </string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -23,10 +23,26 @@
 			<string>启用 M.E.W.</string>
 			<key>key</key>
 			<string>Enabled</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUILinkCell</string>
+			<key>label</key>
+			<string>全局配置</string>
+			<key>detail</key>
+			<string>MEWMergedGlobalController</string>
+			<key>path</key>
+			<string>MEWMergedGlobalController.plist</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -35,8 +51,14 @@
 			<string>选择目标应用</string>
 			<key>key</key>
 			<string>ApplicationIdentifierWhiteList</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 			<key>default</key>
 			<array/>
 			<key>detail</key>
@@ -82,13 +104,19 @@
 			<key>cell</key>
 			<string>XUISwitchCell</string>
 			<key>label</key>
-			<string>自动备份</string>
+			<string>一键新机时备份</string>
 			<key>key</key>
 			<string>SwitchAutoBackup</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -111,10 +139,16 @@
 			<string>反安装检测</string>
 			<key>key</key>
 			<string>SwitchFakeApplicationList</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -123,10 +157,16 @@
 			<string>反越狱检测</string>
 			<key>key</key>
 			<string>SwitchFakeJailbreak</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -135,10 +175,16 @@
 			<string>反设备识别</string>
 			<key>key</key>
 			<string>SwitchFakeDeviceInfo</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -147,10 +193,16 @@
 			<string>反网络识别</string>
 			<key>key</key>
 			<string>SwitchFakeNetworkInfo</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -165,10 +217,16 @@
 			<string>启用</string>
 			<key>key</key>
 			<string>SwitchFakeLocation</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -177,10 +235,14 @@
 			<string>随机位置</string>
 			<key>key</key>
 			<string>SwitchFakeRandomLocation</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -191,10 +253,16 @@
 			<string>MEWLocationViewController</string>
 			<key>key</key>
 			<string>FakeLocationCoordinate2D</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<dict/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -209,6 +277,10 @@
 			<string>启用</string>
 			<key>key</key>
 			<string>SwitchMonitorPasteboard</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
@@ -221,10 +293,16 @@
 			<string>启动时自动清空</string>
 			<key>key</key>
 			<string>SwitchAutoCleanPasteboard</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<true/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -235,66 +313,16 @@
 			<string>MEWPasteboardViewController</string>
 			<key>key</key>
 			<string>PasteboardHistory</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>default</key>
 			<array/>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp.pasteboard</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUIGroupCell</string>
-			<key>label</key>
-			<string>设备信息</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUITitleValueCell</string>
-			<key>label</key>
-			<string>名称</string>
-			<key>key</key>
-			<string>OriginalDeviceName</string>
-			<key>get</key>
-			<string>valueForSpecifier:</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUITitleValueCell</string>
-			<key>label</key>
-			<string>类型</string>
-			<key>key</key>
-			<string>OriginalDeviceType</string>
-			<key>get</key>
-			<string>valueForSpecifier:</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUITitleValueCell</string>
-			<key>label</key>
-			<string>版本</string>
-			<key>key</key>
-			<string>OriginalSystemVersion</string>
-			<key>get</key>
-			<string>valueForSpecifier:</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUITitleValueCell</string>
-			<key>label</key>
-			<string>序列号</string>
-			<key>key</key>
-			<string>OriginalIOPlatformSerialNumber</string>
-			<key>get</key>
-			<string>valueForSpecifier:</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>XUILinkCell</string>
-			<key>label</key>
-			<string>自定义参数</string>
-			<key>detail</key>
-			<string>MEWConfigurationViewController</string>
-			<key>path</key>
-			<string>MEWConfigurationEntry.plist</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -303,6 +331,18 @@
 			<string></string>
 			<key>footerText</key>
 			<string>© 2017 M.E.W. </string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>XUIButtonCell</string>
+			<key>label</key>
+			<string>清理 Safari</string>
+			<key>action</key>
+			<string>performButtonAction:</string>
+			<key>kwargs</key>
+			<array>
+				<string>clean_safari</string>
+			</array>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -320,12 +360,12 @@
 			<key>cell</key>
 			<string>XUIButtonCell</string>
 			<key>label</key>
-			<string>清理 Safari</string>
+			<string>重建图标缓存</string>
 			<key>action</key>
 			<string>performButtonAction:</string>
 			<key>kwargs</key>
 			<array>
-				<string>clean_safari</string>
+				<string>clean_uicache</string>
 			</array>
 		</dict>
 		<dict>

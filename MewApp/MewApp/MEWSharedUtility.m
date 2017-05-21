@@ -6,6 +6,8 @@
 //  Copyright © 2017 Zheng. All rights reserved.
 //
 
+
+
 #import "MEWSharedUtility.h"
 #import "LSApplicationProxy.h"
 #import "MobileGestalt.h"
@@ -55,55 +57,59 @@ struct CTResult {
 
 - (id)MEWCopyAnswer:(NSString *)key {
     
-    if ([key isEqualToString:kMewDeviceName]) {
+    if ([key isEqualToString:kMewEncDeviceName]) {
         return [self MGCopyAnswer:kMGUserAssignedDeviceName];
     }
-    else if ([key isEqualToString:kMewDeviceCategory]) {
+    else if ([key isEqualToString:kMewEncDeviceCategory]) {
         return [self MGCopyAnswer:kMGDeviceName];
     }
-    else if ([key isEqualToString:kMewProductType]) {
+    else if ([key isEqualToString:kMewEncProductType]) {
         return [self MGCopyAnswer:kMGProductType];
     }
-    else if ([key isEqualToString:kMewProductHWModel]) {
+    else if ([key isEqualToString:kMewEncProductHWModel]) {
         return [self MGCopyAnswer:kMGHWModel];
     }
-    else if ([key isEqualToString:kMewProductModel]) {
+    else if ([key isEqualToString:kMewEncProductModel]) {
         return [self MGCopyAnswer:kMGModelNumber];
     }
-    else if ([key isEqualToString:kMewSerialNumber]) {
+    else if ([key isEqualToString:kMewEncSerialNumber]) {
         return [self MGCopyAnswer:kMGSerialNumber];
     }
-    else if ([key isEqualToString:kMewMLBSerialNumber]) {
+    else if ([key isEqualToString:kMewEncMLBSerialNumber]) {
         return [self MGCopyAnswer:kMGMLBSerialNumber];
     }
-    else if ([key isEqualToString:kMewBluetoothAddress]) {
+    else if ([key isEqualToString:kMewEncBluetoothAddress]) {
         return [self MGCopyAnswer:kMGBluetoothAddress];
     }
-    else if ([key isEqualToString:kMewSystemName]) {
+    else if ([key isEqualToString:kMewEncSystemName]) {
         return [self MGCopyAnswer:kMGProductName];
     }
-    else if ([key isEqualToString:kMewSystemVersion]) {
+    else if ([key isEqualToString:kMewEncSystemVersion]) {
         return [self MGCopyAnswer:kMGProductVersion];
     }
-    else if ([key isEqualToString:kMewSystemBuildVersion]) {
+    else if ([key isEqualToString:kMewEncSystemBuildVersion]) {
         return [self MGCopyAnswer:kMGBuildVersion];
     }
-    else if ([key isEqualToString:kMewUniqueIdentifier]) {
-        return [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
+    else if ([key isEqualToString:kMewEncUniqueIdentifier]) {
+        if (XXT_SYSTEM_8) {
+            return @"";
+        } else {
+            return [[UIDevice currentDevice] performSelector:@selector(uniqueIdentifier)];
+        }
     }
-    else if ([key isEqualToString:kMewUniqueDeviceID]) {
+    else if ([key isEqualToString:kMewEncUniqueDeviceID]) {
         return [self MGCopyAnswer:kMGUniqueDeviceID];
     }
-    else if ([key isEqualToString:kMewUniqueChipID]) {
+    else if ([key isEqualToString:kMewEncUniqueChipID]) {
         return [self MGCopyAnswer:kMGUniqueChipID];
     }
-    else if ([key isEqualToString:kMewInverseDeviceID]) {
+    else if ([key isEqualToString:kMewEncInverseDeviceID]) {
         return [self MGCopyAnswer:kMGInverseDeviceID];
     }
-    else if ([key isEqualToString:kMewIdentifierForVendor]) {
+    else if ([key isEqualToString:kMewEncIdentifierForVendor]) {
         return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     }
-    else if ([key isEqualToString:kMewAdvertisingIdentifier]) {
+    else if ([key isEqualToString:kMewEncAdvertisingIdentifier]) {
         void *frameworkAdSupport = dlopen("/System/Library/Frameworks/AdSupport.framework/AdSupport", RTLD_NOW);
         if (frameworkAdSupport) {
             id answer = [[[objc_getClass("ASIdentifierManager") performSelector:@selector(sharedManager)] performSelector:@selector(advertisingIdentifier)] performSelector:@selector(UUIDString)];
@@ -111,33 +117,36 @@ struct CTResult {
             return answer;
         }
     }
-    else if ([key isEqualToString:kMewDeviceBatteryState]) {
+    else if ([key isEqualToString:kMewEncDeviceBatteryState]) {
         return @([[UIDevice currentDevice] batteryState]);
     }
-    else if ([key isEqualToString:kMewScreenBrightness]) {
+    else if ([key isEqualToString:kMewEncScreenBrightness]) {
         return @([[UIScreen mainScreen] brightness]);
     }
-    else if ([key isEqualToString:kMewEthernetMacAddress]) {
+    else if ([key isEqualToString:kMewEncEthernetMacAddress]) {
         return [self MGCopyAnswer:kMGWifiAddress];
     }
-    else if ([key isEqualToString:kMewRegionCode]) {
+    else if ([key isEqualToString:kMewEncRegionCode]) {
         return [self MGCopyAnswer:kMGRegionCode];
     }
-    else if ([key isEqualToString:kMewRegionInfo]) {
+    else if ([key isEqualToString:kMewEncRegionInfo]) {
         return [self MGCopyAnswer:kMGRegionInfo];
     }
-    else if ([key isEqualToString:kMewOpenUDID]) {
+    else if ([key isEqualToString:kMewEncOpenUDIDValue]) {
         return [MEWOpenUDID value];
     }
-    else if ([key isEqualToString:kMewTimezoneName]) {
+    else if ([key isEqualToString:kMewEncTimezoneName]) {
         NSTimeZone *timeZone = [NSTimeZone localTimeZone];
         return [timeZone name];
     }
-    else if ([key isEqualToString:kMewTimezoneData]) {
+    else if ([key isEqualToString:kMewEncTimezoneData]) {
         NSTimeZone *timeZone = [NSTimeZone localTimeZone];
         return [timeZone data];
     }
-    if ([key isEqualToString:kMewEthernetIPv4Address]) {
+    else if ([key isEqualToString:kMewEncLastLaunchTime]) {
+        return @([[NSDate date] timeIntervalSince1970]);
+    }
+    if ([key isEqualToString:kMewEncEthernetIPv4Address]) {
         NSString *ipv4Address = nil;
         struct ifaddrs *interfaces;
         if(!getifaddrs(&interfaces)) {
@@ -167,7 +176,7 @@ struct CTResult {
         }
         return ipv4Address;
     }
-    if ([key isEqualToString:kMewEthernetIPv6Address]) {
+    if ([key isEqualToString:kMewEncEthernetIPv6Address]) {
         NSString *ipv6Address = nil;
         struct ifaddrs *interfaces;
         if(!getifaddrs(&interfaces)) {
@@ -197,7 +206,7 @@ struct CTResult {
         }
         return ipv6Address;
     }
-    if ([key isEqualToString:kMewEthernetSSID] || [key isEqualToString:kMewEthernetBSSID] || [key isEqualToString:kMewEthernetRSSID]) {
+    if ([key isEqualToString:kMewEncEthernetSSID] || [key isEqualToString:kMewEncEthernetBSSID] || [key isEqualToString:kMewEncEthernetRSSID]) {
         NSString *answer = nil;
         void *frameworkSystemConfiguration = dlopen("/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration", RTLD_LAZY);
         if (frameworkSystemConfiguration) {
@@ -211,13 +220,13 @@ struct CTResult {
                 }
             }
             if (networkDictionary) {
-                if ([key isEqualToString:kMewEthernetSSID]) {
+                if ([key isEqualToString:kMewEncEthernetSSID]) {
                     answer = networkDictionary[@"SSID"];
                 }
-                else if ([key isEqualToString:kMewEthernetBSSID]) {
+                else if ([key isEqualToString:kMewEncEthernetBSSID]) {
                     answer = networkDictionary[@"BSSID"];
                 }
-                else if ([key isEqualToString:kMewEthernetRSSID]) {
+                else if ([key isEqualToString:kMewEncEthernetRSSID]) {
                     answer = networkDictionary[@"RSSID"];
                 }
             }
@@ -225,38 +234,47 @@ struct CTResult {
         }
         return answer;
     }
-    if ([key isEqualToString:kMewCurrentMobileId] || [key isEqualToString:kMewCurrentSubscriberId] || [key isEqualToString:kMewICCID] ||
-             [key isEqualToString:kMewMEID] || [key isEqualToString:kMewIMSI] || [key isEqualToString:kMewInternationalMobileEquipmentIdentity]
+    if ([key isEqualToString:kMewEncCurrentMobileId] || [key isEqualToString:kMewEncCurrentSubscriberId] || [key isEqualToString:kMewEncICCID] ||
+             [key isEqualToString:kMewEncMEID] || [key isEqualToString:kMewEncIMSI] || [key isEqualToString:kMewEncInternationalMobileEquipmentIdentity]
              ) {
         NSString *answer = nil;
         void *frameworkCoreTelephony = dlopen("/System/Library/Frameworks/CoreTelephony.framework/CoreTelephony", RTLD_LAZY);
         if (frameworkCoreTelephony) {
             struct CTServerConnection * (* _CTServerConnectionCreate)(CFAllocatorRef, void *, int *) = dlsym(frameworkCoreTelephony, "_CTServerConnectionCreate");
             int * (* _CTServerConnectionCopyMobileIdentity)(struct CTResult *, struct CTServerConnection *, CFStringRef *) = dlsym(frameworkCoreTelephony, "_CTServerConnectionCopyMobileIdentity");
+#ifdef __arm64__
+            int * (* _CTServerConnectionCopyMobileEquipmentInfo)(struct CTServerConnection *, CFMutableDictionaryRef *, NSInteger *) = dlsym(frameworkCoreTelephony, "_CTServerConnectionCopyMobileEquipmentInfo");
+#else
             int * (* _CTServerConnectionCopyMobileEquipmentInfo)(struct CTResult *, struct CTServerConnection *, CFMutableDictionaryRef *) = dlsym(frameworkCoreTelephony, "_CTServerConnectionCopyMobileEquipmentInfo");
+#endif
+            
             struct CTServerConnection * sc = _CTServerConnectionCreate(kCFAllocatorDefault, nil, NULL);
             struct CTResult result;
             CFMutableDictionaryRef dict = nil;
+#ifdef __arm64__
+            _CTServerConnectionCopyMobileEquipmentInfo(sc, &dict, NULL);
+#else
             _CTServerConnectionCopyMobileEquipmentInfo(&result, sc, &dict);
+#endif
             if (dict) {
                 NSDictionary *resultDictionary = CFBridgingRelease(dict);
-                if ([key isEqualToString:kMewCurrentMobileId]) {
-                    answer = resultDictionary[kCTMobileEquipmentInfoCurrentMobileId];
-                } else if ([key isEqualToString:kMewCurrentSubscriberId]) {
-                    answer = resultDictionary[kCTMobileEquipmentInfoCurrentSubscriberId];
-                } else if ([key isEqualToString:kMewICCID]) {
-                    answer = resultDictionary[kCTMobileEquipmentInfoICCID];
-                } else if ([key isEqualToString:kMewMEID]) {
-                    answer = resultDictionary[kCTMobileEquipmentInfoMEID];
-                } else if ([key isEqualToString:kMewIMSI]) {
-                    answer = resultDictionary[kCTMobileEquipmentInfoIMSI];
-                } else if ([key isEqualToString:kMewInternationalMobileEquipmentIdentity]) {
+                if ([key isEqualToString:kMewEncCurrentMobileId]) {
+                    answer = resultDictionary[kMewEncCTMobileEquipmentInfoCurrentMobileId];
+                } else if ([key isEqualToString:kMewEncCurrentSubscriberId]) {
+                    answer = resultDictionary[kMewEncCTMobileEquipmentInfoCurrentSubscriberId];
+                } else if ([key isEqualToString:kMewEncICCID]) {
+                    answer = resultDictionary[kMewEncCTMobileEquipmentInfoICCID];
+                } else if ([key isEqualToString:kMewEncMEID]) {
+                    answer = resultDictionary[kMewEncCTMobileEquipmentInfoMEID];
+                } else if ([key isEqualToString:kMewEncIMSI]) {
+                    answer = resultDictionary[kMewEncCTMobileEquipmentInfoIMSI];
+                } else if ([key isEqualToString:kMewEncInternationalMobileEquipmentIdentity]) {
                     CFStringRef imei = nil;
                     _CTServerConnectionCopyMobileIdentity(&result, sc, &imei);
                     if (imei) {
                         answer = CFBridgingRelease(imei);
                     } else {
-                        answer = resultDictionary[kCTMobileEquipmentInfoIMEI];
+                        answer = resultDictionary[kMewEncCTMobileEquipmentInfoIMEI];
                     }
                 }
             }
@@ -264,7 +282,7 @@ struct CTResult {
         }
         return answer;
     }
-    if ([key isEqualToString:kMewInternationalMobileEquipmentIdentity]) {
+    if ([key isEqualToString:kMewEncInternationalMobileEquipmentIdentity]) {
         NSString *imeiString = nil;
         if (!imeiString) {
             void *IOKit = dlopen("/System/Library/Frameworks/IOKit.framework/IOKit", RTLD_GLOBAL | RTLD_LAZY);
@@ -351,7 +369,7 @@ struct CTResult {
     NSString *db_path = @"/private/var/Keychains/keychain-2.db";
     sqlite3_open([db_path UTF8String], &db);
     if (!db) {
-        *error = [NSError errorWithDomain:@"com.darwindev.MewApp.error"
+        *error = [NSError errorWithDomain:kMewEncErrorDomain
                                      code:0
                                  userInfo:@{
                                             NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Cannot open %@", db_path]
@@ -387,7 +405,7 @@ struct CTResult {
         if (error) {
             NSString *reason = [[NSString alloc] initWithUTF8String:msgBuf];
             if (reason) {
-                *error = [NSError errorWithDomain:@"com.darwindev.MewApp.error"
+                *error = [NSError errorWithDomain:kMewEncErrorDomain
                                              code:0
                                          userInfo:@{
                                                     NSLocalizedDescriptionKey: reason
@@ -401,9 +419,11 @@ struct CTResult {
 }
 
 - (void)cleanAllPasteboard {
-    mew_exec((char *[]){ "MEWDo", "/bin/launchctl", "unload", "-w", "/System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist", NULL });
+//    mew_exec((char *[]){ "MEWDo", "/bin/launchctl", "unload", "-w", "/System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist", NULL });
+    system("/Applications/MewApp.app/MEWDo /bin/launchctl unload -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
     mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", "/private/var/mobile/Library/Caches/com.apple.UIKit.pboard/*", NULL });
-    mew_exec((char *[]){ "MEWDo", "/bin/launchctl", "load", "-w", "/System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist", NULL });
+//    mew_exec((char *[]){ "MEWDo", "/bin/launchctl", "load", "-w", "/System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist", NULL });
+    system("/Applications/MewApp.app/MEWDo /bin/launchctl load -w /System/Library/LaunchDaemons/com.apple.UIKit.pasteboardd.plist");
     UIPasteboard *pb = [UIPasteboard generalPasteboard];
     for (NSString *pasteboardType in [pb pasteboardTypes]) {
         [pb setValue:@"" forPasteboardType:pasteboardType];
@@ -448,31 +468,40 @@ struct CTResult {
             }
             if (applicationContainer)
             {
-                struct stat container_s;
+                
                 NSString *documentContainer = [applicationContainer stringByAppendingPathComponent:@"Documents"];
                 mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)[documentContainer UTF8String], NULL });
                 mkdir((char *)[documentContainer UTF8String], 0755);
+                
                 NSString *libraryContainer = [applicationContainer stringByAppendingPathComponent:@"Library"];
                 mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)[libraryContainer UTF8String], NULL });
                 mkdir((char *)[libraryContainer UTF8String], 0755);
+                
                 NSString *storeContainer = [applicationContainer stringByAppendingPathComponent:@"StoreKit"];
+                struct stat container_s;
                 bzero(&container_s, sizeof(container_s));
                 stat([storeContainer UTF8String], &container_s);
                 if (S_ISDIR(container_s.st_mode)) {
                     mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)[storeContainer UTF8String], NULL });
                     mkdir((char *)[storeContainer UTF8String], 0755);
                 }
+                
                 NSString *tmpContainer = [applicationContainer stringByAppendingPathComponent:@"tmp"];
                 mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)[tmpContainer UTF8String], NULL });
                 mkdir((char *)[tmpContainer UTF8String], 0755);
+                
                 NSString *cacheContainer = [libraryContainer stringByAppendingPathComponent:@"Caches"];
                 mkdir((char *)[cacheContainer UTF8String], 0755);
+                
                 NSString *preferencesContainer = [libraryContainer stringByAppendingPathComponent:@"Preferences"];
                 mkdir((char *)[preferencesContainer UTF8String], 0755);
+                
                 NSString *globalPreferences = [preferencesContainer stringByAppendingPathComponent:@".GlobalPreferences.plist"];
                 symlink("/private/var/mobile/Library/Preferences/.GlobalPreferences.plist", [globalPreferences UTF8String]);
+                
                 NSString *peoplePicker = [preferencesContainer stringByAppendingPathComponent:@"com.apple.PeoplePicker.plist"];
                 symlink("/private/var/mobile/Library/Preferences/com.apple.PeoplePicker.plist", [peoplePicker UTF8String]);
+                
             }
         }
     }
@@ -663,100 +692,100 @@ static NSArray *kStaticCarrier = nil;
 
 - (id)randomAnswerForKey:(NSString *)key {
     id answer = nil;
-    if ([key isEqualToString:kMewEthernetIPv4Address]) {
+    if ([key isEqualToString:kMewEncEthernetIPv4Address]) {
         answer = randomIPV4Address();
     }
-    else if ([key isEqualToString:kMewEthernetIPv6Address]) {
+    else if ([key isEqualToString:kMewEncEthernetIPv6Address]) {
         answer = randomIPV6Address();
     }
-    else if ([key isEqualToString:kMewUniqueIdentifier]) {
+    else if ([key isEqualToString:kMewEncUniqueIdentifier]) {
         answer = randomUniqueIdentifier(kStaticVendorIdentifer);
     }
-    else if ([key isEqualToString:kMewOpenUDID]) {
+    else if ([key isEqualToString:kMewEncOpenUDIDValue]) {
         answer = random40string();
     }
-    else if ([key isEqualToString:kMewInverseDeviceID]) {
+    else if ([key isEqualToString:kMewEncInverseDeviceID]) {
         answer = random40string();
     }
-    else if ([key isEqualToString:kMewUniqueDeviceID]) {
+    else if ([key isEqualToString:kMewEncUniqueDeviceID]) {
         answer = random40string();
     }
-    else if ([key isEqualToString:kMewIdentifierForVendor]) {
+    else if ([key isEqualToString:kMewEncIdentifierForVendor]) {
         answer = kStaticVendorIdentifer;
     }
-    else if ([key isEqualToString:kMewDeviceName]) {
+    else if ([key isEqualToString:kMewEncDeviceName]) {
         answer = randomDeviceName();
     }
-    else if ([key isEqualToString:kMewSerialNumber]) {
+    else if ([key isEqualToString:kMewEncSerialNumber]) {
         answer = randomSerialNumber(12, false);
     }
-    else if ([key isEqualToString:kMewProductType]) {
+    else if ([key isEqualToString:kMewEncProductType]) {
         answer = kStaticProduct[0];
     }
-    else if ([key isEqualToString:kMewProductHWModel]) {
+    else if ([key isEqualToString:kMewEncProductHWModel]) {
         answer = kStaticProduct[1];
     }
-    else if ([key isEqualToString:kMewProductModel]) {
+    else if ([key isEqualToString:kMewEncProductModel]) {
         answer = kStaticProduct[2];
     }
-    else if ([key isEqualToString:kMewEthernetMacAddress]) {
+    else if ([key isEqualToString:kMewEncEthernetMacAddress]) {
         answer = kStaticMacArray[0];
     }
-    else if ([key isEqualToString:kMewBluetoothAddress]) {
+    else if ([key isEqualToString:kMewEncBluetoothAddress]) {
         answer = kStaticMacArray[1];
     }
-    else if ([key isEqualToString:kMewEthernetBSSID]) {
+    else if ([key isEqualToString:kMewEncEthernetBSSID]) {
         answer = kStaticMacArray[2];
     }
-    else if ([key isEqualToString:kMewMLBSerialNumber]) {
+    else if ([key isEqualToString:kMewEncMLBSerialNumber]) {
         answer = randomSerialNumber(17, false);
     }
-    else if ([key isEqualToString:kMewUniqueChipID]) {
+    else if ([key isEqualToString:kMewEncUniqueChipID]) {
         answer = randomSerialNumber(12, true);
     }
-    else if ([key isEqualToString:kMewServiceString]) {
+    else if ([key isEqualToString:kMewEncServiceString]) {
         answer = kStaticCarrier[0];
     }
-    else if ([key isEqualToString:kMewCarrierName]) {
+    else if ([key isEqualToString:kMewEncCarrierName]) {
         answer = kStaticCarrier[0];
     }
-    else if ([key isEqualToString:kMewICCID]) {
+    else if ([key isEqualToString:kMewEncICCID]) {
         answer = [kStaticCarrier[1] stringByAppendingString:randomSerialNumber(14, true)];
     }
-    else if ([key isEqualToString:kMewIMSI]) {
+    else if ([key isEqualToString:kMewEncIMSI]) {
         answer = [kStaticCarrier[2] stringByAppendingString:randomSerialNumber(10, true)];
     }
-    else if ([key isEqualToString:kMewNetworkCode]) {
+    else if ([key isEqualToString:kMewEncNetworkCode]) {
         answer = kStaticCarrier[3];
     }
-    else if ([key isEqualToString:kMewCountryCode]) {
+    else if ([key isEqualToString:kMewEncCountryCode]) {
         answer = @"460";
     }
-    else if ([key isEqualToString:kMewISOCountryCode]) {
+    else if ([key isEqualToString:kMewEncISOCountryCode]) {
         answer = @"156";
     }
-    else if ([key isEqualToString:kMewRegionCode]) {
+    else if ([key isEqualToString:kMewEncRegionCode]) {
         answer = @"CH";
     }
-    else if ([key isEqualToString:kMewRegionInfo]) {
+    else if ([key isEqualToString:kMewEncRegionInfo]) {
         answer = @"CH/A";
     }
-    else if ([key isEqualToString:kMewDeviceCategory]) {
+    else if ([key isEqualToString:kMewEncDeviceCategory]) {
         answer = @"iPhone";
     }
-    else if ([key isEqualToString:kMewSystemName]) {
+    else if ([key isEqualToString:kMewEncSystemName]) {
         answer = @"iPhone OS";
     }
-    else if ([key isEqualToString:kMewAdvertisingIdentifier]) {
+    else if ([key isEqualToString:kMewEncAdvertisingIdentifier]) {
         answer = randomDashString();
     }
-    else if ([key isEqualToString:kMewMEID]) {
+    else if ([key isEqualToString:kMewEncMEID]) {
         answer = randomHexString(7);
     }
-    else if ([key isEqualToString:kMewInternationalMobileEquipmentIdentity]) {
+    else if ([key isEqualToString:kMewEncInternationalMobileEquipmentIdentity]) {
         answer = randomSerialNumber(15, true);
     }
-    else if ([key isEqualToString:kMewEthernetSSID]) {
+    else if ([key isEqualToString:kMewEncEthernetSSID]) {
         answer = randomSSID();
     }
     
@@ -768,21 +797,417 @@ static NSArray *kStaticCarrier = nil;
     kStaticVendorIdentifer = randomDashString();
     kStaticMacArray = randomAddress();
     kStaticCarrier = randomCarrier();
-    NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MEWDefaultConfiguration" ofType:@"plist"]];
+    NSDictionary *defaultConfig = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:kMewEncBundleID ofType:@"plist"]];
     [defaultConfig enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         id answer = [self randomAnswerForKey:key];
         if (answer) {
-#ifdef TEST_FLAG
-            NSLog(@"%@ = %@;", key, answer);
-#endif
-            [[NSUserDefaults standardUserDefaults] setObject:answer forKey:key];
+            S(key, answer);
         }
     }];
 }
 
-- (void)bootstrapDevice {
-    // [1] Make Backup
+- (void)makeBackup {
     
+    // [1] Backup Directory
+    NSString *backupRootPath = kMewEncBackupPath;
+    const char *backup_root_p = [backupRootPath UTF8String];
+    mkdir(backup_root_p, 0755);
+    struct stat backup_root_s;
+    bzero(&backup_root_s, sizeof(struct stat));
+    lstat(backup_root_p, &backup_root_s);
+    assert(S_ISDIR(backup_root_s.st_mode));
+    
+    // [2] Unique Directory
+    NSUUID *backupID = [NSUUID UUID];
+    NSString *backupPath = [backupRootPath stringByAppendingPathComponent:[backupID UUIDString]];
+    const char *backup_p = [backupPath UTF8String];
+    mkdir(backup_p, 0755);
+    struct stat backup_s;
+    bzero(&backup_s, sizeof(struct stat));
+    lstat(backup_p, &backup_s);
+    assert(S_ISDIR(backup_s.st_mode));
+    
+    // [3] Create Backup Attached Info
+    
+    // Pasteboard
+    NSString *pasteboardBackupPath = [backupPath stringByAppendingPathComponent:@"Pasteboard"];
+    const char *pasteboard_p = [pasteboardBackupPath UTF8String];
+    mkdir(pasteboard_p, 0755);
+    struct stat pasteboard_s;
+    bzero(&pasteboard_s, sizeof(struct stat));
+    lstat(pasteboard_p, &pasteboard_s);
+    assert(S_ISDIR(pasteboard_s.st_mode));
+    mew_exec((char *[]){ "MEWDo", "/bin/cp", "-ax", "/private/var/mobile/Library/Caches/com.apple.UIKit.pboard", (char *)pasteboard_p, NULL });
+    
+    // Keychain
+    NSString *keychainBackupPath = [backupPath stringByAppendingPathComponent:@"Keychain"];
+    const char *keychain_p = [keychainBackupPath UTF8String];
+    mkdir(keychain_p, 0755);
+    struct stat keychain_s;
+    bzero(&keychain_s, sizeof(struct stat));
+    lstat(keychain_p, &keychain_s);
+    assert(S_ISDIR(keychain_s.st_mode));
+    mew_exec((char *[]){ "MEWDo", "/bin/cp", "-ax", "/private/var/Keychains", (char *)keychain_p, NULL });
+    
+    // Fake Configuration
+    NSString *configPath = kMewEncConfigPath;
+    const char *config_p = [configPath UTF8String];
+    struct stat config_s;
+    bzero(&config_s, sizeof(struct stat));
+    lstat(config_p, &config_s);
+    assert(S_ISREG(config_s.st_mode));
+    mew_exec((char *[]){ "MEWDo", "/bin/cp", "-ax", (char *)[kMewEncConfigPath UTF8String], (char *)backup_p, NULL });
+    
+    // [4] Move Application Data
+    NSUInteger applicationCount = 0;
+    
+    NSArray <NSString *> *whitelist = R(kMewEncApplicationIdentifierWhiteList);
+    if (!whitelist || whitelist.count == 0)
+    {
+        return;
+    }
+    Class LSApplicationWorkspace_class = objc_getClass("LSApplicationWorkspace");
+    SEL selector = NSSelectorFromString(@"defaultWorkspace");
+    NSObject *workspace = [LSApplicationWorkspace_class performSelector:selector];
+    SEL selectorAll = NSSelectorFromString(@"allInstalledApplications");
+    NSArray <LSApplicationProxy *> *allApplications = [workspace performSelector:selectorAll];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"applicationType = 'User'"];
+    NSArray <LSApplicationProxy *> *userApplications = [allApplications filteredArrayUsingPredicate:predicate];
+    for (LSApplicationProxy *appProxy in userApplications)
+    {
+        NSString *applicationIdentifier = [appProxy applicationIdentifier];
+        BOOL enabledApplication = NO;
+        for (NSString *enabledApp in whitelist) {
+            if ([enabledApp isKindOfClass:[NSString class]]) {
+                if ([enabledApp isEqualToString:applicationIdentifier]) {
+                    enabledApplication = YES;
+                }
+            }
+        }
+        if (!enabledApplication) {
+            continue;
+        }
+        if (applicationIdentifier && applicationIdentifier.length != 0)
+        {
+            NSString *applicationContainer = nil;
+            if (XXT_SYSTEM_8)
+            {
+                applicationContainer = [[appProxy dataContainerURL] path];
+            }
+            else
+            {
+                applicationContainer = [[appProxy containerURL] path];
+            }
+            if (applicationContainer)
+            {
+                NSString *applicationBackupContainer = [backupPath stringByAppendingPathComponent:applicationIdentifier];
+                const char *application_p = [applicationBackupContainer UTF8String];
+                mkdir(application_p, 0755);
+                struct stat application_s;
+                bzero(&application_s, sizeof(struct stat));
+                lstat(application_p, &application_s);
+                assert(S_ISDIR(application_s.st_mode));
+                
+                NSArray <NSString *> *backupTargets
+                = @[
+                    @"Documents", @"Library", @"StoreKit", @"tmp"
+                    ];
+                for (NSString *backupTarget in backupTargets) {
+                    
+                    NSString *sourcePath = [applicationContainer stringByAppendingPathComponent:backupTarget];
+                    NSString *destPath = [applicationBackupContainer stringByAppendingPathComponent:backupTarget];
+                    BOOL isLibrary = [backupTarget isEqualToString:@"Library"];
+                    const char *source_p = [sourcePath UTF8String];
+                    const char *dest_p = [destPath UTF8String];
+                    
+                    struct stat source_s;
+                    bzero(&source_s, sizeof(struct stat));
+                    lstat(source_p, &source_s);
+                    
+                    if (S_ISDIR(source_s.st_mode)) { // first time
+                        
+                        // move
+                        mew_exec((char *[]){ "MEWDo", "/bin/mv", "-f", (char *)source_p, (char *)dest_p, NULL });
+                        
+                        // check move
+                        struct stat dest_s;
+                        bzero(&dest_s, sizeof(struct stat));
+                        lstat(dest_p, &dest_s);
+                        assert(S_ISDIR(dest_s.st_mode));
+                        
+                        // create
+                        mkdir(source_p, 0755);
+                        
+                        // fill library
+                        if (isLibrary) {
+                            
+                            NSString *libraryContainer = sourcePath;
+                            
+                            NSString *cacheContainer = [libraryContainer stringByAppendingPathComponent:@"Caches"];
+                            const char *cache_p = [cacheContainer UTF8String];
+                            mkdir(cache_p, 0755);
+                            struct stat cache_s;
+                            bzero(&cache_s, sizeof(struct stat));
+                            lstat(cache_p, &cache_s);
+                            assert(S_ISDIR(cache_s.st_mode));
+                            
+                            NSString *preferencesContainer = [libraryContainer stringByAppendingPathComponent:@"Preferences"];
+                            const char *preferences_p = [preferencesContainer UTF8String];
+                            mkdir(preferences_p, 0755);
+                            struct stat preferences_s;
+                            bzero(&preferences_s, sizeof(struct stat));
+                            lstat(preferences_p, &preferences_s);
+                            assert(S_ISDIR(preferences_s.st_mode));
+                            
+                            NSString *globalPreferences = [preferencesContainer stringByAppendingPathComponent:@".GlobalPreferences.plist"];
+                            const char *global_p = [globalPreferences UTF8String];
+                            symlink("/private/var/mobile/Library/Preferences/.GlobalPreferences.plist", global_p);
+                            struct stat global_s;
+                            bzero(&global_s, sizeof(struct stat));
+                            lstat(global_p, &global_s);
+                            assert(S_ISLNK(global_s.st_mode));
+                            
+                            NSString *peoplePicker = [preferencesContainer stringByAppendingPathComponent:@"com.apple.PeoplePicker.plist"];
+                            const char *people_p = [peoplePicker UTF8String];
+                            symlink("/private/var/mobile/Library/Preferences/com.apple.PeoplePicker.plist", people_p);
+                            struct stat people_s;
+                            bzero(&people_s, sizeof(struct stat));
+                            lstat(people_p, &people_s);
+                            assert(S_ISLNK(people_s.st_mode));
+                            
+                        }
+                        
+                        // check create
+                        struct stat source_s;
+                        bzero(&source_s, sizeof(struct stat));
+                        lstat(source_p, &source_s);
+                        assert(S_ISDIR(source_s.st_mode));
+                        
+                    }
+                }
+                
+                applicationCount++;
+            }
+        }
+    }
+}
+
+// 0.1-3, allowed version: 0.1-3
+- (void)recoverFromBackupPath:(NSString *)backupPath withError:(NSError **)error {
+    assert(backupPath != nil);
+    NSArray <NSString *> *allowedVersionList = @[@"0.1-3"];
+    
+    // check meta
+    NSString *configPath = [backupPath stringByAppendingPathComponent:kMewEncConfigName];
+    NSDictionary *configDict = [[NSDictionary alloc] initWithContentsOfFile:configPath];
+    if (configDict && configDict[kMewEncVersion] && [configDict[kMewEncVersion] isKindOfClass:[NSString class]]) {
+        BOOL allowed = NO;
+        for (NSString *allowedVersion in allowedVersionList) {
+            if ([allowedVersion isEqualToString:configDict[kMewEncVersion]]) {
+                allowed = YES;
+            }
+        }
+        if (!allowed) {
+            if (error) {
+                *error = [NSError errorWithDomain:kMewEncErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"MEW 备份版本不匹配: 不支持 %@ 备份版本。", configDict[kMewEncVersion]]}];
+            }
+            return;
+        }
+    } else {
+        if (error) {
+            *error = [NSError errorWithDomain:kMewEncErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"无效的备份: %@", backupPath]}];
+        }
+        return;
+    }
+    
+    // Pasteboard
+    NSString *pasteboardBackupPath = [[backupPath stringByAppendingPathComponent:@"Pasteboard"] stringByAppendingPathComponent:@"com.apple.UIKit.pboard"];
+    const char *pasteboard_p = [pasteboardBackupPath UTF8String];
+    const char *pasteboard_t = "/private/var/mobile/Library/Caches/com.apple.UIKit.pboard";
+    struct stat pasteboard_s;
+    bzero(&pasteboard_s, sizeof(struct stat));
+    lstat(pasteboard_p, &pasteboard_s);
+    assert(S_ISDIR(pasteboard_s.st_mode));
+    mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)pasteboard_t, NULL });
+    mew_exec((char *[]){ "MEWDo", "/bin/cp", "-ax", (char *)pasteboard_p, (char *)pasteboard_t, NULL });
+    
+    // Check Pasteboard
+    struct stat pasteboard_t_s;
+    bzero(&pasteboard_t_s, sizeof(struct stat));
+    lstat(pasteboard_t, &pasteboard_t_s);
+    assert(S_ISDIR(pasteboard_t_s.st_mode));
+    
+    // Keychain
+    NSString *keychainBackupPath = [[backupPath stringByAppendingPathComponent:@"Keychain"] stringByAppendingPathComponent:@"Keychains"];
+    const char *keychain_p = [keychainBackupPath UTF8String];
+    const char *keychain_t = "/private/var/Keychains";
+    struct stat keychain_s;
+    bzero(&keychain_s, sizeof(struct stat));
+    lstat(keychain_p, &keychain_s);
+    assert(S_ISDIR(keychain_s.st_mode));
+    mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)keychain_t, NULL });
+    mew_exec((char *[]){ "MEWDo", "/bin/cp", "-ax", (char *)keychain_p, (char *)keychain_t, NULL });
+    
+    // Check Keychain
+    struct stat keychain_t_s;
+    bzero(&keychain_t_s, sizeof(struct stat));
+    lstat(keychain_t, &keychain_t_s);
+    assert(S_ISDIR(keychain_t_s.st_mode));
+    
+    // Fake Configuration
+    NSString *configBackupPath = [backupPath stringByAppendingPathComponent:kMewEncConfigName];
+    const char *config_p = [configBackupPath UTF8String];
+    const char *config_t = [kMewEncConfigPath UTF8String];
+    struct stat config_s;
+    bzero(&config_s, sizeof(struct stat));
+    lstat(config_p, &config_s);
+    assert(S_ISREG(config_s.st_mode));
+    mew_exec((char *[]){ "MEWDo", "/bin/cp", "-ax", (char *)[configBackupPath UTF8String], (char *)config_t, NULL });
+    
+    // Check Configuration
+    struct stat config_t_s;
+    bzero(&config_t_s, sizeof(struct stat));
+    lstat(config_t, &config_t_s);
+    assert(S_ISREG(config_t_s.st_mode));
+    
+    // Application Recover
+    NSUInteger applicationCount = 0;
+    NSArray <NSString *> *whitelist = R(kMewEncApplicationIdentifierWhiteList);
+    if (!whitelist || whitelist.count == 0)
+    {
+        return;
+    }
+    Class LSApplicationWorkspace_class = objc_getClass("LSApplicationWorkspace");
+    SEL selector = NSSelectorFromString(@"defaultWorkspace");
+    NSObject *workspace = [LSApplicationWorkspace_class performSelector:selector];
+    SEL selectorAll = NSSelectorFromString(@"allInstalledApplications");
+    NSArray <LSApplicationProxy *> *allApplications = [workspace performSelector:selectorAll];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"applicationType = 'User'"];
+    NSArray <LSApplicationProxy *> *userApplications = [allApplications filteredArrayUsingPredicate:predicate];
+    for (LSApplicationProxy *appProxy in userApplications)
+    {
+        NSString *applicationIdentifier = [appProxy applicationIdentifier];
+        BOOL enabledApplication = NO;
+        for (NSString *enabledApp in whitelist) {
+            if ([enabledApp isKindOfClass:[NSString class]]) {
+                if ([enabledApp isEqualToString:applicationIdentifier]) {
+                    enabledApplication = YES;
+                }
+            }
+        }
+        if (!enabledApplication) {
+            continue;
+        }
+        if (applicationIdentifier && applicationIdentifier.length != 0)
+        {
+            NSString *applicationContainer = nil;
+            if (XXT_SYSTEM_8)
+            {
+                applicationContainer = [[appProxy dataContainerURL] path];
+            }
+            else
+            {
+                applicationContainer = [[appProxy containerURL] path];
+            }
+            if (applicationContainer)
+            {
+                NSString *applicationBackupContainer = [backupPath stringByAppendingPathComponent:applicationIdentifier];
+                const char *application_p = [applicationBackupContainer UTF8String];
+                struct stat application_s;
+                bzero(&application_s, sizeof(struct stat));
+                lstat(application_p, &application_s);
+                if (!S_ISDIR(application_s.st_mode)) {
+                    continue;
+                }
+                
+                NSArray <NSString *> *backupTargets
+                = @[
+                    @"Documents", @"Library", @"StoreKit", @"tmp"
+                    ];
+                for (NSString *backupTarget in backupTargets) {
+                    
+                    NSString *sourcePath = [applicationBackupContainer stringByAppendingPathComponent:backupTarget];
+                    NSString *destPath = [applicationContainer stringByAppendingPathComponent:backupTarget];
+                    const char *source_p = [sourcePath UTF8String];
+                    const char *dest_p = [destPath UTF8String];
+                    
+                    struct stat source_s;
+                    bzero(&source_s, sizeof(struct stat));
+                    lstat(source_p, &source_s);
+                    
+                    if (S_ISDIR(source_s.st_mode)) {
+                        
+                        struct stat dest_s;
+                        bzero(&dest_s, sizeof(struct stat));
+                        lstat(dest_p, &dest_s);
+                        
+                        if (S_ISDIR(dest_s.st_mode)) {
+                            mew_exec((char *[]){ "MEWDo", "/bin/rm", "-rf", (char *)dest_p, NULL });
+                        }
+                        
+                        // move
+                        mew_exec((char *[]){ "MEWDo", "/bin/mv", "-f", (char *)source_p, (char *)dest_p, NULL });
+                        
+                        // check move
+                        bzero(&dest_s, sizeof(struct stat));
+                        lstat(dest_p, &dest_s);
+                        assert(S_ISDIR(dest_s.st_mode));
+                        
+                    }
+                }
+                
+                applicationCount++;
+            }
+        }
+    }
+    
+    // remove backup
+    mew_exec((char *[]){"MEWDo", "/bin/rm", "-rf", (char *)[backupPath UTF8String], NULL});
+    
+}
+
+- (void)removeBackup:(NSString *)backupPath withError:(NSError **)error {
+    NSString *backupPathCheck = [backupPath stringByAppendingPathComponent:kMewEncConfigName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:backupPathCheck]) {
+        mew_exec((char *[]){"MEWDo", "/bin/rm", "-rf", (char *)[backupPath UTF8String], NULL});
+    } else {
+        if (error != nil) {
+            *error = [NSError errorWithDomain:kMewEncErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Invalid Backup: %@", backupPath]}];
+        }
+    }
+}
+
+CFArrayRef SBSCopyApplicationDisplayIdentifiers(bool, bool);
+void SBSProcessIDForDisplayIdentifier(CFStringRef, pid_t *);
+- (void)killallApplications {
+//    void *sbservice = dlopen("/System/Library/PrivateFrameworks/SpringBoardServices.framework", RTLD_LAZY | RTLD_GLOBAL);
+//    if (sbservice) {
+        NSArray *activeApps = (__bridge NSArray *)(SBSCopyApplicationDisplayIdentifiers(true, false));
+        for (NSString *activeId in activeApps) {
+            if ([activeId isEqualToString:kMewEncBundleID]) {
+                continue;
+            }
+            pid_t pid;
+            SBSProcessIDForDisplayIdentifier((__bridge CFStringRef)(activeId), &pid);
+            if (pid) {
+                kill(pid, SIGKILL);
+            }
+        }
+//        dlclose(sbservice);
+//    }
+}
+
+- (void)bootstrapDevice {
+    
+    // [0] Killall
+    [self killallApplications];
+    // [1] Make Backup
+    if (
+        [R(kMewEncSwitchAutoBackup) boolValue] == YES
+        )
+    {
+        [self makeBackup];
+    }
     // [2] Clean Application
     [self cleanApplicationContainer];
     // [2-1] Clean Safari
@@ -793,8 +1218,9 @@ static NSArray *kStaticCarrier = nil;
     [self cleanSystemKeychain];
     // [5] Generate New Device
     [self randomFake];
-    // [6] Clean UI Cache
-    [self cleanUICache];
+    
 }
 
 @end
+
+

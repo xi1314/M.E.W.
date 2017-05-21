@@ -9,13 +9,25 @@
 /* Begin PBXBuildFile section */
 		0F2FDBAA1EBD118300773FD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */; };
 		0F3AE5461EC1AB930076C80B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3AE5451EC1AB930076C80B /* CoreTelephony.framework */; };
+		0F41A8D31ED1B91E00A92927 /* myencrypt_3.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F41A8D21ED1B91E00A92927 /* myencrypt_3.c */; };
+		0F41A8D41ED1B91E00A92927 /* myencrypt_3.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F41A8D21ED1B91E00A92927 /* myencrypt_3.c */; };
+		0F41A8D61ED1B95700A92927 /* myencrypt_0.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F41A8D51ED1B95700A92927 /* myencrypt_0.h */; };
+		0F41A8D71ED1B95700A92927 /* myencrypt_0.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F41A8D51ED1B95700A92927 /* myencrypt_0.h */; };
 		0F44D8201EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */; };
 		0F44D8211EC6545C006BFD43 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */; };
-		0F4F58BB1ECB9FEF00494174 /* MEWAuthorizationUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F4F58B91ECB9FEF00494174 /* MEWAuthorizationUtility.h */; };
-		0F4F58BC1ECB9FEF00494174 /* MEWAuthorizationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4F58BA1ECB9FEF00494174 /* MEWAuthorizationUtility.m */; };
 		0F90D7B11EC319D40027424D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FA1EBC98E800A45144 /* Foundation.framework */; };
 		0F90D7B21EC319D40027424D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FC1EBC98E800A45144 /* UIKit.framework */; };
 		0F90D7BE1EC319D40027424D /* MEWPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F90D7BD1EC319D40027424D /* MEWPasteboard.m */; };
+		0FB5E84D1ED069D5004A6200 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB5E8471ED069D5004A6200 /* config.h */; };
+		0FB5E84E1ED069D5004A6200 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB5E8471ED069D5004A6200 /* config.h */; };
+		0FB5E84F1ED069D5004A6200 /* check_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB5E8481ED069D5004A6200 /* check_config.h */; };
+		0FB5E8501ED069D5004A6200 /* check_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB5E8481ED069D5004A6200 /* check_config.h */; };
+		0FB5E8531ED069D5004A6200 /* myencrypt_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5E84A1ED069D5004A6200 /* myencrypt_1.c */; };
+		0FB5E8541ED069D5004A6200 /* myencrypt_1.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5E84A1ED069D5004A6200 /* myencrypt_1.c */; };
+		0FB5E8551ED069D5004A6200 /* myencrypt_2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5E84B1ED069D5004A6200 /* myencrypt_2.c */; };
+		0FB5E8561ED069D5004A6200 /* myencrypt_2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5E84B1ED069D5004A6200 /* myencrypt_2.c */; };
+		0FB5E8571ED069D5004A6200 /* myencrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB5E84C1ED069D5004A6200 /* myencrypt.h */; };
+		0FB5E8581ED069D5004A6200 /* myencrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB5E84C1ED069D5004A6200 /* myencrypt.h */; };
 		0FFB56FB1EBC98E800A45144 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FA1EBC98E800A45144 /* Foundation.framework */; };
 		0FFB56FD1EBC98E800A45144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFB56FC1EBC98E800A45144 /* UIKit.framework */; };
 		0FFB57171EBC99CF00A45144 /* MEWMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB57161EBC99CF00A45144 /* MEWMain.m */; };
@@ -56,33 +68,30 @@
 		0F2FDB9E1EBCD4D000773FD3 /* LSApplicationProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSApplicationProxy.h; sourceTree = "<group>"; };
 		0F2FDBA91EBD118300773FD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0F3AE5451EC1AB930076C80B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		0F44D80E1EC65439006BFD43 /* bootstrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bootstrap.h; sourceTree = "<group>"; };
-		0F44D80F1EC65439006BFD43 /* CaptainHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
-		0F44D8101EC65439006BFD43 /* CPBitmapStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPBitmapStore.h; sourceTree = "<group>"; };
-		0F44D8111EC65439006BFD43 /* CPDistributedMessagingCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPDistributedMessagingCenter.h; sourceTree = "<group>"; };
-		0F44D8121EC65439006BFD43 /* MEWConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEWConfiguration.h; sourceTree = "<group>"; };
+		0F41A8D21ED1B91E00A92927 /* myencrypt_3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = myencrypt_3.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		0F41A8D51ED1B95700A92927 /* myencrypt_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = myencrypt_0.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0F44D8121EC65439006BFD43 /* MEWConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MEWConfiguration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0F44D8131EC65439006BFD43 /* MobileGestalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileGestalt.h; sourceTree = "<group>"; };
-		0F44D8141EC65439006BFD43 /* rocketbootstrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap.h; sourceTree = "<group>"; };
-		0F44D8151EC65439006BFD43 /* rocketbootstrap_dynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_dynamic.h; sourceTree = "<group>"; };
-		0F44D8161EC65439006BFD43 /* rocketbootstrap_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rocketbootstrap_internal.h; sourceTree = "<group>"; };
-		0F44D8171EC65439006BFD43 /* sandbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sandbox.h; sourceTree = "<group>"; };
 		0F44D8181EC65439006BFD43 /* substrate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
 		0F44D8191EC6545C006BFD43 /* AppSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppSupport.framework; path = Library/AppSupport.framework; sourceTree = "<group>"; };
 		0F44D81A1EC6545C006BFD43 /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = Library/librocketbootstrap.dylib; sourceTree = "<group>"; };
 		0F44D81B1EC6545C006BFD43 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = Library/libsubstrate.dylib; sourceTree = "<group>"; };
 		0F44D8221EC6548B006BFD43 /* MewApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MewApp.xcodeproj; path = MewApp/MewApp.xcodeproj; sourceTree = "<group>"; };
 		0F44D82C1EC654A3006BFD43 /* MEWDo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MEWDo.xcodeproj; path = MEWDo/MEWDo.xcodeproj; sourceTree = "<group>"; };
-		0F4F58B91ECB9FEF00494174 /* MEWAuthorizationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEWAuthorizationUtility.h; sourceTree = "<group>"; };
-		0F4F58BA1ECB9FEF00494174 /* MEWAuthorizationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWAuthorizationUtility.m; sourceTree = "<group>"; };
 		0F90D7B01EC319D40027424D /* MEWPasteboard.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MEWPasteboard.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F90D7BA1EC319D40027424D /* MEWPasteboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MEWPasteboard-Prefix.pch"; sourceTree = "<group>"; };
-		0F90D7BD1EC319D40027424D /* MEWPasteboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEWPasteboard.m; sourceTree = "<group>"; };
+		0F90D7BD1EC319D40027424D /* MEWPasteboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MEWPasteboard.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0F90D7CD1EC31BED0027424D /* MEWPasteboard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MEWPasteboard.plist; sourceTree = "<group>"; };
+		0FB5E8471ED069D5004A6200 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FB5E8481ED069D5004A6200 /* check_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = check_config.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FB5E84A1ED069D5004A6200 /* myencrypt_1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myencrypt_1.c; sourceTree = "<group>"; };
+		0FB5E84B1ED069D5004A6200 /* myencrypt_2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myencrypt_2.c; sourceTree = "<group>"; };
+		0FB5E84C1ED069D5004A6200 /* myencrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myencrypt.h; sourceTree = "<group>"; };
 		0FFB56F71EBC98E800A45144 /* MEW.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MEW.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFB56FA1EBC98E800A45144 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FFB56FC1EBC98E800A45144 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0FFB57051EBC98E800A45144 /* MEW-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MEW-Prefix.pch"; sourceTree = "<group>"; };
-		0FFB57161EBC99CF00A45144 /* MEWMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEWMain.m; sourceTree = "<group>"; };
+		0FFB57161EBC99CF00A45144 /* MEWMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MEWMain.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5251266A57D9FB5A983ED335 /* MEW.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = MEW.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,17 +124,16 @@
 		0F44D80D1EC65439006BFD43 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				0F44D80E1EC65439006BFD43 /* bootstrap.h */,
-				0F44D80F1EC65439006BFD43 /* CaptainHook.h */,
-				0F44D8101EC65439006BFD43 /* CPBitmapStore.h */,
-				0F44D8111EC65439006BFD43 /* CPDistributedMessagingCenter.h */,
 				0F44D8121EC65439006BFD43 /* MEWConfiguration.h */,
 				0F44D8131EC65439006BFD43 /* MobileGestalt.h */,
-				0F44D8141EC65439006BFD43 /* rocketbootstrap.h */,
-				0F44D8151EC65439006BFD43 /* rocketbootstrap_dynamic.h */,
-				0F44D8161EC65439006BFD43 /* rocketbootstrap_internal.h */,
-				0F44D8171EC65439006BFD43 /* sandbox.h */,
 				0F44D8181EC65439006BFD43 /* substrate.h */,
+				0FB5E8471ED069D5004A6200 /* config.h */,
+				0FB5E8481ED069D5004A6200 /* check_config.h */,
+				0F41A8D51ED1B95700A92927 /* myencrypt_0.h */,
+				0FB5E84A1ED069D5004A6200 /* myencrypt_1.c */,
+				0FB5E84B1ED069D5004A6200 /* myencrypt_2.c */,
+				0F41A8D21ED1B91E00A92927 /* myencrypt_3.c */,
+				0FB5E84C1ED069D5004A6200 /* myencrypt.h */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -149,8 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				0F90D7BD1EC319D40027424D /* MEWPasteboard.m */,
-				0F4F58B91ECB9FEF00494174 /* MEWAuthorizationUtility.h */,
-				0F4F58BA1ECB9FEF00494174 /* MEWAuthorizationUtility.m */,
 				0F90D7B81EC319D40027424D /* Supporting Files */,
 			);
 			path = MEWPasteboard;
@@ -227,7 +233,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F4F58BB1ECB9FEF00494174 /* MEWAuthorizationUtility.h in Headers */,
+				0F41A8D71ED1B95700A92927 /* myencrypt_0.h in Headers */,
+				0FB5E8501ED069D5004A6200 /* check_config.h in Headers */,
+				0FB5E84E1ED069D5004A6200 /* config.h in Headers */,
+				0FB5E8581ED069D5004A6200 /* myencrypt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +244,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F41A8D61ED1B95700A92927 /* myencrypt_0.h in Headers */,
+				0FB5E8571ED069D5004A6200 /* myencrypt.h in Headers */,
+				0FB5E84D1ED069D5004A6200 /* config.h in Headers */,
+				0FB5E84F1ED069D5004A6200 /* check_config.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +385,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F4F58BC1ECB9FEF00494174 /* MEWAuthorizationUtility.m in Sources */,
+				0F41A8D41ED1B91E00A92927 /* myencrypt_3.c in Sources */,
+				0FB5E8561ED069D5004A6200 /* myencrypt_2.c in Sources */,
+				0FB5E8541ED069D5004A6200 /* myencrypt_1.c in Sources */,
 				0F90D7BE1EC319D40027424D /* MEWPasteboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +396,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F41A8D31ED1B91E00A92927 /* myencrypt_3.c in Sources */,
 				0FFB57171EBC99CF00A45144 /* MEWMain.m in Sources */,
+				0FB5E8551ED069D5004A6200 /* myencrypt_2.c in Sources */,
+				0FB5E8531ED069D5004A6200 /* myencrypt_1.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

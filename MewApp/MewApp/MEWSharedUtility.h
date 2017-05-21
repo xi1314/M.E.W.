@@ -17,5 +17,9 @@
 - (void)cleanSafariCaches;
 - (void)bootstrapDevice;
 - (void)cleanAllPasteboard;
+- (void)cleanUICache;
+- (void)makeBackup;
+- (void)recoverFromBackupPath:(NSString *)backupPath withError:(NSError **)error;
+- (void)removeBackup:(NSString *)backupPath withError:(NSError **)error;
 
 @end

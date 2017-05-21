@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>title</key>
-	<string>自定义参数</string>
+	<string>自定义全局参数</string>
 	<key>items</key>
 	<array>
 		<dict>
@@ -19,8 +19,14 @@
 			<string>Name</string>
 			<key>key</key>
 			<string>DeviceName</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -35,8 +41,14 @@
 			<string>Device</string>
 			<key>key</key>
 			<string>DeviceCategory</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 			<key>validTitles</key>
 			<array>
 				<string>iPhone</string>
@@ -57,8 +69,14 @@
 			<string>Type</string>
 			<key>key</key>
 			<string>ProductType</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -67,8 +85,14 @@
 			<string>HWModel</string>
 			<key>key</key>
 			<string>ProductHWModel</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -77,8 +101,14 @@
 			<string>Model</string>
 			<key>key</key>
 			<string>ProductModel</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -87,8 +117,14 @@
 			<string>Region</string>
 			<key>key</key>
 			<string>RegionInfo</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -97,8 +133,14 @@
 			<string>Region Code</string>
 			<key>key</key>
 			<string>RegionCode</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -107,8 +149,14 @@
 			<string>Serial</string>
 			<key>key</key>
 			<string>SerialNumber</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -117,8 +165,14 @@
 			<string>MLB</string>
 			<key>key</key>
 			<string>MLBSerialNumber</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -127,8 +181,14 @@
 			<string>ECID</string>
 			<key>key</key>
 			<string>UniqueChipID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -137,8 +197,14 @@
 			<string>Version</string>
 			<key>key</key>
 			<string>SystemVersion</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -147,8 +213,14 @@
 			<string>Build</string>
 			<key>key</key>
 			<string>SystemBuildVersion</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -163,8 +235,14 @@
 			<string>UUID</string>
 			<key>key</key>
 			<string>UniqueIdentifier</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -173,8 +251,14 @@
 			<string>UDID</string>
 			<key>key</key>
 			<string>UniqueDeviceID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -183,8 +267,14 @@
 			<string>OpenUDID</string>
 			<key>key</key>
 			<string>OpenUDID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -193,8 +283,14 @@
 			<string>IDID</string>
 			<key>key</key>
 			<string>InverseDeviceID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -203,8 +299,14 @@
 			<string>IDFV</string>
 			<key>key</key>
 			<string>IdentifierForVendor</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -213,8 +315,14 @@
 			<string>IAD</string>
 			<key>key</key>
 			<string>AdvertisingIdentifier</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -223,8 +331,14 @@
 			<string>IMEI</string>
 			<key>key</key>
 			<string>InternationalMobileEquipmentIdentity</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -233,8 +347,14 @@
 			<string>Bluetooth</string>
 			<key>key</key>
 			<string>BluetoothAddress</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -243,8 +363,14 @@
 			<string>MAC</string>
 			<key>key</key>
 			<string>EthernetMacAddress</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -253,8 +379,14 @@
 			<string>Mobile ID</string>
 			<key>key</key>
 			<string>CurrentMobileId</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -263,8 +395,14 @@
 			<string>Subscriber ID</string>
 			<key>key</key>
 			<string>CurrentSubscriberId</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -273,8 +411,14 @@
 			<string>ICCID</string>
 			<key>key</key>
 			<string>ICCID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -283,8 +427,14 @@
 			<string>MEID</string>
 			<key>key</key>
 			<string>MEID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -293,8 +443,14 @@
 			<string>IMSI</string>
 			<key>key</key>
 			<string>IMSI</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -309,8 +465,14 @@
 			<string>IPv4</string>
 			<key>key</key>
 			<string>EthernetIPv4Address</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -319,8 +481,14 @@
 			<string>IPv6</string>
 			<key>key</key>
 			<string>EthernetIPv6Address</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -329,8 +497,14 @@
 			<string>BSSID</string>
 			<key>key</key>
 			<string>EthernetBSSID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -339,8 +513,14 @@
 			<string>SSID</string>
 			<key>key</key>
 			<string>EthernetSSID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -349,8 +529,14 @@
 			<string>RSSID</string>
 			<key>key</key>
 			<string>EthernetRSSID</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -365,8 +551,14 @@
 			<string>Network</string>
 			<key>key</key>
 			<string>NetworkType</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 			<key>validTitles</key>
 			<array>
 				<string>2G</string>
@@ -389,8 +581,14 @@
 			<string>Carrier 1</string>
 			<key>key</key>
 			<string>CarrierName</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -399,8 +597,14 @@
 			<string>Carrier 2</string>
 			<key>key</key>
 			<string>ServiceString</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -409,8 +613,14 @@
 			<string>Version</string>
 			<key>key</key>
 			<string>CarrierVersionString</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -419,8 +629,14 @@
 			<string>Network</string>
 			<key>key</key>
 			<string>NetworkCode</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -429,8 +645,14 @@
 			<string>Country</string>
 			<key>key</key>
 			<string>CountryCode</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -439,8 +661,14 @@
 			<string>ISO Country</string>
 			<key>key</key>
 			<string>ISOCountryCode</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -455,8 +683,14 @@
 			<string>Timezone</string>
 			<key>key</key>
 			<string>TimezoneName</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -471,8 +705,14 @@
 			<string>Battery</string>
 			<key>key</key>
 			<string>DeviceBatteryState</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 			<key>validTitles</key>
 			<array>
 				<string>Unplugged</string>
@@ -499,8 +739,14 @@
 			<string>Brightness</string>
 			<key>key</key>
 			<string>ScreenBrightness</string>
+			<key>get</key>
+			<string>valueForSpecifier:</string>
+			<key>set</key>
+			<string>setPreferenceValue:specifier:</string>
 			<key>defaults</key>
 			<string>com.darwindev.MewApp</string>
+			<key>PostNotification</key>
+			<string>com.darwindev.mew.prefsChanged</string>
 			<key>min</key>
 			<integer>0</integer>
 			<key>max</key>
